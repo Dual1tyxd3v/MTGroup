@@ -1,0 +1,186 @@
+.main {
+  &__bg {
+    background-image: url(../img/bg_main.webp);
+    background-size: cover;
+    background-position: center;
+  }
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  &__wrapper {
+    padding: 50px 7.5vw 0 7.5vw;
+  }
+  &__title {
+    font-size: 5vw;
+    font-weight: 700;
+    line-height: 1.25em;
+    color: rgb(245, 245, 245);
+    margin-bottom: 48px;
+    &--animation {
+      animation: opacity 2s;
+    }
+  }
+  &__button {
+    cursor: pointer;
+    margin-bottom: 46px;
+    background-color: rgb(249, 0, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    box-shadow: (0 1px 4px rgba(0, 0, 0, 0.6),0 1px 4px rgba(0,0,0,0.6));
+    font-weight: 700;
+    font-size: 13.6px;
+    line-height: 1.4em;
+    padding: 5px 20px;
+    position: relative;
+    &:hover {
+      background-color: #DBDBDB;
+      color: #1e1e1e;
+    }
+    &--animation {
+      animation: opacity 2s;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 26px;
+      width: 165px;
+      background-image: url(../img/button_shadow.png);
+      background-position-x: 100%;
+      bottom: -26px;
+      right: -20px;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .main {
+    &__button {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .main {
+    padding-top: 114px;
+    &__title {
+      display: flex;
+      align-items: center;
+      font-size: 60px;
+      padding-left: 30px;
+      border-left: 10px solid rgb(249, 0, 0);
+      height: 280px;
+      position: relative;
+      margin-bottom: 150px;
+      &--animation {
+        animation: anim 2.011s;
+        animation-timing-function: ease;
+        &::after,
+        &::before {
+          content:"";
+          position: absolute;
+          left: 0;
+          display: block;
+          height: 10px;
+          background-color: red;
+          animation-timing-function: ease;
+        }
+        &::after {
+          width: 664px;
+          animation: border-long 2.7s;
+          bottom: 0;
+        }
+        &::before {
+          top: 0;
+          width: 200px;
+          animation: border-short 2.21s;
+        }
+      }
+    }
+    &__wrapper {
+      width: $desktop-width;
+      margin: 0 auto;
+      padding: 40px 0 0 0 ;
+    }
+    &__button {
+      margin-bottom: 250px;
+      &--animation {
+        animation: button-opacity 2.7s;
+      }
+    }
+  }
+}
+
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    border-left: 0px solid red;
+    padding-left: 40px;
+  }
+  50% {
+    opacity: 0;
+    border-left: 0px solid red;
+    padding-left: 40px;
+  }
+  99.4% {
+    opacity: 1;
+    border-left: 0px solid red;
+    padding-left: 40px;
+  }
+  100% {
+    border-left: 10px solid red;
+    padding-left: 30px;
+  }
+}
+@keyframes border-long {
+  0% {
+    width: 0px;
+  }
+  74% {
+    width: 0px;
+  }
+  100% {
+    width: 665px;
+  }
+}
+@keyframes border-short {
+  0% {
+    width: 0;
+  }
+  91% {
+    width: 0px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+@keyframes button-opacity {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.opacity {
+  animation: opacity 1s;
+}

@@ -1,0 +1,128 @@
+.header {
+  background-color: #000;
+  position: relative;
+  &__wrapper {
+    padding: 10px;
+    position: relative;
+  }
+  &__logo {
+    display: inline-block;
+    width: 50%;
+    min-width: 152px;
+    max-width: 315px;
+    margin-bottom: 12px;
+  }
+  &__item,
+  &__item a {
+    color: rgb(245, 245, 245);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    line-height: 1.3em;
+  }
+  &__item a:hover {
+    color: rgb(249, 0, 0);
+  }
+  &__burger {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    background-color: rgb(30, 30, 30);
+    border: 2px solid rgb(201, 40, 40);
+    border-radius: 1vw;
+    position: absolute;
+    top: 2.5vw;
+    right: 2.5vw;
+    z-index: 9;
+    & span {
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        transition: 0.25s transform, 0.25s top 0.25s;
+        width: 22px;
+        height: 2px;
+        min-height: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgb(201, 40, 40);
+      }
+      &::before {
+        top: 4px;
+      }
+      &::after {
+        top: -6px;
+      }
+    }
+  }
+  &__menu {
+    z-index: -1;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: 0.4s opacity, 0.1s z-index 0.4s;
+  }
+  &--opened {
+    & .header__burger {
+      & span::before,
+      & span::after {
+        top: 0;
+        transition: 0.25s top, 0.25s transform 0.25s;
+      }
+      & span::after {
+        transform: translateX(-50%) rotate(-45deg);
+      }
+      & span::before {
+        transform: translateX(-50%) rotate(45deg);
+      }
+    }
+    & .header__menu {
+      z-index: 2;
+      opacity: 1;
+      transition: 0.1s z-index, 0.4s opacity 0.1s;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .header {
+    &__burger {
+      display: none;
+    }
+    &__logo {
+      margin-bottom: 0;
+    }
+    &__menu,
+    &--opened .header__menu {
+      display: none;
+    }
+    &__item,
+    &__item a {
+      font-size: 15px;
+    }
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .header {
+    position: fixed;
+    height: 114px;
+    z-index: 2;
+    width: 100%;
+    &__wrapper {
+      max-width: $desktop-width;
+      margin: 0 auto;
+    }
+    &__item,
+    &__item a {
+      font-size: 18px;
+    }
+  }
+}
