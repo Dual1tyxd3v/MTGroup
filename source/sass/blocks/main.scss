@@ -116,21 +116,21 @@
 @keyframes anim {
   0% {
     opacity: 0;
-    border-left: 0px solid red;
+    border-left: 0px solid rgb(249, 0, 0);
     padding-left: 40px;
   }
   50% {
     opacity: 0;
-    border-left: 0px solid red;
+    border-left: 0px solid rergb(249, 0, 0);
     padding-left: 40px;
   }
   99.4% {
     opacity: 1;
-    border-left: 0px solid red;
+    border-left: 0px solid rgb(249, 0, 0);
     padding-left: 40px;
   }
   100% {
-    border-left: 10px solid red;
+    border-left: 10px solid rgb(249, 0, 0);
     padding-left: 30px;
   }
 }

@@ -1,0 +1,39 @@
+.adjustments {
+  padding: 25px 30px 40px;
+  &__title {
+    color: rgb(30, 30, 30);
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.4em;
+    text-align: center;
+    margin-bottom: 38px;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .adjustments {
+    padding: 40px 30px;
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      grid-row-gap: 15px;
+    }
+    &__title {
+      font-size: 35px;
+      margin-bottom: 45px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .adjustments {
+    &__title {
+      font-size: 50px;
+    }
+    &__wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+  }
+}
