@@ -263,8 +263,8 @@
           <p class="contacts__text">Заполните форму или позвоните нам<br>для бесплатной консультации</p>
           <p class="contacts__text">Территория работы:<br>Центральный Федеральный округ, Москва, Московская область</p>
           <p class="contacts__text">ул. Арбат, 1а, Москва, 119019, Российская Федерация</p>
-          <a href="mailto:info@modul-tehno.ru" class="contacts__text contacts__text--link">info@modul-tehno.ru</a>
-          <a href="tel:+79257145111" class="contacts__text contacts__text--link">+7-925-714-51-11</a>
+          <a href="mailto:info@modul-tehno.ru" class="contacts__text contacts__text--link contacts__text--mail">info@modul-tehno.ru</a>
+          <a href="tel:+79257145111" class="contacts__text contacts__text--link contacts__text--phone">+7-925-714-51-11</a>
         </div>
       </div>
       <form action="send.php" class="contacts__form form" method="POST">
@@ -282,7 +282,7 @@
         </div>
         <div class="form__field">
           <label for="message" class="form__label">Текст сообщения *</label>
-          <textarea class="form__text form__text--area" name="message" id="message" ></textarea>
+          <textarea class="form__text form__text--area" name="message" id="message"></textarea>
         </div>
         <input type="submit" class="form__submit js-animated" data-class="opacity" value="Оставить заявку на расчёт">
         <p class="form__status hide">Информация отправлена.</p>
@@ -296,7 +296,18 @@
         <img src="./img/logo-black.svg" alt="Логотип">
       </a>
       <a href="" class="footer__text">Политика конфиденциальности</a>
-      <p class="footer__text">© 2012-2023 «Модульные Технологии Групп»</p>
+      <p class="footer__text footer__text--copyright">© 2012-2023 «Модульные Технологии Групп»</p>
+      <ul class="footer__social social">
+        <li>
+          <a href="#" class="social__item social__item--vk" aria-label="Ссылка на группу ВК"></a>
+        </li>
+        <li>
+          <a href="https://api.whatsapp.com/send?phone=+79257145111" class="social__item social__item--whatsapp" aria-label="Связаться в WhatsApp"></a>
+        </li>
+        <li>
+          <a href="https://t.me/+79257145111" class="social__item social__item--telegram" aria-label="Связаться в Telegram"></a>
+        </li>
+      </ul>
     </div>
   </footer>
 

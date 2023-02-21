@@ -1,0 +1,39 @@
+.social {
+  display: flex;
+  & li {
+    margin-right: 15px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__item {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background-position: center;
+    background-size: 23px;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.4);
+    }
+    &--vk {
+      background-image: url(../img/vk.svg);
+    }
+    &--whatsapp {
+      background-image: url(../img/whatsapp.svg);
+    }
+    &--telegram {
+      background-image: url(../img/telegram.svg);
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .social {
+    &__item {
+      width: 30px;
+      height: 30px;
+      background-size: 30px;
+    }
+  }
+}

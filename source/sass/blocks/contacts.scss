@@ -26,7 +26,6 @@
     }
     &__wrapper {
       display: flex;
-      // align-items: center;
     }
     &__title {
       font-size: 30px;
@@ -41,6 +40,23 @@
       font-family: "Arial";
       font-weight: 400;
       margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      &--mail::before,
+      &--phone::before {
+        content: "";
+        display: block;
+        width: 23px;
+        height: 23px;
+        background-size: 23px;
+        margin-right: 10px;
+      }
+      &--mail::before {
+        background-image: url(../img/mail.svg);
+      }
+      &--phone::before {
+        background-image: url(../img/phone.svg);
+      }
       &:last-child {
         margin-bottom: 0;
       }

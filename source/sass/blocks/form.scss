@@ -32,14 +32,13 @@
     font-family: "Arial";
     &--area {
       height: 100px;
+      resize: none;
     }
     &:focus {
       outline: none;
     }
     &:invalid {
       border-color: rgb(255, 64, 64);
-      background-color: rgb(30, 30, 30);
-      background-color: #ccc;
     }
   }
   &__submit {
