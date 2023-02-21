@@ -9,6 +9,9 @@ const sliderCounter = document.querySelector('.slider__counter');
 const sliderText = document.querySelector('.slider__text');
 const sliderNextBtn = document.querySelector('.slider__rightBtn');
 const sliderPrevBtn = document.querySelector('.slider__leftBtn');
+const nameField = document.querySelector('#name');
+const phoneField = document.querySelector('#phone');
+const messageField = document.querySelector('textarea');
 
 // взаимодействие с бургером
 burgerBtn.addEventListener('click', () => {
@@ -95,3 +98,13 @@ function changeSlide(ind) {
   }, 300);
   setTimeout(() => slideAction = false, 600);
 }
+
+nameField.addEventListener('blur', (e) => {
+  nameField.setAttribute('required', true);
+});
+phoneField.addEventListener('blur', (e) => {
+  phoneField.setAttribute('required', true);
+});
+messageField.addEventListener('blur', (e) => {
+  messageField.setAttribute('required', true);
+});
