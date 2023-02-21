@@ -36,6 +36,8 @@
     z-index: 9;
     & span {
       position: relative;
+      height: 100%;
+      display: block;
       &::before,
       &::after {
         content: "";
@@ -50,10 +52,10 @@
         background-color: rgb(201, 40, 40);
       }
       &::before {
-        top: 4px;
+        top: 30%;
       }
       &::after {
-        top: -6px;
+        top: 60%;
       }
     }
   }
@@ -68,7 +70,7 @@
     & .header__burger {
       & span::before,
       & span::after {
-        top: 0;
+        top: 50%;
         transition: 0.25s top, 0.25s transform 0.25s;
       }
       & span::after {
