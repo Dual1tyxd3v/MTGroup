@@ -71,16 +71,42 @@ img {
 .header {
   background-color: #000;
   position: relative; }
-  .header__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
+  .header__mobile-container {
+    position: absolute;
+    top: 2.5vw;
+    z-index: 9;
+    right: 2.5vw;
+    width: 68px; }
   .header__phone {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     display: block;
     background-image: url(../img/phone_main.svg);
-    background-size: 30px; }
+    background-size: 34px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .header__phone-bg {
+    width: 68px;
+    height: 68px;
+    position: relative;
+    background-image: url(../img/circle.svg);
+    background-size: 33px;
+    background-position: center; }
+    .header__phone-bg--fast {
+      -webkit-animation: bg-animation-fast 2s infinite;
+              animation: bg-animation-fast 2s infinite; }
+    .header__phone-bg--slow {
+      -webkit-animation: bg-animation 2s infinite;
+              animation: bg-animation 2s infinite; }
+  .header__phone-overlay {
+    width: 68px;
+    height: 68px;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-animation: overlay-opacity 2s infinite;
+            animation: overlay-opacity 2s infinite; }
   .header__wrapper {
     padding: 10px;
     position: relative; }
@@ -103,13 +129,12 @@ img {
     width: 34px;
     height: 34px;
     cursor: pointer;
+    display: block;
     background-color: #1e1e1e;
     border: 2px solid #c92828;
     border-radius: 1vw;
-    position: absolute;
-    top: 2.5vw;
-    right: 2.5vw;
-    z-index: 9; }
+    margin: 0 auto;
+    margin-bottom: 2.5vw; }
     .header__burger span {
       position: relative;
       height: 100%;
@@ -135,6 +160,8 @@ img {
     position: absolute;
     top: 0;
     transition: 0.4s opacity, 0.1s z-index 0.4s; }
+  .header--opened .header__phone-bg {
+    display: none; }
   .header--opened .header__burger span::before,
   .header--opened .header__burger span::after {
     top: 50%;
@@ -147,6 +174,50 @@ img {
     z-index: 2;
     opacity: 1;
     transition: 0.1s z-index, 0.4s opacity 0.1s; }
+
+@-webkit-keyframes overlay-opacity {
+  0% {
+    background-color: rgba(0, 0, 0, 0); }
+  70% {
+    background-color: rgba(0, 0, 0, 0); }
+  100% {
+    background-color: black; } }
+
+@keyframes overlay-opacity {
+  0% {
+    background-color: rgba(0, 0, 0, 0); }
+  70% {
+    background-color: rgba(0, 0, 0, 0); }
+  100% {
+    background-color: black; } }
+
+@-webkit-keyframes bg-animation {
+  0% {
+    background-size: 33px; }
+  100% {
+    background-size: 88px; } }
+
+@keyframes bg-animation {
+  0% {
+    background-size: 33px; }
+  100% {
+    background-size: 88px; } }
+
+@-webkit-keyframes bg-animation-fast {
+  0% {
+    background-size: 33px; }
+  30% {
+    background-size: 33px; }
+  100% {
+    background-size: 88px; } }
+
+@keyframes bg-animation-fast {
+  0% {
+    background-size: 33px; }
+  30% {
+    background-size: 33px; }
+  100% {
+    background-size: 88px; } }
 
 @media (min-width: 768px) {
   .header__burger {
