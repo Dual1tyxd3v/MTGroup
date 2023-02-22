@@ -41,7 +41,9 @@ img {
   animation-duration: 0.5s !important;
   z-index: 2;
   box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5);
-  @media (min-width: $tablet-width) {
+}
+@media (min-width: $tablet-width) {
+  .scrollUp {
     display: none;
   }
 }

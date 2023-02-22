@@ -50,6 +50,10 @@ img {
   z-index: 2;
   box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5); }
 
+@media (min-width: 768px) {
+  .scrollUp {
+    display: none; } }
+
 .visually-hidden {
   width: 1px;
   height: 1px;
@@ -1291,7 +1295,7 @@ img {
   width: 100vw;
   height: 100vh;
   top: 0;
-  z-index: 3;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.8); }
   .modal__form {
     position: fixed;
@@ -1301,6 +1305,11 @@ img {
     background-color: #1e1e1e;
     padding: 20px;
     border-radius: 20px;
-    width: 50%; }
+    width: 75%;
+    min-width: 280px; }
+
+@media (min-width: 768px) {
+  .modal__form {
+    width: 50%; } }
 
 /*# sourceMappingURL=style.css.map */
