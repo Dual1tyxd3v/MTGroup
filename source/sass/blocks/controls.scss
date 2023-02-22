@@ -1,0 +1,35 @@
+.controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  &__item {
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-size: 40px;
+    &--phone {
+      background-image: url(../img/aside_phone.svg);
+    }
+    &--mail {
+      background-image: url(../img/aside_mail.svg);
+      background-size: 35x;
+      background-position: center;
+    }
+    &--whatsapp {
+      background-image: url(../img/aside__whatsapp.svg);
+    }
+  }
+  & li {
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .controls {
+    display: none;
+  }
+}

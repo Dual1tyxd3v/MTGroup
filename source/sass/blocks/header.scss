@@ -1,6 +1,19 @@
 .header {
   background-color: #000;
   position: relative;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__phone {
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-image: url(../img/phone_main.svg);
+    background-size: 30px;
+    animation: phone-animation 1.5s infinite;
+  }
   &__wrapper {
     padding: 10px;
     position: relative;
@@ -88,9 +101,24 @@
   }
 }
 
+@keyframes phone-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media (min-width: $tablet-width) {
   .header {
     &__burger {
+      display: none;
+    }
+    &__phone {
       display: none;
     }
     &__logo {

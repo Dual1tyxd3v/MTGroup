@@ -17,6 +17,8 @@ const forms = document.querySelectorAll('form');
 const modal = document.querySelector('.modal');
 const modalBtns = document.querySelectorAll('.js-modal');
 const buttonScrollUp = document.querySelector('.scrollUp');
+const policyBtn = document.querySelector('.footer__text--policy');
+const policyWindow = document.querySelector('.policy');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -265,4 +267,11 @@ window.addEventListener('scroll', () => {
 //
 buttonScrollUp.addEventListener('click', () => {
   window.scrollTo(0, 0);
+});
+
+policyBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  policyWindow.classList.remove('hide');
+  document.querySelector('body').style.overflow = 'hidden';
 });

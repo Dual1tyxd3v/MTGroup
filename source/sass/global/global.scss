@@ -29,14 +29,14 @@ img {
 
 .scrollUp {
   position: fixed;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background-image: url(../img/button_up.svg);
   background-color: rgb(249, 0, 0);
   border: none;
-  background-size: 44px;
+  background-size: 40px;
   bottom: 20px;
-  right: 20px;
+  right: 90px;
   cursor: pointer;
   animation-duration: 0.5s !important;
   z-index: 2;
