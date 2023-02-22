@@ -1,0 +1,18 @@
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
+  &__form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(30, 30, 30);
+    padding: 20px;
+    border-radius: 20px;
+    width: 50%;
+  }
+}
