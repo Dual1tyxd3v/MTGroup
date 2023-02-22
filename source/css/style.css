@@ -80,9 +80,7 @@ img {
     height: 30px;
     display: block;
     background-image: url(../img/phone_main.svg);
-    background-size: 30px;
-    -webkit-animation: phone-animation 1.5s infinite;
-            animation: phone-animation 1.5s infinite; }
+    background-size: 30px; }
   .header__wrapper {
     padding: 10px;
     position: relative; }
@@ -149,22 +147,6 @@ img {
     z-index: 2;
     opacity: 1;
     transition: 0.1s z-index, 0.4s opacity 0.1s; }
-
-@-webkit-keyframes phone-animation {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes phone-animation {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
 
 @media (min-width: 768px) {
   .header__burger {

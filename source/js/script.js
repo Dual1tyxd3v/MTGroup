@@ -112,6 +112,18 @@ function changeSlide(ind) {
   }, 300);
   setTimeout(() => slideAction = false, 600);
 }
+
+let touchSlider = null;
+
+sliderImg.addEventListener('touchstart', (e) => {
+  touchSlider = e.touches[0].clientX;
+});
+sliderImg.addEventListener('touchend', (e) => {
+  if (touchSlider - e.changedTouches[0].clientX === 0) return;
+  touchSlider = (touchSlider - e.changedTouches[0].clientX) > 0
+    ? 1 : -1;
+    changeSlide(touchSlider);
+});
 //
 nameField.addEventListener('blur', (e) => {
   nameField.setAttribute('required', true);
