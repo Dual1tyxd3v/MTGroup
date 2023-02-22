@@ -222,7 +222,7 @@ img {
 @media (min-width: 768px) {
   .header__burger {
     display: none; }
-  .header__phone {
+  .header__phone-bg {
     display: none; }
   .header__logo {
     margin-bottom: 0; }
