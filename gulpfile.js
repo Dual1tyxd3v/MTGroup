@@ -75,7 +75,7 @@ const build = () => {
   js();
   imagz();
   webPIMG();
-  // copyWebp();
+  copyWebp();
   copyHTML();
   copyFonts();
 }
