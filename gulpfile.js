@@ -43,7 +43,7 @@ const imagz = () => {
 
 const webPIMG = () => {
   return gulp.src("build/img/*.{jpg,png,jpeg}")
-    .pipe(webP({quality: 100}))
+    .pipe(webP({quality: 90}))
     .pipe(gulp.dest("build/img"));
 }
 
