@@ -63,6 +63,7 @@
 
 @media (min-width: $desktop-width) {
   .main {
+    min-height: 100vh;
     padding-top: 114px;
     &__title {
       display: flex;
@@ -102,6 +103,7 @@
       width: $desktop-width;
       margin: 0 auto;
       padding: 40px 0 0 0 ;
+      min-height: calc(100vh - 114px);
     }
     &__button {
       margin-bottom: 250px;
