@@ -379,7 +379,7 @@ img {
     padding-left: 40px; }
   50% {
     opacity: 0;
-    border-left: 0px solid rergb(249, 0, 0);
+    border-left: 0px solid #f90000;
     padding-left: 40px; }
   99.4% {
     opacity: 1;
@@ -396,7 +396,7 @@ img {
     padding-left: 40px; }
   50% {
     opacity: 0;
-    border-left: 0px solid rergb(249, 0, 0);
+    border-left: 0px solid #f90000;
     padding-left: 40px; }
   99.4% {
     opacity: 1;
@@ -1411,7 +1411,7 @@ img {
       background-image: url(../img/aside_phone.svg); }
     .controls__item--mail {
       background-image: url(../img/aside_mail.svg);
-      background-size: 35x;
+      background-size: 35px;
       background-position: center; }
     .controls__item--whatsapp {
       background-image: url(../img/aside__whatsapp.svg); }
