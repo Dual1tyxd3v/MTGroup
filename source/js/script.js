@@ -117,13 +117,13 @@ let touchSlider = null;
 
 sliderImg.addEventListener('touchstart', (e) => {
   touchSlider = e.touches[0].clientX;
-});
+}, {passive: true});
 sliderImg.addEventListener('touchend', (e) => {
   if (touchSlider - e.changedTouches[0].clientX === 0) return;
   touchSlider = (touchSlider - e.changedTouches[0].clientX) > 0
     ? 1 : -1;
     changeSlide(touchSlider);
-});
+}, {passive: true});
 //
 nameField.addEventListener('blur', (e) => {
   nameField.setAttribute('required', true);
