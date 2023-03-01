@@ -59,6 +59,9 @@
     font-weight: 700;
     line-height: 1.3em;
   }
+  &__description {
+    max-width: 80%;
+  }
   &__item a:hover {
     color: rgb(249, 0, 0);
   }
@@ -181,6 +184,9 @@
     &__item a {
       font-size: 15px;
     }
+    &__description {
+      max-width: 60%;
+    }
     &__wrapper {
       display: flex;
       justify-content: space-between;
@@ -192,9 +198,12 @@
 @media (min-width: $desktop-width) {
   .header {
     position: fixed;
-    height: 114px;
+    height: 160.4px;
     z-index: 2;
     width: 100%;
+    &__description {
+      max-width: 60%;
+    }
     &__wrapper {
       max-width: $desktop-width;
       margin: 0 auto;

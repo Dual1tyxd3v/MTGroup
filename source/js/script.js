@@ -125,16 +125,14 @@ sliderImg.addEventListener('touchend', (e) => {
     changeSlide(touchSlider);
 }, {passive: true});
 //
+// изменение стилистики обязательных полей формы
 nameField.addEventListener('blur', (e) => {
   nameField.setAttribute('required', true);
 });
 phoneField.addEventListener('blur', (e) => {
   phoneField.setAttribute('required', true);
 });
-messageField.addEventListener('blur', (e) => {
-  messageField.setAttribute('required', true);
-});
-
+//
 // обработка инпута в форме
 inputs.forEach((input) => {
   input.addEventListener('focus', (e) => {
@@ -227,13 +225,10 @@ forms.forEach(form => {
       name.focus();
       return;
     }
-    if (!message.value) {
-      message.focus();
-      return;
-    }
+
     phone.value = phone.value.replace(/\D/g, '');
     const data = new FormData(currentForm);
-    currentForm.dataset.location.length > 1
+    currentForm.dataset.location
       ? data.set('location', currentForm.dataset.location)
       : null;
 
