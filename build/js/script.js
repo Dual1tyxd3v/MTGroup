@@ -209,16 +209,20 @@ function getCursorPosition(ctrl) {
 forms.forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log('sending')
 
     const currentForm = e.target;
     const phone = currentForm.querySelector('input[name=phone]');
     const name = currentForm.querySelector('input[name="name"]');
-    const message = currentForm.querySelector('textarea');
     const status = currentForm.querySelector('.form__status');
 
     if (!phone.value || phone.value.includes('_')) {
       form.querySelector('input[name="phone"]').focus();
+      return;
+    }
+    if (phone.value.replace(/\D/g, '').length !== 11) {
+      phone.focus();
+      phone.removeAttribute('value');
+      phone.value = PHONE_SCHEME;
       return;
     }
     if (!name.value) {
@@ -227,6 +231,7 @@ forms.forEach(form => {
     }
 
     phone.value = phone.value.replace(/\D/g, '');
+
     const data = new FormData(currentForm);
     currentForm.dataset.location
       ? data.set('location', currentForm.dataset.location)
