@@ -276,12 +276,15 @@ img {
     width: 100%;
   }
   .header__description-wrapper {
-    max-width: 60%;
+    max-width: 65%;
     display: flex;
   }
   .header__description {
     min-width: 299px;
     width: 50%;
+  }
+  .header__description--address {
+    min-width: 354px;
   }
   .header__wrapper {
     max-width: 1120px;
@@ -1218,7 +1221,7 @@ img {
   height: 300px;
   background-image: url(../img/map_fallback.jpg);
   background-position: center;
-  background-size: 200%;
+  background-size: cover;
 }
 
 @media (min-width: 768px) {

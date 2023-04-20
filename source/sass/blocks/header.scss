@@ -206,12 +206,15 @@
     z-index: 2;
     width: 100%;
     &__description-wrapper {
-      max-width: 60%;
+      max-width: 65%;
       display: flex;
     }
     &__description {
       min-width: 299px;
       width: 50%;
+      &--address {
+        min-width: 354px;
+      }
     }
     &__wrapper {
       max-width: 1120px;
