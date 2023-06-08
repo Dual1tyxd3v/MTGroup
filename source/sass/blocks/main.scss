@@ -32,6 +32,8 @@
     line-height: 1.4em;
     padding: 5px 20px;
     position: relative;
+    transition: all .2s;
+    border-radius: 3px;
     &:hover {
       background-color: #DBDBDB;
       color: #1e1e1e;
@@ -69,13 +71,15 @@
       display: flex;
       align-items: center;
       font-size: 60px;
-      padding-left: 30px;
-      border-left: 10px solid rgb(249, 0, 0);
+      /* padding-left: 30px;
+      border-left: 10px solid rgb(249, 0, 0); */
+      padding-left: 40px;
+      background-image: linear-gradient(to right, rgb(249, 0, 0) 0, rgb(249, 0, 0) 10px, transparent 10px);
       height: 280px;
       position: relative;
       margin-bottom: 150px;
       &--animation {
-        animation: anim 2.011s;
+        animation: main-text 1s;
         animation-timing-function: ease;
         &::after,
         &::before {
@@ -89,13 +93,13 @@
         }
         &::after {
           width: 664px;
-          animation: border-long 2.7s;
+          animation: border-long 1.4s;
           bottom: 0;
         }
         &::before {
           top: 0;
           width: 200px;
-          animation: border-short 2.21s;
+          animation: border-short 1.2s;
         }
       }
     }
@@ -108,39 +112,32 @@
     &__button {
       margin-bottom: 250px;
       &--animation {
-        animation: button-opacity 2.7s;
+        animation: button-opacity 1.5s;
       }
     }
   }
 }
 
-
-@keyframes anim {
+@keyframes main-text {
   0% {
     opacity: 0;
-    border-left: 0px solid rgb(249, 0, 0);
-    padding-left: 40px;
+    background-position-x: -10px;
   }
-  50% {
-    opacity: 0;
-    border-left: 0px solid rgb(249, 0, 0);
-    padding-left: 40px;
-  }
-  99.4% {
+  75% {
+    background-position-x: -10px;
     opacity: 1;
-    border-left: 0px solid rgb(249, 0, 0);
-    padding-left: 40px;
   }
   100% {
-    border-left: 10px solid rgb(249, 0, 0);
-    padding-left: 30px;
+    background-position-x: 0;
   }
 }
+
+
 @keyframes border-long {
   0% {
     width: 0px;
   }
-  74% {
+  71% {
     width: 0px;
   }
   100% {
@@ -151,7 +148,7 @@
   0% {
     width: 0;
   }
-  91% {
+  83% {
     width: 0px;
   }
   100% {
@@ -160,10 +157,7 @@
 }
 
 @keyframes button-opacity {
-  0% {
-    opacity: 0;
-  }
-  45% {
+  0%  {
     opacity: 0;
   }
   100% {
@@ -175,14 +169,11 @@
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0;
-  }
   100% {
     opacity: 1;
   }
 }
 
 .opacity {
-  animation: opacity 1s;
+  animation: opacity .8s;
 }

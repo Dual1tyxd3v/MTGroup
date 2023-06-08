@@ -28,9 +28,13 @@
     font-size: 14px;
     letter-spacing: 0.7px;
     padding: 5px 8px;
+    border-radius: 3px;
+    transition: all .2s;
     &:hover {
       background-color: #DBDBDB;
       color: #1e1e1e;
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .6);
     }
   }
   &__item {
@@ -49,7 +53,7 @@
       font-size: 36px;
     }
     &__img {
-      width: 325px;
+      width: 360px;
       height: 282px;
       object-fit: cover;
       margin-right: 10px;
@@ -73,9 +77,6 @@
       box-shadow: none;
       font-size: 19px;
       letter-spacing: 0.95px;
-      &:hover {
-        border: 1px solid #1e1e1e;
-      }
     }
   }
 }

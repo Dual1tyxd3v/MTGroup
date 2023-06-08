@@ -1,8 +1,10 @@
 .adjustment {
   margin-bottom: 25px;
+
   &:last-child {
     margin-bottom: 0;
   }
+
   &__title {
     font-size: 20px;
     line-height: 1em;
@@ -14,8 +16,8 @@
     margin: 0 auto;
     align-items: center;
     text-align: center;
-    // justify-content: space-between;
     margin-bottom: 32px;
+
     &::before {
       content: "";
       display: block;
@@ -25,14 +27,16 @@
       background-size: 70px;
       border-radius: 35px;
       background-color: #ccc;
-      box-shadow: (0 1px 4px 0 rgba(0, 0, 0, 0.6),0 1px 4px rgba(0,0,0,0.6));
+      box-shadow: (0 1px 4px 0 rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.6));
     }
+
     &--price {
       &::before {
         background-image: url(../img/adjustment_price.svg);
         background-size: 100%;
       }
     }
+
     &--materials {
       &::before {
         background-image: url(../img/adjustment_materials.svg);
@@ -40,6 +44,7 @@
         background-position: 60%;
       }
     }
+
     &--hands {
       &::before {
         background-image: url(../img/adjustment_hands.svg);
@@ -47,6 +52,7 @@
         background-position: center;
       }
     }
+
     &--individual {
       &::before {
         background-image: url(../img/adjustment_individual.svg);
@@ -54,6 +60,7 @@
         background-position: center;
       }
     }
+
     &--money {
       &::before {
         background-image: url(../img/adjustment_money.svg);
@@ -61,6 +68,7 @@
         background-position: center;
       }
     }
+
     &--heart {
       &::before {
         content: "MT";
@@ -75,6 +83,7 @@
       }
     }
   }
+
   &__text {
     font-size: 14px;
     line-height: 1.1em;
@@ -94,6 +103,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     &__text {
       font-size: 20px;
       height: 132px;
@@ -102,25 +112,30 @@
       align-items: center;
       border: none;
       width: 250px;
+
       &--toLeft {
-        border-right: 3px solid rgb(249, 0, 0);
+        padding-right: 13px;
+        background-image: linear-gradient(to left, rgba(249, 0, 0) 0, rgba(249, 0, 0) 3px, transparent 3px);
         position: relative;
         animation: toLeft 0.9s;
         padding-left: 20px;
+
         &::before,
         &::after {
           content: "";
           display: block;
           position: absolute;
           right: 0;
-          background-color:rgb(249, 0, 0);
+          background-color: rgb(249, 0, 0);
         }
+
         &::before {
           width: 250px;
           height: 2px;
           top: 0;
           animation: toLeft-long 0.8s;
         }
+
         &::after {
           width: 85px;
           height: 4px;
@@ -128,10 +143,13 @@
           animation: toLeft-short 1.2s;
         }
       }
+
       &--toRight {
-        border-left: 3px solid rgb(249, 0, 0);
+        padding-left: 13px;
+        background-image: linear-gradient(to right, rgba(249, 0, 0) 0, rgba(249, 0, 0) 3px, transparent 3px);
         position: relative;
         animation: toRight 0.9s;
+
         &::before,
         &::after {
           content: "";
@@ -139,14 +157,16 @@
           position: absolute;
           left: 0;
           margin: 0 auto;
-          background-color:rgb(249, 0, 0);
+          background-color: rgb(249, 0, 0);
         }
+
         &::before {
           width: 250px;
           height: 2px;
           top: 0;
           animation: toRight-long 0.8s;
         }
+
         &::after {
           width: 85px;
           height: 4px;
@@ -155,28 +175,35 @@
         }
       }
     }
+
     &__title {
       display: block;
       font-size: 25px;
       margin-bottom: 30px;
+
       &::before {
         width: 100px;
         height: 100px;
         margin: 0 auto 25px;
         border-radius: 50px;
       }
+
       &--hands::before {
         background-size: 78px 53px;
       }
+
       &--money::before {
         background-size: 65px 47px;
       }
+
       &--materials::before {
         background-size: 60px 60px;
       }
+
       &--individual::before {
         background-size: 60px 60px;
       }
+
       &--heart::before {
         background-size: 66px 60px;
         font-size: 25px;
@@ -194,31 +221,29 @@
 
 @keyframes toRight {
   0% {
-    border-left: 0px solid rgb(249, 0, 0);
-    padding-left: 13px;
+    background-position-x: -3px;
   }
+
   91% {
-    border-left: 0px solid rgb(249, 0, 0);
-    padding-left: 13px;
+    background-position-x: -3px;
   }
+
   100% {
-    border-left: 3px solid rgb(249, 0, 0);
-    padding-left: 10px;
+    background-position-x: 0;
   }
 }
 
 @keyframes toLeft {
   0% {
-    border-right: 0px solid rgb(249, 0, 0);
-    padding-right: 13px;
+    background-position-x: 3px;
   }
+
   91% {
-    border-right: 0px solid rgb(249, 0, 0);
-    padding-right: 13px;
+    background-position-x: 3px;
   }
+
   100% {
-    border-right: 3px solid rgb(249, 0, 0);
-    padding-right: 10px;
+    background-position-x: 0;
   }
 }
 
@@ -227,6 +252,7 @@
     width: 0;
     left: 125px;
   }
+
   100% {
     width: 250px;
     left: 0;
@@ -238,6 +264,7 @@
     width: 0;
     right: 125px;
   }
+
   100% {
     width: 250px;
     right: 0;
@@ -248,9 +275,11 @@
   0% {
     width: 0;
   }
+
   66.6% {
     width: 0;
   }
+
   100% {
     width: 85px;
   }
@@ -261,10 +290,12 @@
     width: 0;
     right: 85px;
   }
+
   66.6% {
     width: 0;
     right: 85px;
   }
+
   100% {
     right: 0;
     width: 85px;
