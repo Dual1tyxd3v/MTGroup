@@ -1003,6 +1003,13 @@ img {
     font-size: 19px;
   }
 }
+@media (min-width: 980px) {
+  .show-more {
+    padding: 8.5px 18px;
+    box-shadow: none;
+    font-size: 19px;
+  }
+}
 
 .design {
   padding-bottom: 30px;
@@ -1099,6 +1106,109 @@ img {
   }
   .design__title {
     font-size: 50px;
+  }
+}
+.steps {
+  background-color: #000;
+  color: #fff;
+  padding: 30px 25px;
+}
+.steps__title {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.4em;
+  margin-bottom: 20px;
+}
+.steps__text {
+  font-size: 14px;
+  line-height: 1.1em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.steps__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+.steps__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.steps__wrapper {
+  margin-bottom: 20px;
+}
+.steps__btn {
+  background-color: rgb(249, 0, 0);
+  color: #fff;
+  border: none;
+  font-size: 13.6px;
+  line-height: 1.4em;
+  font-weight: 700;
+  padding: 2px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+.steps__btn:hover {
+  background-color: #DBDBDB;
+  color: #1e1e1e;
+}
+
+@media (min-width: 768px) {
+  .steps {
+    padding: 35px 50px;
+  }
+  .steps__title {
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+  .steps__text {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .steps__item {
+    width: 30%;
+    margin: 0 !important;
+  }
+  .steps__btn {
+    font-size: 19px;
+  }
+  .steps__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+  }
+  .steps__item {
+    width: 30%;
+  }
+  .steps__item:not(:last-child) {
+    margin: 0;
+  }
+}
+@media (min-width: 980px) {
+  .steps__title {
+    font-size: 50px;
+  }
+  .steps__text {
+    font-size: 25px;
+  }
+  .steps__content {
+    max-width: 1318px;
+    margin: 0 auto;
+  }
+  .steps__wrapper {
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  .steps__btn {
+    padding: 8.5px 18px;
+    box-shadow: none;
+    font-size: 19px;
   }
 }
 .slider {

@@ -20,4 +20,10 @@
   @media (min-width: $tablet-width) {
     font-size: 19px;
   }
+
+  @media (min-width: $desktop-width) {
+    padding: 8.5px 18px;
+    box-shadow: none;
+    font-size: 19px;
+  }
 }
