@@ -287,3 +287,29 @@ policyBtn.addEventListener('click', (e) => {
   policyWindow.classList.remove('hide');
   document.querySelector('body').style.overflow = 'hidden';
 });
+
+// функционал показать еще
+const container = document.querySelector('.design__content');
+const btnMore = document.querySelector('.show-more');
+const btnContainer = document.querySelector('.design__show-more');
+
+let showedCards = 0;
+const CARDS_TO_SHOW = 6;
+container.innerHTML = '';
+btnContainer.style.display = 'block';
+
+function showMore(container, showedCount, addCount, gallery) {
+  for (let i = showedCount, f = addCount; i < gallery.length && f > 0; i++, f--) {
+    if (i === gallery.length - 1) {
+      btnContainer.style.display = 'none';
+    }
+    showedCards++;
+    container.append(gallery[i]);
+  }
+}
+
+showMore(container, showedCards,
+  window.innerWidth >= 980 ? 9 : 6,
+  galleryItems);
+
+btnMore.addEventListener('click', () => showMore(container, showedCards, CARDS_TO_SHOW, galleryItems));

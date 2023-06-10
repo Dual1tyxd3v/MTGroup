@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://modul-tehno.ru/sitemap.xml

@@ -1,0 +1,23 @@
+.show-more {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  background-color: rgb(249, 0, 0);
+  border-radius: 3px;
+  padding: 5px 15px;
+  margin: 0 auto;
+  transition: all .2s;
+  cursor: pointer;
+
+  &:hover {
+    color: #1e1e1e;
+    box-shadow: 0 5px 10px rgba(#000, .6);
+    background-color: #DBDBDB;
+    transform: translateY(-5px);
+  }
+
+  @media (min-width: $tablet-width) {
+    font-size: 19px;
+  }
+}

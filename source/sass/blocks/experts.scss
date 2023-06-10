@@ -46,7 +46,6 @@
     &__wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      height: 696px;
     }
     &__img {
       background-image: url(../img/experts_img.jpg);
@@ -65,7 +64,7 @@
     &__text {
       text-align: left;
       font-size: 17px;
-      margin-bottom: 55px;
+      margin-bottom: 35px;
     }
     &__content {
       display: flex;
@@ -88,7 +87,7 @@
     background-size: cover;
     background-position: 50% 50%;
     &__wrapper {
-      height: 696px;
+      min-height: 696px;
     }
     &__title {
       font-size: 50px;
