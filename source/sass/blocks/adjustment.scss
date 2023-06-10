@@ -15,7 +15,7 @@
     max-width: 400px;
     margin: 0 auto;
     align-items: center;
-    text-align: center;
+    text-align: left;
     margin-bottom: 32px;
 
     &::before {
@@ -180,6 +180,7 @@
       display: block;
       font-size: 25px;
       margin-bottom: 30px;
+      text-align: center;
 
       &::before {
         width: 100px;
