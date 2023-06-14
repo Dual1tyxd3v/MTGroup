@@ -648,10 +648,10 @@ img {
     grid-template-columns: 1fr 1fr;
   }
   .experts__img {
-    background-image: url(../img/experts_img.jpg);
+    background-image: url(../img/experts_img-small.jpg);
     background-size: cover;
-    background-position-y: 20%;
-    background-position-x: -200px;
+    background-position-y: 40%;
+    background-position-x: -260px;
     background-attachment: fixed;
   }
   .experts__title {
@@ -696,6 +696,10 @@ img {
   }
   .experts__content {
     padding: 0 70px;
+  }
+  .experts__img {
+    background-image: url(../img/experts_img.webp);
+    background-position-x: -350px;
   }
 }
 .adjustments {
@@ -1722,6 +1726,9 @@ img {
 }
 .controls__item--whatsapp {
   background-image: url(../img/aside__whatsapp.svg);
+}
+.controls__item--telegram {
+  background-image: url(../img/aside__telegram.svg);
 }
 .controls li {
   margin-bottom: 15px;

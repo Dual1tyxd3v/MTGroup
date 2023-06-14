@@ -48,10 +48,10 @@
       grid-template-columns: 1fr 1fr;
     }
     &__img {
-      background-image: url(../img/experts_img.jpg);
+      background-image: url(../img/experts_img-small.jpg);
       background-size: cover;
-      background-position-y: 20%;
-      background-position-x: -200px;
+      background-position-y: 40%;
+      background-position-x: -260px;
       background-attachment: fixed;
     }
     &__title {
@@ -97,6 +97,10 @@
     }
     &__content {
       padding: 0 70px;
+    }
+    &__img {
+      background-image: url(../img/experts_img.webp);
+      background-position-x: -350px;
     }
   }
 }
