@@ -19,6 +19,8 @@ const modalBtns = document.querySelectorAll('.js-modal');
 const buttonScrollUp = document.querySelector('.scrollUp');
 const policyBtn = document.querySelector('.footer__text--policy');
 const policyWindow = document.querySelector('.policy');
+const btnExpress = document.querySelector('.main__button--express');
+const quizContainer = document.querySelector('.quiz');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -313,3 +315,10 @@ showMore(container, showedCards,
   galleryItems);
 
 btnMore.addEventListener('click', () => showMore(container, showedCards, CARDS_TO_SHOW, galleryItems));
+
+//EXPRESS BUTTON SMOOTH SCROLL
+btnExpress.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  quizContainer.scrollIntoView({ behavior: 'smooth' });
+});

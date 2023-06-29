@@ -123,14 +123,41 @@
     <div class="main__bg">
       <div class="main__overlay">
         <div class="main__wrapper">
-          <h1 class="main__title js-animated" data-class="main__title--animation">Некапитальный<br>быстровозводимый
-            объект<br>от 17 000 руб/кв.м.</h1>
-          <button class="main__button button js-animated js-modal" data-class="main__button--animation">Оставить заявку
+          <h1 class="main__title js-animated" data-class="main__title--animation">Производство качественных торговых
+            рядов, торговых павильонов и магазинов из сэндвич-панелей.</h1>
+          <button class="main__button button js-animated js-modal" data-class="main__button--animation">Оставить
+            заявку
             на
             расчёт</button>
+          <a href="#quiz" class="main__button button js-animated main__button--express"
+            data-class="main__button--animation">Экспресс заявка</a>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="quiz" id="quiz">
+    <form action="#" class="quiz__form">
+      <div class="quiz__screen" data-screen="1">
+        <p class="quiz__question">У вас есть место для установки объекта?</p>
+        <div class="quiz__field">
+          <p class="quiz__counter">1/6</p>
+          <div class="quiz__answers">
+            <input class="quiz__radio" name="place" value="Да" type="radio" id="place--yes">
+            <label for="place--yes" class="quiz__btn">Да</label>
+            <input class="quiz__radio" name="place" value="Нет" type="radio" id="place--no">
+            <label for="place--no" class="quiz__btn">Нет</label>
+          </div>
+        </div>
+      </div>
+      <div class="quiz__screen quiz__screen--2"></div>
+      <div class="quiz__screen quiz__screen--3"></div>
+      <div class="quiz__screen quiz__screen--4"></div>
+      <div class="quiz__controls">
+        <button class="quiz__prev">&larr;</button>
+        <button class="quiz__next">&rarr;</button>
+      </div>
+    </form>
   </section>
 
   <section class="services" id="services">
