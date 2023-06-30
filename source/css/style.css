@@ -555,6 +555,9 @@ img {
 .quiz__submit {
   margin-bottom: 0 !important;
 }
+.quiz__submit:hover {
+  background-color: #858282 !important;
+}
 .quiz__counter {
   margin-bottom: 20px;
   font-size: 20px;

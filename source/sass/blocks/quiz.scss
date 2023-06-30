@@ -56,6 +56,10 @@
 
   &__submit {
     margin-bottom: 0 !important;
+
+    &:hover {
+      background-color: #858282 !important;
+    }
   }
 
   &__counter {
@@ -279,7 +283,7 @@
   .quiz {
     border-top: 98px solid transparent;
     margin-top: -98px;
-    
+
     &__answer {
       width: auto;
 
