@@ -522,29 +522,76 @@ img {
   padding: 30px 0;
   border-radius: 15px;
   background-color: #DBDBDB;
-  min-height: 240px;
 }
 .quiz__answers {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.quiz__answers--3 {
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
+  justify-items: center;
+}
+.quiz__answers--map {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  position: relative;
+}
+.quiz__answers--form {
+  flex-direction: column;
+  max-width: 500px;
+}
+.quiz__answers--form .quiz__input {
+  margin-bottom: 20px;
+}
+.quiz__submit {
+  margin-bottom: 0 !important;
 }
 .quiz__counter {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-size: 20px;
   font-weight: 400;
 }
 .quiz__radio {
   display: none;
 }
+.quiz__search {
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  border: 2px solid #91ea12;
+}
+.quiz__search:focus {
+  outline: none;
+}
+.quiz__search:invalid {
+  border: 2px solid red;
+}
 .quiz__radio:checked + .quiz__btn {
-  background-color: green;
+  background-color: #91ea12;
+  color: #000;
+}
+.quiz__map {
+  width: 90%;
+  margin: 0 auto;
+  height: 250px;
+  margin-bottom: 20px;
 }
 .quiz__btn {
   text-transform: uppercase;
   background-color: #858282;
   border-radius: 10px;
-  padding: 10px 40px;
+  padding: 10px 0;
+  width: 145px;
+  display: block;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 700;
@@ -553,6 +600,26 @@ img {
 .quiz__btn:hover {
   transform: scale(1.05) translateY(-3px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+}
+.quiz__answer {
+  display: flex;
+  flex-direction: column;
+}
+.quiz__label {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.quiz__input {
+  padding: 6px 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 2px solid #91ea12;
+}
+.quiz__input:invalid {
+  border: 2px solid rgb(249, 0, 0);
+}
+.quiz__input:focus {
+  outline: none;
 }
 .quiz__controls {
   position: absolute;

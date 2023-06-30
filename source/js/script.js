@@ -119,13 +119,13 @@ let touchSlider = null;
 
 sliderImg.addEventListener('touchstart', (e) => {
   touchSlider = e.touches[0].clientX;
-}, {passive: true});
+}, { passive: true });
 sliderImg.addEventListener('touchend', (e) => {
   if (touchSlider - e.changedTouches[0].clientX === 0) return;
   touchSlider = (touchSlider - e.changedTouches[0].clientX) > 0
     ? 1 : -1;
-    changeSlide(touchSlider);
-}, {passive: true});
+  changeSlide(touchSlider);
+}, { passive: true });
 //
 // изменение стилистики обязательных полей формы
 nameField.addEventListener('blur', (e) => {
@@ -322,3 +322,102 @@ btnExpress.addEventListener('click', (e) => {
 
   quizContainer.scrollIntoView({ behavior: 'smooth' });
 });
+
+// QUIZ MAP
+ymaps.ready(init);
+function init() {
+  const mapSearch = document.querySelector('#suggest');
+  var searchControl = new ymaps.control.SearchControl({
+    options: {
+      provider: 'yandex#search'
+    }
+  });
+
+  var suggestView1 = new ymaps.SuggestView('suggest');
+  var myPlacemark, myMap = new ymaps.Map("map", {
+    center: [55.76, 37.64],
+    zoom: 12,
+    controls: []
+  });
+  myMap.controls.add(searchControl);
+
+  myMap.events.add('click', function (e) {
+    var coords = e.get('coords');
+
+    if (myPlacemark) {
+      myPlacemark.geometry.setCoordinates(coords);
+    }
+
+    else {
+      myPlacemark = createPlacemark(coords);
+      myMap.geoObjects.add(myPlacemark);
+
+      myPlacemark.events.add('dragend', function () {
+        getAddress(myPlacemark.geometry.getCoordinates());
+      });
+    }
+    getAddress(coords, true);
+  });
+
+  function createPlacemark(coords) {
+    return new ymaps.Placemark(coords, {
+      iconCaption: 'поиск...'
+    }, {
+      preset: 'islands#violetDotIconWithCaption',
+      draggable: true
+    });
+  }
+
+  function getAddress(coords, refresh = false) {
+    myPlacemark.properties.set('iconCaption', 'поиск...');
+    ymaps.geocode(coords)
+      .then(function (res) {
+        var firstGeoObject = res.geoObjects.get(0);
+
+        myPlacemark.properties
+          .set({
+            // Формируем строку с данными об объекте.
+            iconCaption: [
+              // Название населенного пункта или вышестоящее административно-территориальное образование.
+              firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+              // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+              firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+            ].filter(Boolean).join(', '),
+            // В качестве контента балуна задаем строку с адресом объекта.
+            balloonContent: firstGeoObject.getAddressLine()
+          });
+      }).then(() => {
+        if (refresh) {
+          mapSearch.value = myPlacemark.properties._data.balloonContent;
+          mapSearch.blur();
+        }
+      });
+  }
+
+  document.querySelector('.ymaps-2-1-79-controls-pane').style.display = 'none';
+
+  mapSearch.addEventListener('change', function (e) {
+    console.log('CHANGED');
+    setTimeout(() => {
+      searchControl.search(this.value);
+      ymaps.geocode(this.value).then(res => {
+        var firstGeoObject = res.geoObjects.get(0);
+        const coords = firstGeoObject.geometry.getCoordinates();
+
+        if (myPlacemark) {
+          myPlacemark.geometry.setCoordinates(coords);
+        }
+
+        else {
+          myPlacemark = createPlacemark(coords);
+          myMap.geoObjects.add(myPlacemark);
+
+          myPlacemark.events.add('dragend', function () {
+            getAddress(myPlacemark.geometry.getCoordinates());
+          });
+        }
+        getAddress(coords);
+      });
+    }, 200);
+  })
+}
