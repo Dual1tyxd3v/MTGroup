@@ -326,7 +326,7 @@ img {
   background-color: rgba(0, 0, 0, 0.6);
 }
 .main__wrapper {
-  padding: 50px 7.5vw 0 7.5vw;
+  padding: 50px 7.5vw 20px 7.5vw;
 }
 .main__title {
   font-size: 5vw;
@@ -365,9 +365,8 @@ img {
   padding-top: 6px;
   padding-bottom: 6px;
   animation: button-opacity 1.5s, main-express 1.5s infinite;
-  margin: 0;
-  margin-bottom: 15px;
-  margin-right: 0;
+  margin: 0 auto;
+  display: block;
 }
 .main__button::after {
   content: "";
@@ -507,8 +506,6 @@ img {
 
 .quiz {
   text-align: center;
-  border-top: 98px solid transparent;
-  margin-top: -98px;
   padding: 30px 0;
 }
 .quiz__form {
@@ -731,6 +728,10 @@ img {
   }
 }
 @media (min-width: 980px) {
+  .quiz {
+    border-top: 98px solid transparent;
+    margin-top: -98px;
+  }
   .quiz__answer {
     width: auto;
   }

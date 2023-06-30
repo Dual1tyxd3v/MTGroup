@@ -1,7 +1,5 @@
 .quiz {
   text-align: center;
-  border-top: 98px solid transparent;
-  margin-top: -98px;
   padding: 30px 0;
 
   &__form {
@@ -241,7 +239,7 @@
     &__search {
       margin-bottom: 30px;
     }
-    
+
     &__label {
       font-size: 20px;
     }
@@ -279,7 +277,9 @@
 
 @media (min-width: $desktop-width) {
   .quiz {
-
+    border-top: 98px solid transparent;
+    margin-top: -98px;
+    
     &__answer {
       width: auto;
 

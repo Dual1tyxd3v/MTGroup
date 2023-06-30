@@ -10,7 +10,7 @@
   }
 
   &__wrapper {
-    padding: 50px 7.5vw 0 7.5vw;
+    padding: 50px 7.5vw 20px 7.5vw;
   }
 
   &__title {
@@ -54,9 +54,8 @@
       padding-top: 6px;
       padding-bottom: 6px;
       animation: button-opacity 1.5s, main-express 1.5s infinite;
-      margin: 0;
-      margin-bottom: 15px;
-      margin-right: 0;
+      margin: 0 auto;
+      display: block;
     }
 
     &::after {
