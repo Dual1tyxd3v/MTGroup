@@ -39,8 +39,7 @@ if ($_POST['phone']) {
     foreach($arr as $key => $value) {
         $txt .= "".$key." ".$value."%0A";
     };
-    /* $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r"); */
-    echo "1";
+    $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
 
 //Выводим сообщение об успешной отправке
     if ($sendToTelegram) {
