@@ -38,7 +38,7 @@
     <div><img src="https://mc.yandex.ru/watch/93890524" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
-  <link rel="stylesheet" href="./css/style.css?5">
+  <link rel="stylesheet" href="./css/style.css?6">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" href="https://modul-tehno.ru/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="https://modul-tehno.ru/favicon.ico" type="image/x-icon">
@@ -141,7 +141,7 @@
   </section>
 
   <section class="quiz" id="quiz">
-    <form action="#" class="quiz__form">
+    <form action="#" class="quiz__form" novalidate>
       <div class="quiz__screen" data-screen="1" data-filled="false">
         <p class="quiz__question">У вас есть место для установки объекта?</p>
         <div class="quiz__field">
@@ -159,18 +159,18 @@
         <p class="quiz__question">Укажите размер объекта</p>
         <div class="quiz__field">
           <p class="quiz__counter">2/6</p>
-          <div class="quiz__answers">
+          <div class="quiz__answers quiz__answers--dimension">
             <div class="quiz__answer">
               <label for="length" class="quiz__label">Длина</label>
-              <input type="number" id="length" class="quiz__input" required>
+              <input type="number" name="length" id="length" class="quiz__input" required>
             </div>
             <div class="quiz__answer">
               <label for="width" class="quiz__label">Ширина</label>
-              <input type="number" id="width" class="quiz__input" required>
+              <input type="number" name="width" id="width" class="quiz__input" required>
             </div>
             <div class="quiz__answer">
               <label for="height" class="quiz__label">Высота</label>
-              <input type="number" id="height" class="quiz__input" required>
+              <input type="number" name="height" id="height" class="quiz__input" required>
             </div>
           </div>
         </div>
@@ -183,10 +183,10 @@
           <div class="quiz__answers quiz__answers--3">
             <input class="quiz__radio" name="when" value="Вчера" type="radio" id="yesterday">
             <label for="yesterday" class="quiz__btn">Вчера</label>
-            <input class="quiz__radio" name="when" value="За месяц" type="radio" id="month">
-            <label for="month" class="quiz__btn">За месяц</label>
-            <input class="quiz__radio" name="when" value="За 18 дней" type="radio" id="18days">
-            <label for="18days" class="quiz__btn">За 18 дней</label>
+            <input class="quiz__radio" name="when" value="До месяца" type="radio" id="month">
+            <label for="month" class="quiz__btn">До месяца</label>
+            <input class="quiz__radio" name="when" value="До 18 дней" type="radio" id="18days">
+            <label for="18days" class="quiz__btn">До 18 дней</label>
             <input class="quiz__radio" name="when" value="1-2 месяца" type="radio" id="months">
             <label for="months" class="quiz__btn">1-2 месяца</label>
           </div>
@@ -211,7 +211,7 @@
         <div class="quiz__field">
           <p class="quiz__counter">5/6</p>
           <div class="quiz__answers quiz__answers--map">
-            <input type="text" id="suggest" class="quiz__input quiz__search" placeholder="Название города" required>
+            <input type="text" name="address" id="suggest" class="quiz__input quiz__search" placeholder="Название города" required>
             <div id="map" class="quiz__map"></div>
           </div>
         </div>
@@ -225,14 +225,44 @@
             <input type="text" name="name" class="quiz__input" placeholder="Имя" required>
             <input type="tel" class="quiz__input" name="phone" placeholder="Телефон" required>
             <input type="text" name="email" class="quiz__input" placeholder="Почта">
-            <button type="submit" class="form__submit quiz__submit">Получить коммерческое</button>
+            <input type="submit" class="form__submit quiz__submit" value="Получить коммерческое" />
           </div>
         </div>
       </div>
 
       <div class="quiz__controls">
-        <button class="quiz__prev">&larr;</button>
-        <button class="quiz__next">&rarr;</button>
+        <button type="button" class="quiz__control quiz__prev">
+          <svg class="quiz__icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                stroke="#000000" stroke-width="2" />
+              <path d="M8 12L16 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M11 9L8.08704 11.913V11.913C8.03897 11.961 8.03897 12.039 8.08704 12.087V12.087L11 15"
+                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </svg>
+        </button>
+        <div class="quiz__message">
+          <p class="quiz__error"></p>
+          <p class="form__status"></p>
+        </div>
+        <button type="button" class="quiz__control quiz__next">
+          <svg class="quiz__icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                stroke="#000000" stroke-width="2" />
+              <path d="M16 12L8 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M13 15L15.913 12.087V12.087C15.961 12.039 15.961 11.961 15.913 11.913V11.913L13 9"
+                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </svg>
+        </button>
       </div>
     </form>
   </section>
@@ -838,7 +868,7 @@
     </div>
   </section>
 
-  <script src="js/script.js?5"></script>
+  <script src="js/script.js?6"></script>
 </body>
 
 </html>

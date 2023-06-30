@@ -434,7 +434,7 @@ img {
     width: fit-content;
     padding-top: 6px;
     padding-bottom: 6px;
-    animation: main-express 1.5s infinite;
+    animation: button-opacity 1.5s, main-express 1.5s infinite;
   }
 }
 @keyframes main-text {
@@ -507,34 +507,35 @@ img {
   text-align: center;
   border-top: 98px solid transparent;
   margin-top: -98px;
+  padding: 30px 0;
 }
 .quiz__form {
   max-width: 900px;
+  width: 90%;
   margin: 0 auto;
   position: relative;
 }
 .quiz__question {
-  font-size: 40px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 .quiz__field {
   border: 2px solid #000;
-  padding: 30px 0;
+  padding: 20px 0;
   border-radius: 15px;
   background-color: #DBDBDB;
 }
 .quiz__answers {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: 0 auto;
   margin-bottom: 30px;
+  align-items: center;
 }
 .quiz__answers--3 {
   max-width: 600px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 20px;
+  grid-template-columns: 1fr;
   justify-items: center;
 }
 .quiz__answers--map {
@@ -546,15 +547,17 @@ img {
 .quiz__answers--form {
   flex-direction: column;
   max-width: 500px;
+  align-items: center;
 }
 .quiz__answers--form .quiz__input {
   margin-bottom: 20px;
+  width: 80%;
 }
 .quiz__submit {
   margin-bottom: 0 !important;
 }
 .quiz__counter {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -582,20 +585,22 @@ img {
 .quiz__map {
   width: 90%;
   margin: 0 auto;
-  height: 250px;
-  margin-bottom: 20px;
+  height: 280px;
 }
 .quiz__btn {
   text-transform: uppercase;
   background-color: #858282;
   border-radius: 10px;
   padding: 10px 0;
-  width: 145px;
+  width: 170px;
   display: block;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 700;
   color: #fff;
+}
+.quiz__btn:not(:last-child) {
+  margin-bottom: 20px;
 }
 .quiz__btn:hover {
   transform: scale(1.05) translateY(-3px);
@@ -604,9 +609,13 @@ img {
 .quiz__answer {
   display: flex;
   flex-direction: column;
+  width: 60%;
+}
+.quiz__answer:not(:last-child) {
+  margin-bottom: 15px;
 }
 .quiz__label {
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 10px;
 }
 .quiz__input {
@@ -621,15 +630,115 @@ img {
 .quiz__input:focus {
   outline: none;
 }
+.quiz__input:not(:required) {
+  border: 2px solid #000;
+}
+.quiz__control {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  outline: none;
+}
+.quiz__control:focus path {
+  stroke: rgb(18, 116, 18);
+}
+.quiz__icon {
+  width: 40px;
+  height: 40px;
+  transition: all 0.2s;
+}
+.quiz__icon:hover {
+  transform: scale(1.15);
+}
+.quiz__message {
+  grid-column: 2;
+  font-size: 19px;
+}
+.quiz__message .form__status {
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+}
+.quiz__error {
+  color: rgb(249, 0, 0);
+}
+.quiz__next {
+  grid-column: 3;
+}
+.quiz__prev {
+  grid-column: 1;
+}
 .quiz__controls {
   position: absolute;
-  bottom: 30px;
+  bottom: 4px;
   left: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }
 
+@media (min-width: 450px) {
+  .quiz__answers {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .quiz__answers--dimension {
+    flex-direction: column;
+  }
+  .quiz__answers--3 {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+  }
+  .quiz__btn {
+    width: 145px;
+    margin-bottom: 0 !important;
+  }
+}
+@media (min-width: 768px) {
+  .quiz__label {
+    font-size: 20px;
+  }
+  .quiz__controls {
+    bottom: 10px;
+  }
+  .quiz__icon {
+    width: 50px;
+    height: 50px;
+  }
+  .quiz__field {
+    padding: 30px 0;
+  }
+  .quiz__answers {
+    margin-bottom: 50px;
+  }
+  .quiz__counter {
+    margin-bottom: 30px;
+  }
+  .quiz__form {
+    width: 80%;
+  }
+  .quiz__question {
+    font-size: 28px;
+  }
+}
+@media (min-width: 980px) {
+  .quiz__answer {
+    width: auto;
+  }
+  .quiz__answer:not(:last-child) {
+    margin-bottom: 0;
+  }
+  .quiz__answers--dimension {
+    flex-direction: row;
+  }
+  .quiz__question {
+    font-size: 40px;
+  }
+}
 .services {
   padding-top: 18px;
 }

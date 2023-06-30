@@ -21,6 +21,15 @@ const policyBtn = document.querySelector('.footer__text--policy');
 const policyWindow = document.querySelector('.policy');
 const btnExpress = document.querySelector('.main__button--express');
 const quizContainer = document.querySelector('.quiz');
+const quizBlocks = document.querySelectorAll('.quiz__screen');
+const btnNextQuiz = document.querySelector('.quiz__next');
+const btnPrevQuiz = document.querySelector('.quiz__prev');
+const quizBtns = document.querySelectorAll('.quiz__btn');
+const quizForm = document.querySelector('.quiz__form');
+const quizLengthInput = document.querySelector('#length');
+const quizWidthInput = document.querySelector('#width');
+const quizHeightInput = document.querySelector('#height');
+const quizError = document.querySelector('.quiz__error');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -208,6 +217,11 @@ function getCursorPosition(ctrl) {
 }
 //
 // отправка формы
+function renderStatusMessage(element, message) {
+  element.textContent = message;
+  setTimeout(() => element.textContent = ``, 2000);
+}
+
 forms.forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -217,18 +231,26 @@ forms.forEach(form => {
     const name = currentForm.querySelector('input[name="name"]');
     const status = currentForm.querySelector('.form__status');
 
+    if (form.classList.contains('quiz__form')) {
+      if (currentQuiz === quizBlocks.length) checkInputs(document.querySelector(`[data-screen="${currentQuiz}"]`));
+      if (checkRequired()) return;
+    }
+
     if (!phone.value || phone.value.includes('_')) {
       form.querySelector('input[name="phone"]').focus();
+      renderStatusMessage(status, 'Укажите корректный номер');
       return;
     }
     if (phone.value.replace(/\D/g, '').length !== 11) {
       phone.focus();
       phone.removeAttribute('value');
       phone.value = PHONE_SCHEME;
+      renderStatusMessage(status, 'Укажите корректный номер');
       return;
     }
     if (!name.value) {
       name.focus();
+      renderStatusMessage(status, 'Необходимо ввести имя');
       return;
     }
 
@@ -249,6 +271,7 @@ forms.forEach(form => {
           status.textContent = 'Сообщение отправленно';
           setTimeout(() => status.textContent = ``, 2000);
           currentForm.reset();
+          initQuiz();
         } else {
           status.textContent = 'Ошибка отправки';
           setTimeout(() => status.textContent = ``, 2000);
@@ -397,7 +420,6 @@ function init() {
   document.querySelector('.ymaps-2-1-79-controls-pane').style.display = 'none';
 
   mapSearch.addEventListener('change', function (e) {
-    console.log('CHANGED');
     setTimeout(() => {
       searchControl.search(this.value);
       ymaps.geocode(this.value).then(res => {
@@ -421,3 +443,87 @@ function init() {
     }, 200);
   })
 }
+
+// QUIZ
+function renderControls() {
+  btnNextQuiz.style.display = btnPrevQuiz.style.display = 'block';
+  if (currentQuiz === 1) btnPrevQuiz.style.display = 'none';
+  if (currentQuiz === quizBlocks.length) btnNextQuiz.style.display = 'none';
+}
+
+function changeQuizScreen(direction) {
+  document.querySelector(`[data-screen="${currentQuiz}"]`).style.display = 'none';
+  currentQuiz += direction;
+  document.querySelector(`[data-screen="${currentQuiz}"]`).style.display = 'block';
+}
+
+function toggleScreen(e, direction) {
+  e.currentTarget.blur();
+
+  if (e.currentTarget.classList.contains('quiz__control')) {
+    const container = document.querySelector(`[data-screen="${currentQuiz}"]`);
+    checkInputs(container);
+  }
+  changeQuizScreen(direction);
+  renderControls();
+}
+
+function checkInputs(container) {
+  const inputs = container.querySelectorAll('input[required]');
+  if (!inputs.length) return;
+
+  let check = true;
+  inputs.forEach(input => {
+    if (input.value.length === 0) {
+      container.setAttribute('data-filled', false);
+      check = false;
+    }
+  });
+  quizError.textContent = '';
+  check && container.setAttribute('data-filled', true);
+}
+
+function checkRequired() {
+  const emptyBlocks = document.querySelector('[data-filled="false"]');
+  if (!emptyBlocks) return false;
+
+  document.querySelector(`[data-screen="${currentQuiz}"]`).style.display = 'none';
+  emptyBlocks.style.display = 'block';
+  currentQuiz = +emptyBlocks.dataset.screen;
+  renderControls();
+  quizError.textContent = 'Необходимо заполнить все поля!'
+  setTimeout(() => {
+    quizError.textContent = '';
+  }, 2000);
+  return true;
+}
+
+let currentQuiz = 1;
+
+function initQuiz() {
+  quizBlocks.forEach((block, i) => {
+    if (i === 0) {
+      block.style.display = 'block';
+    }
+    else {
+      block.style.display = 'none';
+    }
+  });
+
+  currentQuiz = 1;
+
+  renderControls();
+}
+initQuiz();
+
+btnNextQuiz.addEventListener('click', (e) => toggleScreen(e, 1));
+
+btnPrevQuiz.addEventListener('click', (e) => toggleScreen(e, -1));
+
+quizForm.addEventListener('click', (e) => {
+  if (e.target.classList.contains('quiz__btn')) {
+    e.target.closest('.quiz__screen').setAttribute('data-filled', true);
+    quizError.textContent = '';
+    toggleScreen(e, 1);
+  }
+});
