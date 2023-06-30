@@ -27,8 +27,8 @@
 
   &__button {
     cursor: pointer;
-    margin-bottom: 46px;
-    margin-right: 50px;
+    margin: 0 auto 50px;
+    display: block;
     background-color: rgb(249, 0, 0);
     color: rgb(255, 255, 255);
     border: none;
@@ -93,7 +93,7 @@
       background-image: linear-gradient(to right, rgb(249, 0, 0) 0, rgb(249, 0, 0) 10px, transparent 10px);
       height: 340px;
       position: relative;
-      margin-bottom: 150px;
+      margin-bottom: 80px;
 
       &--animation {
         animation: main-text 1s;
@@ -132,8 +132,7 @@
     }
 
     &__button {
-      margin-bottom: 100px;
-      display: block;
+      margin-bottom: 110px;
 
       &--express {
         display: block;

@@ -340,8 +340,8 @@ img {
 }
 .main__button {
   cursor: pointer;
-  margin-bottom: 46px;
-  margin-right: 50px;
+  margin: 0 auto 50px;
+  display: block;
   background-color: rgb(249, 0, 0);
   color: rgb(255, 255, 255);
   border: none;
@@ -398,7 +398,7 @@ img {
     background-image: linear-gradient(to right, rgb(249, 0, 0) 0, rgb(249, 0, 0) 10px, transparent 10px);
     height: 340px;
     position: relative;
-    margin-bottom: 150px;
+    margin-bottom: 80px;
   }
   .main__title--animation {
     animation: main-text 1s;
@@ -430,8 +430,7 @@ img {
     min-height: calc(100vh - 114px);
   }
   .main__button {
-    margin-bottom: 100px;
-    display: block;
+    margin-bottom: 110px;
   }
   .main__button--express {
     display: block;
