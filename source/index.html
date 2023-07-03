@@ -38,7 +38,7 @@
     <div><img src="https://mc.yandex.ru/watch/93890524" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
-  <link rel="stylesheet" href="./css/style.css?12">
+  <link rel="stylesheet" href="./css/style.css?13">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" href="https://modul-tehno.ru/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="https://modul-tehno.ru/favicon.ico" type="image/x-icon">
@@ -106,6 +106,9 @@
           <a href="#main" class="menu__item">Главная</a>
         </li>
         <li>
+          <a href="#about" class="menu__item">О нас</a>
+        </li>
+        <li>
           <a href="#services" class="menu__item">Услуги</a>
         </li>
         <li>
@@ -139,9 +142,9 @@
   </section>
 
   <section class="quiz" id="quiz">
-    <form action="#" class="quiz__form" novalidate>
+    <form action="#" class="quiz__form js-animated" data-class="opacity" novalidate>
       <div class="quiz__screen" data-screen="1" data-filled="false">
-        <p class="quiz__question">У вас есть место для установки объекта?</p>
+        <p class="quiz__question">У Вас есть место для установки объекта?</p>
         <div class="quiz__field">
           <p class="quiz__counter">1/6</p>
           <div class="quiz__answers">
@@ -268,14 +271,14 @@
     </form>
   </section>
 
-  <section class="about">
-    <div class="about__tabs">
+  <section class="about" id="about">
+    <div class="about__tabs js-animated" data-class="opacity">
       <button class="about__tab about__tab--active" data-tab="1">О нас</button>
       <button class="about__tab" data-tab="2">О павильонах</button>
       <button class="about__tab" data-tab="3">Об установке</button>
     </div>
 
-    <div class="about__container">
+    <div class="about__container js-animated" data-class="opacity">
       <div class="about__content" data-content="1">
         <img src="./img/about--us.jpeg" alt="О нас" class="about__img">
         <p>Наша команда – это профессиональные и опытные монтажники, талантливый 3Д дизайнер,
@@ -1004,7 +1007,7 @@
     </div>
   </section>
 
-  <script src="js/script.js?7"></script>
+  <script src="js/script.js?8"></script>
 </body>
 
 </html>
