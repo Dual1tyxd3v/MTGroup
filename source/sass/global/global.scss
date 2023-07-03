@@ -14,6 +14,14 @@ body {
   min-width: 270px;
 }
 
+html {
+  font-size: 45%;
+
+  @media (min-width: $tablet-width) {
+    font-size: 62.5%;
+  }
+}
+
 ul{
   list-style: none;
 }

@@ -30,6 +30,9 @@ const quizLengthInput = document.querySelector('#length');
 const quizWidthInput = document.querySelector('#width');
 const quizHeightInput = document.querySelector('#height');
 const quizError = document.querySelector('.quiz__error');
+const tabsContainer = document.querySelector('.about__tabs');
+const tabs = document.querySelectorAll('.about__tab');
+const tabsContent = document.querySelectorAll('.about__content');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -526,4 +529,26 @@ quizForm.addEventListener('click', (e) => {
     quizError.textContent = '';
     toggleScreen(e, 1);
   }
+});
+
+// TABS
+const ANIMATION_TIME = 500;
+
+function switchTabs(index) {
+  document.querySelector(`[data-content="${index}"]`).classList.toggle('about__content--hidden');
+  tabsContainer.querySelector(`[data-tab="${index}"]`).classList.toggle('about__tab--active');
+}
+
+let currentTab = 1;
+
+tabsContent.forEach((tab, i) => {
+  if (i) tab.classList.add('about__content--hidden');
+});
+
+tabsContainer.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('about__tab') || +e.target.dataset.tab === currentTab) return;
+
+  switchTabs(currentTab);
+  currentTab = +e.target.dataset.tab;
+  switchTabs(currentTab);
 });

@@ -32,6 +32,15 @@ body {
   min-width: 270px;
 }
 
+html {
+  font-size: 45%;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
 ul {
   list-style: none;
 }
@@ -599,6 +608,7 @@ img {
   transition: all 0.2s;
   font-weight: 700;
   color: #fff;
+  font-size: 1.6rem;
 }
 .quiz__btn:not(:last-child) {
   margin-bottom: 20px;
@@ -745,6 +755,101 @@ img {
   }
   .quiz__question {
     font-size: 40px;
+  }
+}
+.about {
+  padding: 3rem 0;
+}
+.about__tabs {
+  display: flex;
+  justify-content: center;
+}
+.about__tab {
+  background-color: #000;
+  color: #fff;
+  width: 15rem;
+  height: 6rem;
+  font-weight: 400;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+}
+.about__tab:focus {
+  font-size: 2rem;
+}
+.about__tab:not(:last-child) {
+  margin-right: 2rem;
+}
+.about__tab--active, .about__tab:hover {
+  background-color: #eee;
+  color: #000;
+  font-weight: 700;
+  border: 2px solid #000;
+  border-bottom: none;
+}
+.about__tab:hover:not(.about__tab--active) {
+  border-bottom: 2px solid #000;
+}
+.about__container {
+  background-color: #eee;
+  padding: 2rem 4rem;
+}
+.about__content {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  overflow: hidden;
+}
+.about__content--hidden {
+  display: none;
+}
+.about__content p {
+  font-weight: 400;
+}
+.about__img {
+  display: none;
+}
+.about p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.about__list {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  list-style-position: inside;
+}
+.about__list li {
+  font-weight: 400;
+}
+.about__list--disc {
+  list-style: disc;
+}
+.about__list--num {
+  list-style: decimal;
+}
+.about__list--num li {
+  padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .about__container {
+    padding: 2rem 6rem;
+  }
+  .about__img {
+    display: inline;
+    max-width: 42%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+  }
+}
+@media (min-width: 980px) {
+  .about__img {
+    max-width: 36%;
   }
 }
 .services {

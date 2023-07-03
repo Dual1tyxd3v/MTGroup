@@ -1,0 +1,118 @@
+.about {
+  padding: 3rem 0;
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__tab {
+    background-color: #000;
+    color: #fff;
+    width: 15rem;
+    height: 6rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    transition: all .2s;
+    outline: none;
+    &:focus {
+      font-size: 2rem;
+    }
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    &--active,
+    &:hover {
+      background-color: #eee;
+      color: #000;
+      font-weight: 700;
+      border: 2px solid #000;
+      border-bottom: none;
+    }
+
+    &:hover:not(&--active) {
+      border-bottom: 2px solid #000;
+    }
+  }
+
+  &__container {
+    background-color: #eee;
+    padding: 2rem 4rem;
+  }
+
+  &__content {
+    margin: 0 auto;
+    font-size: 1.6rem;
+    overflow: hidden;
+
+    &--hidden {
+      display: none;
+    }
+
+    & p {
+      font-weight: 400;
+
+    }
+  }
+
+  &__img {
+    display: none;
+  }
+
+  & p:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__list {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    list-style-position: inside;
+
+    & li {
+      font-weight: 400;
+    }
+
+    &--disc {
+      list-style: disc;
+    }
+
+    &--num {
+      list-style: decimal;
+
+      & li {
+        padding-left: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .about {
+    &__container {
+      padding: 2rem 6rem;
+    }
+
+    &__img {
+      display: inline;
+      max-width: 42%;
+      object-fit: contain;
+      float: right;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .about {
+    &__img {
+      max-width: 36%;
+    }
+  }
+}
