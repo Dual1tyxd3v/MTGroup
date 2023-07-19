@@ -1,4 +1,7 @@
 <?
+require_once('PHPMailer.php');
+require_once('SMTP.php');
+require_once('Exception.php');
 //В переменную $token нужно вставить токен
 $token = "5910914438:AAGnFKdoICio2rw007B1IItl7ovDFSpOpcs";
 
@@ -8,6 +11,8 @@ $chat_id = "-1001660934627";
 //Определяем переменные для передачи данных из нашей формы
 if ($_POST['phone']) {
     $phone = '%2b';
+    $mailPhone = '+';
+    $mailPhone .= ($_POST['phone']);
     $phone .= ($_POST['phone']);
     $name = ($_POST['name']);
     $email = ($_POST['email']);
@@ -38,18 +43,34 @@ if ($_POST['phone']) {
 //Настраиваем внешний вид сообщения в телеграме
     foreach($arr as $key => $value) {
         $txt .= "".$key." ".$value."%0A";
+        $mailTxt .= "<p>".$key." ".str_replace('%2b', '+', $value)."</p>";
     };
     $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
 
-//Выводим сообщение об успешной отправке
-    if ($sendToTelegram) {
-        echo "1";
-    }
+      $mail = new PHPMailer\PHPMailer\PHPMailer();
+      $mail->isSMTP();
+      $mail->Host         = 'mail.modul-tehno.ru';
+      $mail->SMTPAuth     = true;
+      $mail->Username     = 'info@modul-tehno.ru';
+      $mail->Password     = 'modul123456789';
+      $mail->SMTPSecure   = 'TLS';
+      $mail->Port         = 587;
 
-//А здесь сообщение об ошибке при отправке
-    else {
-      echo "0";
-    }
+      $mail->CharSet = 'UTF-8';
+      $mail->From = 'info@modul-tehno.ru';
+      $mail->FromName = 'info@modul-tehno.ru';
+      $mail->addAddress('info@modul-tehno.ru');
+
+      $mail->isHTML(true);
+      $mail->Subject = 'Заявки с сайта';
+      $mail->msgHTML("<html><body>".$mailTxt."</html></body>");
+
+      if($mail->send() && $sendToTelegram) {
+          echo "1";
+      }
+      else{
+          echo "0";
+      }
 }
 
 ?>
