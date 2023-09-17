@@ -160,14 +160,22 @@
           <p class="quiz__question">Вид объекта</p>
           <p class="quiz__counter">1/6</p>
           <div class="quiz__answers quiz__answers--2r">
-            <input class="quiz__radio" name="kind" value="магазины" type="radio" id="shop">
-            <label for="shop" class="quiz__btn">магазины</label>
-            <input class="quiz__radio" name="kind" value="павильоны и киоски" type="radio" id="kiosk">
-            <label for="kiosk" class="quiz__btn">павильоны и киоски</label>
-            <input class="quiz__radio" name="kind" value="торговые ряды" type="radio" id="trade">
-            <label for="trade" class="quiz__btn">торговые ряды</label>
-            <input class="quiz__radio" name="kind" value="пост охраны" type="radio" id="guard">
-            <label for="guard" class="quiz__btn">пост охраны</label>
+            <div class="quiz__type quiz__type--shop">
+              <input class="quiz__radio" name="kind" value="магазины" type="radio" id="shop">
+              <label for="shop" class="quiz__btn">магазины</label>
+            </div>
+            <div class="quiz__type quiz__type--kiosk">
+              <input class="quiz__radio" name="kind" value="павильоны и киоски" type="radio" id="kiosk">
+              <label for="kiosk" class="quiz__btn">павильоны и киоски</label>
+            </div>
+            <div class="quiz__type quiz__type--row">
+              <input class="quiz__radio" name="kind" value="торговые ряды" type="radio" id="trade">
+              <label for="trade" class="quiz__btn">торговые ряды</label>
+            </div>
+            <div class="quiz__type quiz__type--guard">
+              <input class="quiz__radio" name="kind" value="пост охраны" type="radio" id="guard">
+              <label for="guard" class="quiz__btn">пост охраны</label>
+            </div>
           </div>
         </div>
       </div>

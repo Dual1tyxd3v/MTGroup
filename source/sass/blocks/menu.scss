@@ -2,8 +2,14 @@
   width: 100vw;
   background-color: #fff;
   display: flex;
-  align-items: center;
   justify-content: center;
+
+  &__list {
+    border-top: 1px solid #000;
+    width: 100%;
+    padding-top: 40px;
+  }
+
   &__item {
     display: block;
     color: rgb(30, 30, 30);
