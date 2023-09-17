@@ -42,6 +42,8 @@ const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
 let currentValue = '';
 
+window.addEventListener('resize', () => header.classList.remove('header--opened'));
+
 // взаимодействие с бургером
 burgerBtn.addEventListener('click', () => {
   header.classList.toggle('header--opened');

@@ -1,6 +1,9 @@
 .contacts {
   padding: 20px;
   background-color: #000;
+  border-top: 102px solid transparent;
+	margin-top: -102px;
+
   &__description {
     display: none;
   }
@@ -18,6 +21,9 @@
 @media (min-width: $tablet-width) {
   .contacts {
     padding: 50px;
+    border-top: none;
+	  margin-top: 0;
+
     &__description {
       display: block;
     }

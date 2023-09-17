@@ -1,4 +1,5 @@
 .main {
+  padding-top: 102px;
   &__bg {
     background-image: url(../img/bg_main.webp);
     background-size: cover;
@@ -120,8 +121,15 @@
   }
 }
 
+@media (min-width: 434px) {
+  .main {
+    padding-top: 89px;
+  }
+}
+
 @media (min-width: $tablet-width) {
   .main {
+    padding-top: 178px;
     &__button {
       font-size: 20px;
     }

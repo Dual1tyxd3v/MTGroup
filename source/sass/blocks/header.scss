@@ -5,6 +5,7 @@
   left: 0;
   width: 100%;
   z-index: 3;
+  min-height: 102px;
 
   &__mobile-container  {
     position: absolute;
@@ -37,10 +38,24 @@
     font-family: "TenorSans";
     font-weight: 400;
     line-height: 1.3em;
+    // min-width: 168px;
   }
   &__description {
-    max-width: 80%;
+    // max-width: 80%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &--address {
+      display: none;
+    }
   }
+
+  &__item--time {
+    display: none;
+  }
+
   &__item a:hover {
     color: rgb(249, 0, 0);
   }
@@ -86,6 +101,7 @@
     top: 0;
     transition: 0.4s opacity, 0.1s z-index 0.4s;
     height: 0;
+    overflow: hidden;
   }
   &--opened {
     & .header__burger {
@@ -103,15 +119,47 @@
     }
     & .header__menu {
       height: 100vh;
+      padding-top: 100px;
       z-index: 2;
       opacity: 1;
       transition: 0.1s z-index, 0.4s opacity 0.1s;
     }
+    & .header__description--address {
+      display: block;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+      width: calc(100vw - 64px);
+
+      & li,
+      & a {
+        color: #000;
+        font-weight: 700;
+      }
+    }
+
+    & .header__item--time {
+      display: block;
+      position: fixed;
+      z-index: 3;
+      color: #000;
+      font-weight: 700;
+      top: 72.5px;
+      left: 10px;
+    }
+  }
+}
+
+@media (min-width: 434px) {
+  .header {
+    min-height: 89px;
   }
 }
 
 @media (min-width: $tablet-width) {
   .header {
+    min-height: 178px;
     &__burger {
       display: none;
     }
@@ -126,9 +174,20 @@
     &__item a {
       font-size: 15px;
     }
+
+    &__item--time {
+      display: block;
+    }
+    &__description {
+      display: block;
+      &--address {
+        display: block;
+      }
+    }
     &__description-wrapper {
       max-width: 60%;
     }
+
     &__wrapper {
       display: flex;
       justify-content: space-between;
@@ -139,7 +198,7 @@
 
 @media (min-width: $desktop-width) {
   .header {
-    height: 98px;
+    min-height: 98px;
     &__description-wrapper {
       max-width: 65%;
       display: flex;

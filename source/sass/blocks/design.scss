@@ -1,5 +1,8 @@
 .design {
   padding-bottom: 30px;
+  border-top: 102px solid transparent;
+	margin-top: -102px;
+
   &__title {
     background-color: #000;
     color: rgb(245,245,245);
@@ -53,6 +56,9 @@
 
 @media (min-width: $tablet-width) {
   .design {
+    border-top: none;
+	  margin-top: 0;
+
     &__content {
       display: grid;
       grid-template-columns: repeat(2, 1fr);

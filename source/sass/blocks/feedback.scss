@@ -1,6 +1,8 @@
 .feedback {
   background-color: #eee;
   padding: 2rem 3rem;
+  border-top: 102px solid transparent;
+	margin-top: -102px;
 
   &__title {
     text-align: center;
@@ -22,6 +24,8 @@
   .feedback {
     background-color: #000;
     color: #fff;
+    border-top: none;
+	  margin-top: 0;
 
     &__title {
       font-size: 36px;
