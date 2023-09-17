@@ -7,21 +7,69 @@
 
   &__overlay {
     background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
   }
 
   &__wrapper {
     padding: 50px 7.5vw 20px 7.5vw;
+    display: grid;
+    margin-bottom: 48px;
+  }
+
+  &__right {
+    background-color: rgb(249, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 2rem 3.5rem rgba(0, 0, 0, 0.8);
+  }
+
+  &__bonus {
+    color: #fff;
+    font-size: 2rem;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #656666;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-size: 30px 30px;
+      margin-right: 20px;
+    }
+
+    &--ruler::before {
+      background-image: url(../img/ruler.svg);
+    }
+
+    &--contract::before {
+      background-image: url(../img/contract.svg);
+    }
+
+    &--foundation::before {
+      background-image: url(../img/foundation.svg);
+    }
   }
 
   &__title {
     font-size: 5vw;
-    font-weight: 700;
     line-height: 1.25em;
     color: rgb(245, 245, 245);
-    margin-bottom: 48px;
 
     &--animation {
       animation: opacity 2s;
+    }
+
+    &--light {
+      font-weight: 400;
+    }
+
+    &--bold {
+      font-weight: 900;
     }
   }
 
@@ -89,9 +137,8 @@
       display: flex;
       align-items: center;
       font-size: 60px;
-      padding-left: 40px;
       background-image: linear-gradient(to right, rgb(249, 0, 0) 0, rgb(249, 0, 0) 10px, transparent 10px);
-      height: 340px;
+      padding: 60px 0 60px 40px;
       position: relative;
       margin-bottom: 80px;
 
@@ -124,11 +171,28 @@
       }
     }
 
+    &__bg {
+      height: calc(100vh - 114px);
+    }
+
     &__wrapper {
-      width: $desktop-width;
       margin: 0 auto;
-      padding: 40px 0 0 0;
-      min-height: calc(100vh - 114px);
+      padding: 40px 40px 0 40px;
+      margin-bottom: 80px;
+      grid-template-columns: 70% 30%;
+    }
+
+    &__right {
+      width: 80%;
+      grid-column: 2/3;
+      grid-row: 1/3;
+      align-self: center;
+      justify-self: flex-end;
+    }
+
+    &__buttons {
+      padding-left: 45px;
+      justify-self: flex-start;
     }
 
     &__button {
@@ -136,7 +200,7 @@
 
       &--express {
         display: block;
-        margin: 0 auto;
+        margin-bottom: 0;
       }
     }
   }

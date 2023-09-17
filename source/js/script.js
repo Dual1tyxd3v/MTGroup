@@ -25,7 +25,11 @@ const quizBlocks = document.querySelectorAll('.quiz__screen');
 const btnNextQuiz = document.querySelector('.quiz__next');
 const btnPrevQuiz = document.querySelector('.quiz__prev');
 const quizBtns = document.querySelectorAll('.quiz__btn');
+const quizStatus = document.querySelector('.quiz__status');
+const quizResult = document.querySelector('.quiz__result');
+const quizRulerCheckbox = document.querySelector('.quiz__checkbox');
 const quizForm = document.querySelector('.quiz__form');
+const quizBtnReset = document.querySelector('.quiz__btnNew');
 const quizLengthInput = document.querySelector('#length');
 const quizWidthInput = document.querySelector('#width');
 const quizHeightInput = document.querySelector('#height');
@@ -265,19 +269,25 @@ forms.forEach(form => {
       : null;
 
     currentForm.querySelector('input[type="submit"]').setAttribute('disabled', true);
+
     await fetch('./js/send.php', {
       method: 'POST', body: data
     })
       .then(res => {
         if (res.ok) {
           currentForm.querySelector('input[type="submit"]').removeAttribute('disabled');
-          status.textContent = 'Сообщение отправленно';
+          status.textContent = 'Сообщение отправлено';
+          quizStatus.textContent = 'Сообщение отправлено';
           setTimeout(() => status.textContent = ``, 2000);
-          currentForm.reset();
-          initQuiz();
+          // currentForm.reset();
+          // initQuiz();
         } else {
           status.textContent = 'Ошибка отправки';
           setTimeout(() => status.textContent = ``, 2000);
+          quizStatus.textContent = 'Ошибка отправки. Попробуйте позже';
+        }
+        if (form.classList.contains('quiz__form')) {
+          showQuizResult(form);
         }
       })
       .catch(e => console.log(e.message));
@@ -471,6 +481,20 @@ function toggleScreen(e, direction) {
   renderControls();
 }
 
+function showQuizResult(form) {
+  form.style.display = 'none';
+  quizResult.style.display = 'block';
+}
+
+quizBtnReset.addEventListener('click', () => {
+  if (quizStatus.textContent === 'Сообщение отправлено') {
+    quizForm.reset();
+  }
+  quizForm.style.display = 'block';
+  quizResult.style.display = 'none';
+  initQuiz();
+});
+
 function checkInputs(container) {
   const inputs = container.querySelectorAll('input[required]');
   if (!inputs.length) return;
@@ -524,11 +548,20 @@ btnNextQuiz.addEventListener('click', (e) => toggleScreen(e, 1));
 btnPrevQuiz.addEventListener('click', (e) => toggleScreen(e, -1));
 
 quizForm.addEventListener('click', (e) => {
-  if (e.target.classList.contains('quiz__btn')) {
+  if (e.target.classList.contains('quiz__btn') || (e.target.classList.contains('quiz__checkbox') && e.target.checked)) {
     e.target.closest('.quiz__screen').setAttribute('data-filled', true);
     quizError.textContent = '';
     toggleScreen(e, 1);
   }
+});
+
+quizRulerCheckbox.addEventListener('change', (e) => {
+  const inputs = e.target.closest('.quiz__answers').querySelectorAll('input[type="number"]');
+  inputs.forEach(input => {
+    quizRulerCheckbox.checked
+      ? input.setAttribute('disabled', '1')
+      : input.removeAttribute('disabled')
+  });
 });
 
 // TABS

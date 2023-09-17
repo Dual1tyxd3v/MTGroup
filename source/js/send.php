@@ -18,13 +18,23 @@ if ($_POST['phone']) {
     $email = ($_POST['email']);
     $location = ($_POST['location']);
     $message = ($_POST['message']);
-    $place = ($_POST['place']);
+    $kind = ($_POST['kind']);
     $width = ($_POST['width']);
     $height = ($_POST['height']);
     $length = ($_POST['length']);
+    $ruler = ($_POST['ruler']);
     $when = ($_POST['when']);
-    $consulting = ($_POST['consulting']);
     $city = ($_POST['address']);
+    $place = ($_POST['place']);
+    $dimensions = '___';
+
+    if ($length) {
+      $dimensions = $length."X".$width."X".$height;
+    }
+
+    if ($ruler === 'on') {
+      $dimensions = 'Нужен замер';
+    }
 
 //Собираем в массив то, что будет передаваться боту
     $arr = array(
@@ -33,11 +43,11 @@ if ($_POST['phone']) {
         'E-mail:' => $email ? $email : '___',
         'Место встречи:' => $location ? $location : '___',
         'Сообщение:' => $message ? $message : '___',
+        'Тип объекта:' => $kind ? $kind : '___',
         'Имеется место установки:' => $place ? $place : '___',
         'Когда нужен:' => $when ? $when : '___',
-        'Консультация:' => $consulting ? $consulting : '___',
         'Адрес установки:' => $city ? $city : '___',
-        'Размеры (ДхШхВ):' => $length ? $length."X".$width."X".$height : '___'
+        'Размеры (ДхШхВ):' => $dimensions
     );
 
 //Настраиваем внешний вид сообщения в телеграме

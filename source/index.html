@@ -92,13 +92,6 @@
       <button class="header__burger" type="button" aria-label="Кнопка меню">
         <span></span>
       </button>
-      <div class="header__phone-bg header__phone-bg--slow">
-        <div class="header__phone-bg header__phone-bg--fast">
-          <div class="header__phone-overlay">
-            <a href="tel:+79257145111" class="header__phone" aria-label="Позвонить нам"></a>
-          </div>
-        </div>
-      </div>
     </div>
     <nav class="header__menu menu">
       <ul class="menu__list">
@@ -107,9 +100,6 @@
         </li>
         <li>
           <a href="#about" class="menu__item">О нас</a>
-        </li>
-        <li>
-          <a href="#services" class="menu__item">Услуги</a>
         </li>
         <li>
           <a href="#adjustment" class="menu__item">Преимущества</a>
@@ -130,34 +120,55 @@
     <div class="main__bg">
       <div class="main__overlay">
         <div class="main__wrapper">
-          <h1 class="main__title js-animated" data-class="main__title--animation">Производство некапитальных павильонов, торговых рядов и магазинов из сэндвич-панелей.</h1>
-          <button class="main__button button js-animated js-modal" data-class="main__button--animation">Бесплатный
-            замер</button>
-          <button class="main__button button js-animated main__button--animation main__button--express"
-            data-class="main__button--express">Экспресс заявка</button>
+          <div class="main__left">
+            <h1 class="main__title js-animated" data-class="main__title--animation">
+              <span class="main__title--light">
+                Производство и установка павильонов из сэндвич-панелей <br>
+                <span class="main__title--bold">от 2-х недель под ключ</span>
+              </span>
+            </h1>
+          </div>
+          <ul class="main__right">
+            <li class="main__bonus main__bonus--ruler">Бесплатный замер</li>
+            <li class="main__bonus main__bonus--contract">Строго по договору - без переплат</li>
+            <li class="main__bonus main__bonus--foundation">Устройство основания под объект</li>
+          </ul>
+          <div class="main__buttons">
+            <button class="main__button button js-animated js-modal" data-class="main__button--animation">Бесплатный
+              замер</button>
+            <button class="main__button button js-animated main__button--animation main__button--express"
+              data-class="main__button--express">Рассчитать стоимость</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="quiz" id="quiz">
+    <h2 class="quiz__title">
+      Рассчитайте стоимость вашего объекта
+    </h2>
     <form action="#" class="quiz__form js-animated" data-class="opacity" novalidate>
       <div class="quiz__screen" data-screen="1" data-filled="false">
-        <p class="quiz__question">У Вас есть место для установки объекта?</p>
         <div class="quiz__field">
+          <p class="quiz__question">Вид объекта</p>
           <p class="quiz__counter">1/6</p>
-          <div class="quiz__answers">
-            <input class="quiz__radio" name="place" value="Да" type="radio" id="place--yes">
-            <label for="place--yes" class="quiz__btn">Да</label>
-            <input class="quiz__radio" name="place" value="Нет" type="radio" id="place--no">
-            <label for="place--no" class="quiz__btn">Нет</label>
+          <div class="quiz__answers quiz__answers--2r">
+            <input class="quiz__radio" name="kind" value="магазины" type="radio" id="shop">
+            <label for="shop" class="quiz__btn">магазины</label>
+            <input class="quiz__radio" name="kind" value="павильоны и киоски" type="radio" id="kiosk">
+            <label for="kiosk" class="quiz__btn">павильоны и киоски</label>
+            <input class="quiz__radio" name="kind" value="торговые ряды" type="radio" id="trade">
+            <label for="trade" class="quiz__btn">торговые ряды</label>
+            <input class="quiz__radio" name="kind" value="пост охраны" type="radio" id="guard">
+            <label for="guard" class="quiz__btn">пост охраны</label>
           </div>
         </div>
       </div>
 
       <div class="quiz__screen" data-screen="2" data-filled="false">
-        <p class="quiz__question">Укажите размер объекта</p>
         <div class="quiz__field">
+          <p class="quiz__question">Укажите размер объекта</p>
           <p class="quiz__counter">2/6</p>
           <div class="quiz__answers quiz__answers--dimension">
             <div class="quiz__answer">
@@ -172,17 +183,34 @@
               <label for="height" class="quiz__label">Высота</label>
               <input type="number" name="height" id="height" class="quiz__input" required>
             </div>
+            <div class="quiz__answer quiz__answer--alt">
+              <input type="checkbox" name="ruler" id="ruler" class="quiz__checkbox">
+              <label for="ruler" class="quiz__label">Нужнен бесплатный замер</label>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="3" data-filled="false">
-        <p class="quiz__question">Комфортный срок строительства</p>
+      <div class="quiz__screen" data-screen="3" data-filled="false" style="display: block;">
         <div class="quiz__field">
+          <p class="quiz__question">У Вас есть место для установки объекта?</p>
           <p class="quiz__counter">3/6</p>
-          <div class="quiz__answers quiz__answers--3">
+          <div class="quiz__answers">
+            <input class="quiz__radio" name="place" value="Да" type="radio" id="place--yes">
+            <label for="place--yes" class="quiz__btn">Да</label>
+            <input class="quiz__radio" name="place" value="Нет" type="radio" id="place--no">
+            <label for="place--no" class="quiz__btn">Нет</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz__screen" data-screen="4" data-filled="false">
+        <div class="quiz__field">
+          <p class="quiz__question">Комфортный срок строительства</p>
+          <p class="quiz__counter">4/6</p>
+          <div class="quiz__answers quiz__answers--2r">
             <input class="quiz__radio" name="when" value="Вчера" type="radio" id="yesterday">
-            <label for="yesterday" class="quiz__btn">Вчера</label>
+            <label for="yesterday" class="quiz__btn">Как можно быстрее</label>
             <input class="quiz__radio" name="when" value="До месяца" type="radio" id="month">
             <label for="month" class="quiz__btn">До месяца</label>
             <input class="quiz__radio" name="when" value="До 18 дней" type="radio" id="18days">
@@ -193,39 +221,28 @@
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="4" data-filled="false">
-        <p class="quiz__question">Подробная консультация по строительству</p>
+      <div class="quiz__screen" data-screen="5" data-filled="true">
         <div class="quiz__field">
-          <p class="quiz__counter">4/6</p>
-          <div class="quiz__answers">
-            <input class="quiz__radio" name="consulting" value="Нужна" type="radio" id="cons--yes">
-            <label for="cons--yes" class="quiz__btn">Нужна</label>
-            <input class="quiz__radio" name="consulting" value="Не нужна" type="radio" id="cons--no">
-            <label for="cons--no" class="quiz__btn">Не нужна</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="quiz__screen" data-screen="5" data-filled="false">
-        <p class="quiz__question">Укажите город установки объекта для расчёта доставки</p>
-        <div class="quiz__field">
+          <p class="quiz__question">
+            Укажите адрес для расчёта стоимости доставки<br>
+            (если доставка не нужна, можно пропустить)
+          </p>
           <p class="quiz__counter">5/6</p>
           <div class="quiz__answers quiz__answers--map">
             <input type="text" name="address" id="suggest" class="quiz__input quiz__search"
-              placeholder="Название города" required>
+              placeholder="Название города">
             <div id="map" class="quiz__map"></div>
           </div>
         </div>
       </div>
 
       <div class="quiz__screen" data-screen="6" data-filled="false">
-        <p class="quiz__question">Получите консультацию и коммерческое предложение</p>
         <div class="quiz__field">
+          <p class="quiz__question">Получите консультацию и коммерческое предложение</p>
           <p class="quiz__counter">6/6</p>
           <div class="quiz__answers quiz__answers--form">
             <input type="text" name="name" class="quiz__input" placeholder="Имя" required>
             <input type="tel" class="quiz__input" name="phone" placeholder="Телефон" required>
-            <input type="text" name="email" class="quiz__input" placeholder="Почта">
             <input type="submit" class="form__submit quiz__submit" value="Получить коммерческое" />
           </div>
         </div>
@@ -268,218 +285,18 @@
         </button>
       </div>
     </form>
-  </section>
 
-  <section class="about" id="about">
-    <div class="about__tabs js-animated" data-class="opacity">
-      <button class="about__tab about__tab--active" data-tab="1">О нас</button>
-      <button class="about__tab" data-tab="2">О павильонах</button>
-      <button class="about__tab" data-tab="3">Об установке</button>
-    </div>
-
-    <div class="about__container js-animated" data-class="opacity">
-      <div class="about__content" data-content="1">
-        <img src="./img/about--us.jpeg" alt="О нас" class="about__img">
-        <p>Наша команда – это профессиональные и опытные монтажники, талантливый 3Д дизайнер,
-          грамотные проектировщики и опытные менеджеры. Мы строим качественные и современные
-          павильоны и торговые ряды из сэндвич-панелей, торговые некапитальные быстровозводимые
-          здания, торговые павильоны около торговых центров, административные и хозяйственные
-          сооружения из металлокаркаса и сэндвич-панелей.</p>
-
-        <p>Проект начинается с эскиза и дизайна, далее происходит проектирование металлокаркаса, закупка
-          материалов и затем происходит начало строительства. Мы построим любой объект, допустимого
-          размера качественно и ответственно. На любом этапе, даже во время строительства, Заказчик
-          может внести изменения в проект павильона.
-          Мы работаем по договору, с зафиксированной стоимостью. К договору прилагается техническое
-          задание, в котором указаны используемые материалы и отображён итоговый внешний вид
-          павильона. На наши торговые павильоны и торговые ряды мы даём гарантия от одного года.
-          По факту изготовления павильона мы выдаём технический паспорт некапитального
-          быстровозводимого объекта. (торгового ряда, торгового павильона, либо другое название по
-          Вашему запросу)
-          Материалы и комплектующие мы напрямую покупаем у заводов производителей, что существенно
-          экономит бюджет Заказчика.</p>
-
-        <p>Наша команда построит Вам современный и качественный объект, который обязательно принесёт
-          Вам прибыль.</p>
-
-        <p><b>Торговый павильон, нестационарный павильон</b> – это объект, для ведения торговли, продажи
-          товаров и услуг.</p>
-        <p>Для круглогодичной эксплуатации павильон должен быть утеплённым и хорошо герметизирован.</p>
-        <p>Чаще всего павильоны строятся из металлокаркаса и сэндвич-панелей. В Администрациях городов
-          данные объекты классифицируются как нестационарные торговые объекты (НТО), либо
-          быстровозводимые некапитальные строения.</p>
-        <p>Павильоны из сэндвич-панелей могут применяться и в других видах деятельности, например:
-          административные строения, автосервисы, шиномонтаж, торговые комплексы, офисные
-          помещения, хозяйственные постройки, кафе из сэндвич-панелей, ресторан из сэндвич-панелей,
-          храм из сэндвич-панелей, помещения общего назначения, шоу-рум, контрольно-пропускные
-          пункты (КПП), пункты проката, кассы и прочее.</p>
-        <p><b>Торговый ряд, торговая галерея</b> – это объект, для ведения торговли совмещающий в себе
-          несколько разных видов товаров и услуг.
-          Торговые ряды и торговые галереи также изготавливаются из сэндвич-панелей, утеплены и
-          подходят для круглогодичной эксплуатации.
-          Наши Заказчики чаще всего покупают торговый ряд и сдают его в аренду, или в субаренду.
-          Срок окупаемости таких объектов, в зависимости от региона, составляет от одного года до двух
-          лет.</p>
-      </div>
-
-      <div class="about__content" data-content="2">
-        <img src="./img/about--prod.jpeg" alt="О Павильонах" class="about__img">
-        <p>Некапитальные павильоны и торговые ряды и прочие мобильные быстровозводимые здания – это
-          отличная альтернатива капитальным объектам. Время строительства быстровозводимых
-          павильонов и торговых рядов из сэндвич-панелей составляет не более одного-двух месяцев, в
-          зависимости от площади. Павильоны из сэндвич-панелей используются в качестве торговых,
-          административных, хозяйственно-складских площадей, офисных помещений, шиномонтажей,
-          автосервисов, мобильных офисов и комплексов, производственных помещений и в прочих
-          отраслях.</p>
-        <p>Павильоны, торговые ряды и магазины изготавливаются любых размеров, согласованных с
-          Заказчиком. Купить некапитальный объект из сэндвич-панелей можно как для работы
-          индивидуально в небольшом павильоне, так и для строительства большого торгового ряда с
-          разделением на секции, для сдачи в аренду.</p>
-        <p>За счёт минимального набора документов и достаточно простого конструктива, торговый ряд или
-          торговый павильон, автосервис, шиномонтаж, магазин автозапчастей и масел можно быстро
-          построить и сразу же начать эксплуатировать.</p>
-        <p>Конструктив, из которого состоит торговый павильон или торговый ряд: сварной металлокаркас на
-          который крепятся сэндвич-панели с утеплителем. Утеплитель сэндвич-панелей на выбор Заказчика
-          в зависимости от назначения и требований:</p>
-        <ul class="about__list about__list--disc">
-          <li>пенополистирол</li>
-          <li>минеральная (базальтовая) вата</li>
-          <li>пенополиизоцианурат</li>
-        </ul>
-        <p>Материалы используемые при строительстве павильонов и торговых рядов имеют сертификаты
-          качества, пожарные сертификаты и соответствуют экологическим и санитарным нормам.</p>
-        <p>Данные объекты устанавливаются на металлические винтовые сваи, дорожные плиты, асфальтовое
-          покрытие и бетонные плиты. Облицовка фасадов павильонов изготавливается по архитектурному
-          решению исходя из пожеланий Заказчика.</p>
-        <p>Сам по себе павильон или торговый ряд утеплённый, но дополнительно оснащается вентиляцией,
-          приборами отопления/охлаждения по запросу. Исходя из этого объект можно использовать
-          круглый год и в любых погодных условия.</p>
-        <p>Преимущества торговых павильонов и торговых рядов из сэндвич-панелей:</p>
-        <ul class="about__list about__list--num">
-          <li>Быстрый срок окупаемости</li>
-          <li>Быстрый срок строительства</li>
-          <li>Универсальное назначение павильона</li>
-          <li>Любой внешний вид и дизайн</li>
-          <li>Работа круглый год, отсутствие сезонности</li>
-          <li>Возможность быстро разобрать объект и перевезти его в другое место</li>
-          <li>Высокая ликвидность</li>
-        </ul>
-        <p>Ещё одним важным преимуществом покупки быстровозводимых павильонов является их стоимость:
-          расходы на документацию, проектные работы, некоторые материалы и монтажные работы
-          существенно ниже, чем на альтернативных объектах.</p>
-        <p>В нашей компании вы можете купить утеплённый торговый ряд, торговый павильон магазин,
-          офисное помещение, или любое другое некапитальное здание из сэндвич-панелей.</p>
-        <p>Мы слышим и учитываем пожелания Заказчика для достижения максимального результата и
-          качества строительства.
-          Чтобы рассчитать стоимость и заказать павильон, позвоните нам по указанному на сайте телефону
-          или заполните заявку.</p>
-      </div>
-
-      <div class="about__content" data-content="3">
-        <img src="./img/about--install.jpeg" alt="Об Установке" class="about__img">
-        <p>Наши торговые павильоны, торговые ряды и любые здания из сэндвич-панелей можно установить
-          почти на любое основание. Мы в любом случае выставим объект по уровню, в «ноль»</p>
-        <p>В основе павильона заложен крепкий металлокаркас, которые изготавливается из металлических
-          профильных труб, рассчитанного по проекту сечения. Металлокаркас зачищается и
-          обрабатывается антикоррозионной-грунт краской.</p>
-          <p>Далее происходит монтаж утеплителя –
-          сэндвич-панелей. Устанавливаются окна и двери. Весь объект обрабатывается монтажной пеной,
-          силиконом и герметиком. После монтируются декоративные элементы и фризы из алюминиевых
-          композитных панелей (АКП). Стены павильона – это заводские сэндвич-панели, которые не
-          требуют дополнительного окрашивания или облицовки.</p>
-          <p>В стандартной комплектации на пол
-          укладывается влагостойкая OSB плита, линолеум и плинтус. По просьбе Заказчиками мы можем
-          сделать полусухую стяжку с армированием и облицевать пол керамогранитной плиткой.</p>
-        <p>По Вашему желанию вы можете заказать необходимое количество дверей и окон, вентиляцию,
-          рольставни, ступеньки к входным группам и пандусы.</p>
-        <p>Конфигурация объекта может быть разной, исходя из условий установки и габаритов земельного
-          участка, это может быть квадратный павильон, прямоугольный, П-образный, Г-образный или
-          трапецеидальный</p>
-        <p>По итогу Вы получаете готовый к работе утеплённый и красивый павильон для торговли, магазин,
-          офис продаж, или торговый ряд (галерею) готовые к эксплуатации.</p>
-        <p>Наша команда ООО «Модульные технологии групп» следит за современными тенденциями
-          строительных материалов и применяет их на практике строительства.</p>
-        <p>Чтобы купить павильон из сэндвич-панелей звоните нам, или оставьте заявку и мы свяжемся с
-          Вами.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="services__wrapper">
-      <h2 class="services__title">Наши услуги</h2>
-      <div class="services__container">
-        <div class="services__item">
-          <img src="./img/services_1.webp" loading="lazy" alt="Некапитальный объект" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Изготовление некапитальных объектов из сэндвич-панелей от 14 дней</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_2.webp" loading="lazy" alt="Устройство фундамента" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Устройство основания под объект из металлических винтовых свай, дорожных плит,
-              бетонной ленты, бетонной плиты</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_3_temp.jpeg" loading="lazy" alt="3D проект" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Проектирование согласно СП и 3D-моделирование</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_4.jpg" loading="lazy" alt="Специалисты" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Бесплатный выезд специалиста, замер, расчёт</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_5.jpeg" loading="lazy" alt="Доставка и разгрузка" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Благоустройство территории объекта, озеленение</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_6.jpeg" loading="lazy" alt="Благоустройство объекта" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Загрузка, доставка, разгрузка всех материалов и комплектующих, доставка габаритных
-              объектов в сборе</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="experts">
-    <div class="experts__wrapper">
-      <div class="experts__img">
-      </div>
-      <div class="experts__content">
-        <h2 class="experts__title js-animated" data-class="opacity">Мы эксперты</h2>
-        <p class="experts__text">Наша компания оказывает широкий спектр услуг по строительству быстровозводимых объектов
-          и смежному производству.</p>
-        <p class="experts__text">Какое основание необходимо для установки объекта?
-          Будет ли объект тёплый и какие материалы используются?
-          Правильное расположение дверей и их количество?
-          Куда и как установить кондиционер?
-          Как выполнить вентиляцию?
-          Какая облицовка будет снаружи и есть ли чистовая облицовка внутри?</p>
-        <p class="experts__text">Ответим на все Ваши вопросы используя свои многолетний опыт и знания.</p>
-        <button class="experts__btn js-animated js-modal" data-class="opacity">Получить консультацию</button>
+    <div class="quiz__result">
+      <div class="quiz__field">
+        <p class="quiz__status">Статус отправки формы</p>
+        <button class="quiz__btnNew form__submit quiz__submit">Отправить еще раз</button>
       </div>
     </div>
   </section>
 
   <section class="adjustments" id="adjustment">
     <div class="adjustments__wrapper">
-      <h2 class="adjustments__title">Наши преимущества</h2>
+      <h2 class="adjustments__title">Почему мы?</h2>
       <div class="adjustments__content">
         <div class="adjustments__item adjustment">
           <p class="adjustment__title adjustment__title--price">Фиксированная стоимость</p>
@@ -515,46 +332,12 @@
     </div>
   </section>
 
-  <section class="steps" id="steps">
-    <div class="steps__content">
-      <h2 class="steps__title js-animated" data-class="opacity">Сотрудничество с нами это 5 простых шагов</h2>
-      <div class="steps__wrapper">
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Составление коммерческого
-            предложения</p>
-          <img loading="lazy" src="./img/steps_1.jpeg" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Согласование технического
-            задания</p>
-          <img loading="lazy" src="./img/steps_4.jpeg" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Заключение договора и
-            внесение аванса</p>
-          <img loading="lazy" src="./img/steps_2.jpeg" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Производство и
-            монтажные работы</p>
-          <img loading="lazy" src="./img/steps_3.jpeg" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Сдача объекта и выдача
-            паспорта объекта</p>
-          <img loading="lazy" src="./img/steps_5.jpeg" alt="Коммерческое предложение" class="steps__img">
-        </div>
-      </div>
-      <button class="steps__btn js-modal js-animated" data-class="opacity" type="button">Начать работу</button>
-    </div>
-  </section>
-
   <section class="design" id="design">
     <div class="design__wrapper">
       <div class="design__title">
-        <h2 class="visually-hidden">Выбрать дизайн</h2>
-        <span class="design__title--first js-animated" data-class="opacity">Выберите ди</span>
-        <span class="design__title--last js-animated" data-class="opacity">зайн объекта</span>
+        <h2 class="visually-hidden">Выполненные объекты</h2>
+        <span class="design__title--first js-animated" data-class="opacity">Выполненные</span>
+        <span class="design__title--last js-animated" data-class="opacity"> &nbsp;объекты</span>
       </div>
       <div class="design__content">
         <a href="#" class="design__item">
@@ -762,6 +545,258 @@
     </div>
   </section>
 
+  <section class="steps" id="steps">
+    <div class="steps__content">
+      <h2 class="steps__title js-animated" data-class="opacity">Сотрудничество с нами это 5 простых шагов</h2>
+      <div class="steps__wrapper">
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Составление коммерческого
+            предложения</p>
+          <img loading="lazy" src="./img/steps_1.jpeg" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Согласование технического
+            задания</p>
+          <img loading="lazy" src="./img/steps_4.jpeg" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Заключение договора и
+            внесение аванса</p>
+          <img loading="lazy" src="./img/steps_2.jpeg" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Производство и
+            монтажные работы</p>
+          <img loading="lazy" src="./img/steps_3.jpeg" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Сдача объекта и выдача
+            паспорта объекта</p>
+          <img loading="lazy" src="./img/steps_5.jpeg" alt="Коммерческое предложение" class="steps__img">
+        </div>
+      </div>
+      <button class="steps__btn js-modal js-animated" data-class="opacity" type="button">Начать работу</button>
+    </div>
+  </section>
+
+  <section class="experts">
+    <div class="experts__wrapper">
+      <div class="experts__img">
+      </div>
+      <div class="experts__content">
+        <h2 class="experts__title js-animated" data-class="opacity">Мы эксперты</h2>
+        <p class="experts__text">Наша компания оказывает широкий спектр услуг по строительству быстровозводимых объектов
+          и смежному производству.</p>
+        <p class="experts__text">Какое основание необходимо для установки объекта?
+          Будет ли объект тёплый и какие материалы используются?
+          Правильное расположение дверей и их количество?
+          Куда и как установить кондиционер?
+          Как выполнить вентиляцию?
+          Какая облицовка будет снаружи и есть ли чистовая облицовка внутри?</p>
+        <p class="experts__text">Ответим на все Ваши вопросы используя свои многолетний опыт и знания.</p>
+        <button class="experts__btn js-animated js-modal" data-class="opacity">Получить консультацию</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="services__wrapper">
+      <h2 class="services__title">Наши услуги</h2>
+      <div class="services__container">
+        <div class="services__item">
+          <img src="./img/services_1.webp" loading="lazy" alt="Некапитальный объект" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Изготовление некапитальных объектов из сэндвич-панелей от 14 дней</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_2.webp" loading="lazy" alt="Устройство фундамента" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Устройство основания под объект из металлических винтовых свай, дорожных плит,
+              бетонной ленты, бетонной плиты</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_3_temp.jpeg" loading="lazy" alt="3D проект" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Проектирование согласно СП и 3D-моделирование</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_4.jpg" loading="lazy" alt="Специалисты" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Бесплатный выезд специалиста, замер, расчёт</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_5.jpeg" loading="lazy" alt="Доставка и разгрузка" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Благоустройство территории объекта, озеленение</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_6.jpeg" loading="lazy" alt="Благоустройство объекта" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Загрузка, доставка, разгрузка всех материалов и комплектующих, доставка габаритных
+              объектов в сборе</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feedback">
+    <h2 class="feedback__title">Отзывы о нас</h2>
+    <div class="feedback__wrapper">
+      <iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
+        src="https://yandex.ru/maps-reviews-widget/2369263383?comments"></iframe>
+      <a href="https://yandex.ru/maps/org/modulnyye_tekhnologii_grupp/2369263383/" target="_blank"
+        style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">Модульные
+        Технологии Групп на карте Москвы — Яндекс Карты</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about__tabs js-animated" data-class="opacity">
+      <button class="about__tab about__tab--active" data-tab="1">О нас</button>
+      <button class="about__tab" data-tab="2">О павильонах</button>
+      <button class="about__tab" data-tab="3">Об установке</button>
+    </div>
+
+    <div class="about__container js-animated" data-class="opacity">
+      <div class="about__content" data-content="1">
+        <img src="./img/about--us.jpeg" alt="О нас" class="about__img">
+        <p>Наша команда – это профессиональные и опытные монтажники, талантливый 3Д дизайнер,
+          грамотные проектировщики и опытные менеджеры. Мы строим качественные и современные
+          павильоны и торговые ряды из сэндвич-панелей, торговые некапитальные быстровозводимые
+          здания, торговые павильоны около торговых центров, административные и хозяйственные
+          сооружения из металлокаркаса и сэндвич-панелей.</p>
+
+        <p>Проект начинается с эскиза и дизайна, далее происходит проектирование металлокаркаса, закупка
+          материалов и затем происходит начало строительства. Мы построим любой объект, допустимого
+          размера качественно и ответственно. На любом этапе, даже во время строительства, Заказчик
+          может внести изменения в проект павильона.
+          Мы работаем по договору, с зафиксированной стоимостью. К договору прилагается техническое
+          задание, в котором указаны используемые материалы и отображён итоговый внешний вид
+          павильона. На наши торговые павильоны и торговые ряды мы даём гарантия от одного года.
+          По факту изготовления павильона мы выдаём технический паспорт некапитального
+          быстровозводимого объекта. (торгового ряда, торгового павильона, либо другое название по
+          Вашему запросу)
+          Материалы и комплектующие мы напрямую покупаем у заводов производителей, что существенно
+          экономит бюджет Заказчика.</p>
+
+        <p>Наша команда построит Вам современный и качественный объект, который обязательно принесёт
+          Вам прибыль.</p>
+
+        <p><b>Торговый павильон, нестационарный павильон</b> – это объект, для ведения торговли, продажи
+          товаров и услуг.</p>
+        <p>Для круглогодичной эксплуатации павильон должен быть утеплённым и хорошо герметизирован.</p>
+        <p>Чаще всего павильоны строятся из металлокаркаса и сэндвич-панелей. В Администрациях городов
+          данные объекты классифицируются как нестационарные торговые объекты (НТО), либо
+          быстровозводимые некапитальные строения.</p>
+        <p>Павильоны из сэндвич-панелей могут применяться и в других видах деятельности, например:
+          административные строения, автосервисы, шиномонтаж, торговые комплексы, офисные
+          помещения, хозяйственные постройки, кафе из сэндвич-панелей, ресторан из сэндвич-панелей,
+          храм из сэндвич-панелей, помещения общего назначения, шоу-рум, контрольно-пропускные
+          пункты (КПП), пункты проката, кассы и прочее.</p>
+        <p><b>Торговый ряд, торговая галерея</b> – это объект, для ведения торговли совмещающий в себе
+          несколько разных видов товаров и услуг.
+          Торговые ряды и торговые галереи также изготавливаются из сэндвич-панелей, утеплены и
+          подходят для круглогодичной эксплуатации.
+          Наши Заказчики чаще всего покупают торговый ряд и сдают его в аренду, или в субаренду.
+          Срок окупаемости таких объектов, в зависимости от региона, составляет от одного года до двух
+          лет.</p>
+      </div>
+
+      <div class="about__content" data-content="2">
+        <img src="./img/about--prod.jpeg" alt="О Павильонах" class="about__img">
+        <p>Некапитальные павильоны и торговые ряды и прочие мобильные быстровозводимые здания – это
+          отличная альтернатива капитальным объектам. Время строительства быстровозводимых
+          павильонов и торговых рядов из сэндвич-панелей составляет не более одного-двух месяцев, в
+          зависимости от площади. Павильоны из сэндвич-панелей используются в качестве торговых,
+          административных, хозяйственно-складских площадей, офисных помещений, шиномонтажей,
+          автосервисов, мобильных офисов и комплексов, производственных помещений и в прочих
+          отраслях.</p>
+        <p>Павильоны, торговые ряды и магазины изготавливаются любых размеров, согласованных с
+          Заказчиком. Купить некапитальный объект из сэндвич-панелей можно как для работы
+          индивидуально в небольшом павильоне, так и для строительства большого торгового ряда с
+          разделением на секции, для сдачи в аренду.</p>
+        <p>За счёт минимального набора документов и достаточно простого конструктива, торговый ряд или
+          торговый павильон, автосервис, шиномонтаж, магазин автозапчастей и масел можно быстро
+          построить и сразу же начать эксплуатировать.</p>
+        <p>Конструктив, из которого состоит торговый павильон или торговый ряд: сварной металлокаркас на
+          который крепятся сэндвич-панели с утеплителем. Утеплитель сэндвич-панелей на выбор Заказчика
+          в зависимости от назначения и требований:</p>
+        <ul class="about__list about__list--disc">
+          <li>пенополистирол</li>
+          <li>минеральная (базальтовая) вата</li>
+          <li>пенополиизоцианурат</li>
+        </ul>
+        <p>Материалы используемые при строительстве павильонов и торговых рядов имеют сертификаты
+          качества, пожарные сертификаты и соответствуют экологическим и санитарным нормам.</p>
+        <p>Данные объекты устанавливаются на металлические винтовые сваи, дорожные плиты, асфальтовое
+          покрытие и бетонные плиты. Облицовка фасадов павильонов изготавливается по архитектурному
+          решению исходя из пожеланий Заказчика.</p>
+        <p>Сам по себе павильон или торговый ряд утеплённый, но дополнительно оснащается вентиляцией,
+          приборами отопления/охлаждения по запросу. Исходя из этого объект можно использовать
+          круглый год и в любых погодных условия.</p>
+        <p>Преимущества торговых павильонов и торговых рядов из сэндвич-панелей:</p>
+        <ul class="about__list about__list--num">
+          <li>Быстрый срок окупаемости</li>
+          <li>Быстрый срок строительства</li>
+          <li>Универсальное назначение павильона</li>
+          <li>Любой внешний вид и дизайн</li>
+          <li>Работа круглый год, отсутствие сезонности</li>
+          <li>Возможность быстро разобрать объект и перевезти его в другое место</li>
+          <li>Высокая ликвидность</li>
+        </ul>
+        <p>Ещё одним важным преимуществом покупки быстровозводимых павильонов является их стоимость:
+          расходы на документацию, проектные работы, некоторые материалы и монтажные работы
+          существенно ниже, чем на альтернативных объектах.</p>
+        <p>В нашей компании вы можете купить утеплённый торговый ряд, торговый павильон магазин,
+          офисное помещение, или любое другое некапитальное здание из сэндвич-панелей.</p>
+        <p>Мы слышим и учитываем пожелания Заказчика для достижения максимального результата и
+          качества строительства.
+          Чтобы рассчитать стоимость и заказать павильон, позвоните нам по указанному на сайте телефону
+          или заполните заявку.</p>
+      </div>
+
+      <div class="about__content" data-content="3">
+        <img src="./img/about--install.jpeg" alt="Об Установке" class="about__img">
+        <p>Наши торговые павильоны, торговые ряды и любые здания из сэндвич-панелей можно установить
+          почти на любое основание. Мы в любом случае выставим объект по уровню, в «ноль»</p>
+        <p>В основе павильона заложен крепкий металлокаркас, которые изготавливается из металлических
+          профильных труб, рассчитанного по проекту сечения. Металлокаркас зачищается и
+          обрабатывается антикоррозионной-грунт краской.</p>
+        <p>Далее происходит монтаж утеплителя –
+          сэндвич-панелей. Устанавливаются окна и двери. Весь объект обрабатывается монтажной пеной,
+          силиконом и герметиком. После монтируются декоративные элементы и фризы из алюминиевых
+          композитных панелей (АКП). Стены павильона – это заводские сэндвич-панели, которые не
+          требуют дополнительного окрашивания или облицовки.</p>
+        <p>В стандартной комплектации на пол
+          укладывается влагостойкая OSB плита, линолеум и плинтус. По просьбе Заказчиками мы можем
+          сделать полусухую стяжку с армированием и облицевать пол керамогранитной плиткой.</p>
+        <p>По Вашему желанию вы можете заказать необходимое количество дверей и окон, вентиляцию,
+          рольставни, ступеньки к входным группам и пандусы.</p>
+        <p>Конфигурация объекта может быть разной, исходя из условий установки и габаритов земельного
+          участка, это может быть квадратный павильон, прямоугольный, П-образный, Г-образный или
+          трапецеидальный</p>
+        <p>По итогу Вы получаете готовый к работе утеплённый и красивый павильон для торговли, магазин,
+          офис продаж, или торговый ряд (галерею) готовые к эксплуатации.</p>
+        <p>Наша команда ООО «Модульные технологии групп» следит за современными тенденциями
+          строительных материалов и применяет их на практике строительства.</p>
+        <p>Чтобы купить павильон из сэндвич-панелей звоните нам, или оставьте заявку и мы свяжемся с
+          Вами.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="map">
     <div class="map__wrapper">
       <div class="map__description">
@@ -774,10 +809,17 @@
       </div>
     </div>
     <div class="map__map" id="location">
-      <iframe class="map__map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.6386678591334!2d37.721003877305215!3d55.712652273069374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ad11db00001%3A0x3230c89f0c347e1b!2z0JLQvtC70LPQvtCz0YDQsNC00YHQutC40Lkg0L_RgC3Rgi4sIDQ3LCDQnNC-0YHQutCy0LAsIDEwOTMxNg!5e0!3m2!1sru!2sru!4v1681982218227!5m2!1sru!2sru"
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Карта"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div style="position:relative;overflow:hidden;">
+        <a href="https://yandex.ru/maps/org/modulnyye_tekhnologii_grupp/2369263383/?utm_medium=mapframe&utm_source=maps"
+          style="color:#eee;font-size:12px;position:absolute;top:0px;">Модульные Технологии Групп</a>
+        <a href="https://yandex.ru/maps/213/moscow/category/prefabricated_buildings/184107425/?utm_medium=mapframe&utm_source=maps"
+          style="color:#eee;font-size:12px;position:absolute;top:14px;">Быстровозводимые здания в Москве</a><a
+          href="https://yandex.ru/maps/213/moscow/category/retail_equipment/184106990/?utm_medium=mapframe&utm_source=maps"
+          style="color:#eee;font-size:12px;position:absolute;top:28px;">Торговое оборудование в Москве</a>
+        <iframe class="map__map"
+          src="https://yandex.ru/map-widget/v1/?ll=37.723870%2C55.712594&mode=search&oid=2369263383&ol=biz&sll=82.920430%2C55.030199&sspn=0.369415%2C0.144949&text=%D0%B2%D0%BE%D0%BB%D0%B3%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2047&z=12"
+          frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+      </div>
     </div>
   </section>
 
@@ -884,19 +926,8 @@
 
   <ul class="controls">
     <li>
-      <a href="tel:+79257145111" class="controls__item controls__item--phone" aria-label="Позвонить нам"></a>
-    </li>
-    <li>
-      <a href="mailto:info@modul-tehno.ru" class="controls__item controls__item--mail"
-        aria-label="Написать на почту"></a>
-    </li>
-    <li>
       <a href="https://api.whatsapp.com/send?phone=79257145111" class="controls__item controls__item--whatsapp"
         aria-label="Связаться в WhatsApp"></a>
-    </li>
-    <li>
-      <a href="https://t.me/+79257145111" class="controls__item controls__item--telegram"
-        aria-label="Связаться в Telegram"></a>
     </li>
   </ul>
 

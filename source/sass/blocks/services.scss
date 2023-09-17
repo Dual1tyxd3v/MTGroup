@@ -1,19 +1,6 @@
 .services {
-  padding-top: 18px;
-  &__wrapper {
-    padding: 0 20px;
-  }
-  &__title {
-    margin-bottom: 18px;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.4em;
-    text-align: center;
-  }
-  &__img {
-    margin-bottom: 30px;
-    border-radius: 10px;
-  }
+  display: none;
+
   &__text {
     font-size: 20px;
     line-height: 1.5em;
@@ -23,12 +10,8 @@
   &__btn {
     border: none;
     cursor: pointer;
-    box-shadow: 0.79px 0.62px 7px black;
     background-color: #FF2C00;
     color: rgb(245, 245, 245);
-    font-size: 14px;
-    letter-spacing: 0.7px;
-    padding: 5px 8px;
     border-radius: 3px;
     transition: all .2s;
     &:hover {
@@ -38,20 +21,20 @@
       box-shadow: 0 5px 10px rgba(0, 0, 0, .6);
     }
   }
-  &__item {
-    margin-bottom: 40px;
-    padding-bottom: 10px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
 @media (min-width: $tablet-width) {
   .services {
+    display: block;
     padding-bottom: 26px;
+    padding-top: 18px;
+
     &__title {
       font-size: 36px;
+      margin-bottom: 18px;
+      font-weight: 700;
+      line-height: 1.4em;
+      text-align: center;
     }
     &__img {
       width: 360px;
@@ -59,11 +42,12 @@
       object-fit: cover;
       margin-right: 10px;
       margin-bottom: 56px;
+      border-radius: 10px;
     }
     &__item {
       display: flex;
       width: 649px;
-      margin: 0 auto 56px auto;
+      margin: 0 auto 56px;
       padding: 0;
     }
     &__description {
@@ -84,10 +68,10 @@
 
 @media (min-width: $desktop-width) {
   .services {
+    padding-bottom: 26px;
     &__title {
       font-size: 50px;
     }
-    padding-bottom: 26px;
     &__wrapper {
       padding: 0;
       max-width: 1318px;

@@ -9,8 +9,21 @@
     position: relative;
   }
 
-  &__question {
+  &__result {
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    display: none;
+  }
+
+  &__title {
     font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__question,
+  &__status {
+    font-size: 16px;
     margin-bottom: 20px;
   }
 
@@ -28,7 +41,7 @@
     margin-bottom: 30px;
     align-items: center;
 
-    &--3 {
+    &--2r {
       max-width: 600px;
       display: grid;
       grid-template-columns: 1fr;
@@ -130,6 +143,28 @@
     &:not(:last-child) {
       margin-bottom: 15px;
     }
+
+    &--alt {
+      & label {
+        margin: 0;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: "";
+          font-size: 20px;
+          line-height: 1;
+          display: block;
+          width: 20px;
+          height: 20px;
+          background-image: url(../img/quiz-unchecked.svg);
+          background-size: 22px;
+          background-position: center;
+          margin-right: 15px;
+        }
+      }
+    }
   }
 
   &__label {
@@ -153,6 +188,14 @@
 
     &:not(:required) {
       border: 2px solid #000;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked + label::before {
+      background-image: url(../img/quiz--checked.svg);
     }
   }
 
@@ -222,17 +265,19 @@
       flex-wrap: wrap;
 
       &--dimension {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
       }
 
-      &--3 {
+      &--2r {
         grid-template-columns: 1fr 1fr;
         grid-row-gap: 20px;
       }
     }
 
     &__btn {
-      width: 145px;
+      width: 155px;
       margin-bottom: 0 !important;
     }
   }
@@ -274,8 +319,21 @@
       width: 80%;
     }
 
-    &__question {
+    &__result {
+      width: 80%;
+    }
+
+    &__title {
       font-size: 28px;
+    }
+
+    &__question,
+    &__status {
+      font-size: 20px;
+    }
+
+    &__btn {
+      width: 220px;
     }
   }
 }
@@ -291,16 +349,27 @@
       &:not(:last-child) {
         margin-bottom: 0;
       }
+
+      &--alt {
+        grid-column: 1/-1;
+        align-self: center;
+      }
     }
 
     &__answers {
       &--dimension {
-        flex-direction: row;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-row-gap: 20px;
       }
     }
 
-    &__question {
+    &__title {
       font-size: 40px;
+    }
+
+    &__question,
+    &__status {
+      font-size: 28px;
     }
   }
 }
