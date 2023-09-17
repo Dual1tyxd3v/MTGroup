@@ -1,20 +1,20 @@
 .adjustments {
-  padding: 25px 30px 40px;
-  color: #fff;
-  background-color: #000;
+  padding: 0 30px 40px;
   &__title {
-    // color: rgb(30, 30, 30);
+    color: #fff;
+    background-color: #000;
     font-size: 23px;
     font-weight: 700;
     line-height: 1.4em;
+    padding: 2rem 0 2rem;
     text-align: center;
-    margin-bottom: 38px;
+    margin: 6rem 0 2rem;
   }
 }
 
 @media (min-width: $tablet-width) {
   .adjustments {
-    padding: 40px 30px;
+    padding: 0 30px 40px 30px;
     &__content {
       display: flex;
       flex-wrap: wrap;
@@ -23,7 +23,7 @@
     }
     &__title {
       font-size: 35px;
-      margin-bottom: 45px;
+
     }
   }
 }
