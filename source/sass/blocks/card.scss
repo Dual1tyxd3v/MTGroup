@@ -1,5 +1,5 @@
 .card {
-  min-width: 320px;
+  min-width: 100%;
   text-align: center;
   display: block;
   line-height: 1;
@@ -36,7 +36,6 @@
 
   &__img {
     transition: all .2s;
-    height: 240px;
     width: 100%;
     object-fit: cover;
 
@@ -58,6 +57,7 @@
 
 @media (min-width: $tablet-width) {
   .card {
+    min-width: 320px;
     &__btn {
       font-size: 19px;
       padding: 8.5px 28px;

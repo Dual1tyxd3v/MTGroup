@@ -1209,7 +1209,7 @@ img {
   }
 }
 .card {
-  min-width: 320px;
+  min-width: 100%;
   text-align: center;
   display: block;
   line-height: 1;
@@ -1243,7 +1243,6 @@ img {
 }
 .card__img {
   transition: all 0.2s;
-  height: 240px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1261,6 +1260,9 @@ img {
 }
 
 @media (min-width: 768px) {
+  .card {
+    min-width: 320px;
+  }
   .card__btn {
     font-size: 19px;
     padding: 8.5px 28px;
@@ -1285,14 +1287,30 @@ img {
   padding: 0 30px;
   background-color: #fff;
   overflow: hidden;
-  width: 100%;
+  position: relative;
 }
 .design__slider {
   display: flex;
   transition: all 0.2s;
 }
 .design__control {
+  display: block;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  width: 50px;
+  height: 60px;
+  bottom: 15px;
+  z-index: 2;
+}
+.design__control--left {
   display: none;
+  left: 30px;
+  background-image: url(../img/slider_leftBtn.svg);
+}
+.design__control--right {
+  right: 30px;
+  background-image: url(../img/slider_rightBtn.svg);
 }
 
 @media (min-width: 768px) {
@@ -1306,25 +1324,10 @@ img {
   .design__wrapper {
     padding: 0 50px;
   }
-}
-@media (min-width: 980px) {
-  .design__wrapper {
-    position: relative;
-    padding: 0;
-    max-width: 1020px;
-    margin: 0 auto;
-  }
-  .design__title {
-    font-size: 50px;
-  }
   .design__control {
-    display: block;
-    position: absolute;
     height: 368px;
     min-width: 80px;
     top: 0;
-    border: none;
-    background-color: transparent;
     background-size: 30px 50px, 100% 100%;
     background-position-y: 140px, 0;
     z-index: 1;
@@ -1336,7 +1339,34 @@ img {
     background-image: url(../img/slider_rightBtn.svg), linear-gradient(to right, transparent, #fff 30%);
   }
   .design__control--left {
-    display: none;
+    left: 0;
+    background-image: url(../img/slider_leftBtn.svg), linear-gradient(to left, transparent, #fff 30%);
+  }
+}
+@media (min-width: 980px) {
+  .design__wrapper {
+    padding: 0;
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+  .design__title {
+    font-size: 50px;
+  }
+  .design__control {
+    height: 368px;
+    min-width: 80px;
+    top: 0;
+    background-size: 30px 50px, 100% 100%;
+    background-position-y: 140px, 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .design__control--right {
+    right: 0px;
+    background-position-x: 50px, 0;
+    background-image: url(../img/slider_rightBtn.svg), linear-gradient(to right, transparent, #fff 30%);
+  }
+  .design__control--left {
     left: 0;
     background-image: url(../img/slider_leftBtn.svg), linear-gradient(to left, transparent, #fff 30%);
   }

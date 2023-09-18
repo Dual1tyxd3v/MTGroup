@@ -18,7 +18,7 @@
     padding: 0 30px;
     background-color: #fff;
     overflow: hidden;
-    width: 100%;
+    position: relative;
   }
 
   &__slider {
@@ -27,7 +27,25 @@
   }
 
   &__control {
-    display: none;
+    display: block;
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    width: 50px;
+    height: 60px;
+    bottom: 15px;
+    z-index: 2;
+
+    &--left {
+      display: none;
+      left: 30px;
+      background-image: url(../img/slider_leftBtn.svg);
+    }
+
+    &--right {
+      right: 30px;
+      background-image: url(../img/slider_rightBtn.svg);
+    }
   }
 }
 
@@ -43,30 +61,10 @@
     &__wrapper {
       padding: 0 50px;
     }
-  }
-}
-
-@media (min-width: $desktop-width) {
-  .design {
-    &__wrapper {
-      position: relative;
-      padding: 0;
-      max-width: 1020px;
-      margin: 0 auto;
-    }
-
-    &__title {
-      font-size: 50px;
-    }
-
     &__control {
-      display: block;
-      position: absolute;
       height: 368px;
       min-width: 80px;
       top: 0;
-      border: none;
-      background-color: transparent;
       background-size: 30px 50px, 100% 100%;
       background-position-y: 140px, 0;
       z-index: 1;
@@ -79,7 +77,41 @@
       }
 
       &--left {
-        display: none;
+        left: 0;
+        background-image:  url(../img/slider_leftBtn.svg), linear-gradient(to left, transparent, #fff 30%);
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .design {
+    &__wrapper {
+      padding: 0;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    &__title {
+      font-size: 50px;
+    }
+
+    &__control {
+      height: 368px;
+      min-width: 80px;
+      top: 0;
+      background-size: 30px 50px, 100% 100%;
+      background-position-y: 140px, 0;
+      z-index: 1;
+      cursor: pointer;
+
+      &--right {
+        right: 0px;
+        background-position-x: 50px, 0;
+        background-image:  url(../img/slider_rightBtn.svg), linear-gradient(to right, transparent, #fff 30%);
+      }
+
+      &--left {
         left: 0;
         background-image:  url(../img/slider_leftBtn.svg), linear-gradient(to left, transparent, #fff 30%);
       }

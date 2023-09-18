@@ -74,18 +74,22 @@ const animated = document.querySelectorAll('.js-animated');
 animated.forEach((a) => observer.observe(a));
 //
 // slider
-const OFFSET = 380;
+const OFFSET = document.querySelector('.card').getBoundingClientRect().width + 30;
+const CARDS_COUNT = document.querySelectorAll('.design__card').length;
 let LAST_SLIDE = 0;
-const SLIDES_COUNT = document.querySelectorAll('.card').length - 3;
+const SLIDES_COUNT = window.innerWidth > 980 ? CARDS_COUNT - 3 : CARDS_COUNT - 1;
 
 sliderBtnR.addEventListener('click', () => {
-  changeSlide(1)
+  changeSlide(1);
 });
 sliderBtnL.addEventListener('click', () => {
   changeSlide(-1);
 });
 
 function changeSlide(direction) {
+  if ((direction === 1 && LAST_SLIDE === SLIDES_COUNT) || (direction === -1 && LAST_SLIDE === 0)) {
+    return;
+  }
   LAST_SLIDE += direction;
   slider.style.transform = `translateX(-${OFFSET * LAST_SLIDE}px)`;
   checkSlides();
@@ -101,6 +105,7 @@ function checkSlides() {
     sliderBtnL.style.display = 'none';
   }
 }
+
 let touchSlider = null;
 
 slider.addEventListener('touchstart', (e) => {
