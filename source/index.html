@@ -360,7 +360,7 @@
           <p class="card__square">1200 м<sup>2</sup></p>
           <button class="card__btn">Подробнее</button>
           <div class="card__info">
-            <p class="card__name">Some big name</p>
+            <p class="card__name">кремль</p>
             <p class="card__description">Some description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
               labore iste consequatur harum tempora suscipit adipisci quisquam non! Laborum voluptatem ipsum similique
               cumque numquam tempora voluptas amet dolorum incidunt a.</p>
@@ -381,7 +381,17 @@
           <p class="card__title">NAME #1</p>
           <p class="card__square">1200 м<sup>2</sup></p>
           <button class="card__btn">Подробнее</button>
-          <div class="card__gallery"></div>
+          <div class="card__info">
+            <p class="card__name">тадж махал</p>
+            <p class="card__description">Some description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
+              labore iste consequatur harum tempora suscipit adipisci quisquam non! Laborum voluptatem ipsu</p>
+            <p class="card__time">61 дней</p>
+            <div class="card__gallery">
+              <img src="./img/slide25.jpeg">
+              <img src="./img/slide21.jpeg">
+              <img src="./img/slide24.jpeg">
+            </div>
+          </div>
         </a>
         <a href="#" class="design__card card">
           <div class="card__img-wrapper">
@@ -765,7 +775,7 @@
 
   <section class="modal hide js-animated" data-class="opacity">
     <h2 class="visually-hidden">Окно обратной связи</h2>
-    <button class="slider__close" type="button" aria-label="Закрыть слайдер"></button>
+    <button class="modal__close" type="button" aria-label="Закрыть слайдер">&#10006;</button>
     <div class="modal__content">
       <form action="send.php" class="modal__form form" method="POST">
         <div class="form__field">
@@ -790,7 +800,7 @@
     </div>
   </section>
 
-  <div class="card-info hide">
+  <section class="card-info hide">
     <button class="card-info__close">&#10006;</button>
     <div class="card-info__content">
       <div class="card-info__gallery">
@@ -808,10 +818,10 @@
         <p class="card-info__square">Площадь - <span class="card-info__value card-info__value--square"></span></p>
         <p class="card-info__time">Срок строительства - <span class="card-info__value card-info__value--time">12
             дней</span></p>
-        <button class="experts__btn card-info__btn">Нужен такой же</button>
+        <button class="experts__btn js-modal card-info__btn">Нужен такой же</button>
       </div>
     </div>
-  </div>
+  </section>
 
   <button class="scrollUp hide js-animated" data-class="opacity" type="button" aria-label="Вверх"></button>
 
@@ -823,7 +833,7 @@
   </ul>
 
   <section class="policy hide">
-    <button class="slider__close policy__close" type="button" aria-label="Закрыть окно"></button>
+    <button class="modal__close policy__close" type="button" aria-label="Закрыть окно">&#10006;</button>
     <div class="policy__wrapper">
       <h3 class="policy__title">Политика в отношении обработки персональных данных ООО «Модульные Технологии Групп»</h3>
       <p class="policy__text">

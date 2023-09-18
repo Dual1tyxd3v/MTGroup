@@ -12,6 +12,7 @@ const modalBtns = document.querySelectorAll('.js-modal');
 const buttonScrollUp = document.querySelector('.scrollUp');
 const policyBtn = document.querySelector('.footer__text--policy');
 const policyWindow = document.querySelector('.policy');
+const policyClose = document.querySelector('.policy__close');
 const btnExpress = document.querySelector('.main__button--express');
 const quizContainer = document.querySelector('.quiz');
 const quizBlocks = document.querySelectorAll('.quiz__screen');
@@ -43,6 +44,8 @@ const cardMainImage = document.querySelector('.card-info__img');
 const cardGallery = document.querySelector('.card-info__imgs');
 const cardBtnLeft = document.querySelector('.card-info__ctrl--left');
 const cardBtnRight = document.querySelector('.card-info__ctrl--right');
+const cardBtnPay = document.querySelector('.card-info__btn');
+const modalClose = document.querySelector('.modal__close');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -157,7 +160,7 @@ function changeImg(direction, index) {
     img.classList.remove('card-info__img-small--active');
     if(i === currentCardIndex) img.classList.add('card-info__img-small--active');
   });
-  
+
   cardMainImage.classList.remove('card-info__img--ready');
   setTimeout(() => {
     cardMainImage.src = imgs[currentCardIndex].src;
@@ -173,6 +176,20 @@ cardGallery.addEventListener('click', (e) => {
   changeImg(0, +e.target.dataset.index);
 });
 
+let cardTouchSlider = null;
+
+cardMainImage.addEventListener('touchstart', (e) => {
+  cardTouchSlider = e.touches[0].clientX;
+}, { passive: true });
+cardMainImage.addEventListener('touchend', (e) => {
+  if (cardTouchSlider - e.changedTouches[0].clientX === 0) {
+    return;
+  }
+  cardTouchSlider = (cardTouchSlider - e.changedTouches[0].clientX) > 0
+    ? 1 : -1;
+  changeImg(cardTouchSlider, -1);
+}, { passive: true });
+
 function renderCard(card) {
   document.body.style.overflow = 'hidden';
 
@@ -181,7 +198,7 @@ function renderCard(card) {
   cardTime.textContent = card.querySelector('.card__time').textContent;
   cardSquare.textContent = card.querySelector('.card__square').textContent;
 
-  const imgsData = document.querySelector('.card__gallery').querySelectorAll('img');
+  const imgsData = card.querySelector('.card__gallery').querySelectorAll('img');
   imgsData.forEach((img, i) => {
     const newImg = img.cloneNode(true);
     newImg.classList.add('card-info__img-small');
@@ -193,6 +210,8 @@ function renderCard(card) {
   });
   cardsCount = imgs.length - 1;
   cardMainImage.src = imgs[0].src;
+
+  cardBtnPay.dataset.copy = cardTitle.textContent;
 
   cardModal.classList.remove('hide');
 }
@@ -329,6 +348,8 @@ forms.forEach(form => {
     currentForm.dataset.location
       ? data.set('location', currentForm.dataset.location)
       : null;
+    currentForm.dataset.copy
+      ? data.set('copy', currentForm.dataset.copy) : null;
 
     currentForm.querySelector('input[type="submit"]').setAttribute('disabled', true);
 
@@ -341,8 +362,6 @@ forms.forEach(form => {
           status.textContent = 'Сообщение отправлено';
           quizStatus.textContent = 'Сообщение отправлено';
           setTimeout(() => status.textContent = ``, 2000);
-          // currentForm.reset();
-          // initQuiz();
         } else {
           status.textContent = 'Ошибка отправки';
           setTimeout(() => status.textContent = ``, 2000);
@@ -359,12 +378,20 @@ forms.forEach(form => {
 // отображение модального окна
 modalBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    document.querySelector('body').style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
     e.target.dataset.location
       ? modal.querySelector('form').dataset.location = e.target.dataset.location
       : modal.querySelector('form').dataset.location = '';
+
+    e.target.dataset.copy
+      ? modal.querySelector('form').dataset.copy = e.target.dataset.copy : null;
     modal.classList.toggle('hide');
   });
+});
+
+modalClose.addEventListener('click', () => {
+  modal.classList.add('hide');
+  document.body.style.overflow = 'auto';
 });
 //
 // показ кнопки Наверх
@@ -380,14 +407,18 @@ window.addEventListener('scroll', () => {
 buttonScrollUp.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });
-
+// окно с политикой
 policyBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
   policyWindow.classList.remove('hide');
-  document.querySelector('body').style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
 });
-
+policyClose.addEventListener('click', () => {
+  policyWindow.classList.add('hide');
+  document.body.style.overflow = 'auto';
+});
+//
 //EXPRESS BUTTON SMOOTH SCROLL
 btnExpress.addEventListener('click', (e) => {
   e.preventDefault();

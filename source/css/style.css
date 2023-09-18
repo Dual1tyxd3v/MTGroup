@@ -957,6 +957,41 @@ img {
     margin: 0 auto;
   }
 }
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.modal__form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(30, 30, 30);
+  padding: 20px;
+  border-radius: 20px;
+  width: 75%;
+  min-width: 280px;
+}
+.modal__close {
+  position: fixed;
+  right: 15px;
+  top: 10px;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .modal__form {
+    width: 50%;
+  }
+}
 .adjustment {
   margin-bottom: 25px;
   border-top: 163px solid transparent;
@@ -1276,7 +1311,7 @@ img {
   width: 100vw;
   height: 100vh;
   top: 0;
-  z-index: 10;
+  z-index: 9;
   background-color: rgba(0, 0, 0, 0.95);
   color: #fff;
   padding: 0 10px;
@@ -1357,7 +1392,8 @@ img {
   border: none;
   background-color: transparent;
   width: 26px;
-  height: 50px;
+  height: 150px;
+  background-position: center;
   cursor: pointer;
 }
 .card-info__ctrl--left {
@@ -1372,6 +1408,11 @@ img {
 @media (min-width: 980px) {
   .card-info {
     padding-top: 40px;
+  }
+  .card-info__close {
+    font-size: 40px;
+    top: 30px;
+    right: 50px;
   }
   .card-info__content {
     display: flex;
@@ -2372,40 +2413,6 @@ img {
     background-size: 30px;
   }
 }
-.modal {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.modal__form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(30, 30, 30);
-  padding: 20px;
-  border-radius: 20px;
-  width: 75%;
-  min-width: 280px;
-}
-.modal__close {
-  position: fixed;
-  right: 15px;
-  top: 10px;
-  border: none;
-  background-color: transparent;
-  color: #fff;
-  font-size: 30px;
-}
-
-@media (min-width: 768px) {
-  .modal__form {
-    width: 50%;
-  }
-}
 .controls {
   position: fixed;
   bottom: 20px;
@@ -2460,10 +2467,6 @@ img {
   overflow: auto;
   max-width: 900px;
   padding: 20px;
-}
-.policy__close {
-  top: 0;
-  right: 0;
 }
 .policy__text {
   font-size: 15px;

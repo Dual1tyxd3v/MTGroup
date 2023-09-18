@@ -26,6 +26,7 @@ if ($_POST['phone']) {
     $when = ($_POST['when']);
     $city = ($_POST['address']);
     $place = ($_POST['place']);
+    $copy = ($_POST['copy']);
     $dimensions = '___';
 
     if ($length) {
@@ -47,7 +48,8 @@ if ($_POST['phone']) {
         'Имеется место установки:' => $place ? $place : '___',
         'Когда нужен:' => $when ? $when : '___',
         'Адрес установки:' => $city ? $city : '___',
-        'Размеры (ДхШхВ):' => $dimensions
+        'Размеры (ДхШхВ):' => $dimensions,
+        'Нужен похожий на:' => $copy ? $copy : '___'
     );
 
 //Настраиваем внешний вид сообщения в телеграме
