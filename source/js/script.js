@@ -2,13 +2,6 @@ const burgerBtn = document.querySelector('.header__burger');
 const header = document.querySelector('.header');
 const menuLinks = document.querySelectorAll('.menu__item');
 const galleryItems = document.querySelectorAll('.design__item');
-const slider = document.querySelector('.slider');
-const sliderCloseBtn = document.querySelectorAll('.slider__close');
-const sliderImg = document.querySelector('.slider__img');
-const sliderCounter = document.querySelector('.slider__counter');
-const sliderText = document.querySelector('.slider__text');
-const sliderNextBtn = document.querySelector('.slider__rightBtn');
-const sliderPrevBtn = document.querySelector('.slider__leftBtn');
 const nameField = document.querySelector('#name');
 const phoneField = document.querySelector('#phone');
 const messageField = document.querySelector('textarea');
@@ -37,6 +30,9 @@ const quizError = document.querySelector('.quiz__error');
 const tabsContainer = document.querySelector('.about__tabs');
 const tabs = document.querySelectorAll('.about__tab');
 const tabsContent = document.querySelectorAll('.about__content');
+const sliderBtnR = document.querySelector('.design__control--right');
+const sliderBtnL = document.querySelector('.design__control--left');
+const slider = document.querySelector('.design__slider');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -77,68 +73,40 @@ const observer = new IntersectionObserver(entries => {
 const animated = document.querySelectorAll('.js-animated');
 animated.forEach((a) => observer.observe(a));
 //
-// слайдер
-let currentSlideIndex = 0;
-let slideAction = false;
+// slider
+const OFFSET = 380;
+let LAST_SLIDE = 0;
+const SLIDES_COUNT = document.querySelectorAll('.card').length - 3;
 
-sliderCloseBtn.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.target.parentElement.classList.add('hide');
-    document.querySelector('body').style.overflow = 'visible';
-  });
+sliderBtnR.addEventListener('click', () => {
+  changeSlide(1)
 });
-
-galleryItems.forEach((item, i) => {
-  item.addEventListener('click', (e) => {
-    e.preventDefault();
-    currentSlideIndex = i;
-    loadSlide(e.currentTarget);
-  });
-});
-
-sliderNextBtn.addEventListener('click', () => {
-  changeSlide(1);
-});
-
-sliderPrevBtn.addEventListener('click', () => {
+sliderBtnL.addEventListener('click', () => {
   changeSlide(-1);
 });
-// --загрузка слайдов
-function loadSlide(obj) {
-  const currentSrc = obj.querySelector('img').src;
-  const text = obj.querySelector('.design__text').textContent;
-  sliderCounter.textContent = `${currentSlideIndex + 1} / ${galleryItems.length}`;
-  sliderImg.src = currentSrc;
-  sliderImg.alt = text;
-  sliderText.textContent = text;
-  slider.classList.remove('hide');
-  document.querySelector('body').style.overflow = 'hidden';
-}
-// --смена слайдов
-function changeSlide(ind) {
-  if (slideAction) return;
-  slideAction = true;
-  currentSlideIndex = currentSlideIndex + ind;
-  if (currentSlideIndex < 0) {
-    currentSlideIndex = galleryItems.length - 1;
-  }
-  if (currentSlideIndex === galleryItems.length) {
-    currentSlideIndex = 0;
-  }
-  sliderImg.classList.add('slider__img--animated');
-  setTimeout(() => {
-    loadSlide(galleryItems[currentSlideIndex]);
-    sliderImg.classList.remove('slider__img--animated');
-  }, 300);
-  setTimeout(() => slideAction = false, 600);
+
+function changeSlide(direction) {
+  LAST_SLIDE += direction;
+  slider.style.transform = `translateX(-${OFFSET * LAST_SLIDE}px)`;
+  checkSlides();
 }
 
+function checkSlides() {
+  sliderBtnR.style.display = 'block';
+  sliderBtnL.style.display = 'block';
+  if (LAST_SLIDE === SLIDES_COUNT) {
+    sliderBtnR.style.display = 'none';
+  }
+  else if (LAST_SLIDE === 0) {
+    sliderBtnL.style.display = 'none';
+  }
+}
 let touchSlider = null;
 
-sliderImg.addEventListener('touchstart', (e) => {
+slider.addEventListener('touchstart', (e) => {
   touchSlider = e.touches[0].clientX;
 }, { passive: true });
-sliderImg.addEventListener('touchend', (e) => {
+slider.addEventListener('touchend', (e) => {
   if (touchSlider - e.changedTouches[0].clientX === 0) return;
   touchSlider = (touchSlider - e.changedTouches[0].clientX) > 0
     ? 1 : -1;
@@ -327,32 +295,6 @@ policyBtn.addEventListener('click', (e) => {
   policyWindow.classList.remove('hide');
   document.querySelector('body').style.overflow = 'hidden';
 });
-
-// функционал показать еще
-const container = document.querySelector('.design__content');
-const btnMore = document.querySelector('.show-more');
-const btnContainer = document.querySelector('.design__show-more');
-
-let showedCards = 0;
-const CARDS_TO_SHOW = 6;
-container.innerHTML = '';
-btnContainer.style.display = 'block';
-
-function showMore(container, showedCount, addCount, gallery) {
-  for (let i = showedCount, f = addCount; i < gallery.length && f > 0; i++, f--) {
-    if (i === gallery.length - 1) {
-      btnContainer.style.display = 'none';
-    }
-    showedCards++;
-    container.append(gallery[i]);
-  }
-}
-
-showMore(container, showedCards,
-  window.innerWidth >= 980 ? 9 : 6,
-  galleryItems);
-
-btnMore.addEventListener('click', () => showMore(container, showedCards, CARDS_TO_SHOW, galleryItems));
 
 //EXPRESS BUTTON SMOOTH SCROLL
 btnExpress.addEventListener('click', (e) => {
