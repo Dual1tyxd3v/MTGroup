@@ -1306,6 +1306,13 @@ img {
 }
 .card-info__img {
   width: 75vw;
+  transition: all 0.2s;
+  transform: scale(0.1);
+  opacity: 0;
+}
+.card-info__img--ready {
+  transform: scale(1);
+  opacity: 1;
 }
 .card-info__imgs {
   display: flex;

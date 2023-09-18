@@ -37,6 +37,14 @@
 
   &__img {
     width: 75vw;
+    transition: all .2s;
+    transform:  scale(.1);
+    opacity: 0;
+
+    &--ready {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 
   &__imgs {

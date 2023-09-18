@@ -41,6 +41,8 @@ const cardSquare = document.querySelector('.card-info__value--square');
 const cardTime = document.querySelector('.card-info__value--time');
 const cardMainImage = document.querySelector('.card-info__img');
 const cardGallery = document.querySelector('.card-info__imgs');
+const cardBtnLeft = document.querySelector('.card-info__ctrl--left');
+const cardBtnRight = document.querySelector('.card-info__ctrl--right');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -155,10 +157,16 @@ function changeImg(direction, index) {
     img.classList.remove('card-info__img-small--active');
     if(i === currentCardIndex) img.classList.add('card-info__img-small--active');
   });
-
-  cardMainImage.src = imgs[currentCardIndex].src;
+  
+  cardMainImage.classList.remove('card-info__img--ready');
+  setTimeout(() => {
+    cardMainImage.src = imgs[currentCardIndex].src;
+    cardMainImage.classList.add('card-info__img--ready');
+  }, 200);
 }
 
+cardBtnLeft.addEventListener('click', () => changeImg(-1, -1));
+cardBtnRight.addEventListener('click', () => changeImg(1, -1));
 cardGallery.addEventListener('click', (e) => {
   if (!e.target.classList.contains('card-info__img-small')) return;
 
