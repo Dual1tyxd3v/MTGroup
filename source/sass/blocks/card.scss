@@ -5,6 +5,10 @@
   line-height: 1;
   color: #000;
 
+  &__info {
+    display: none;
+  }
+
   &:not(:last-child) {
     margin-right: 30px;
   }

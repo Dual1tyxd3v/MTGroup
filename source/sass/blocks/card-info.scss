@@ -1,0 +1,185 @@
+.card-info {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: #fff;
+  padding: 0 10px;
+  overflow: auto;
+
+  &__close {
+    position: fixed;
+    right: 15px;
+    top: 10px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  &__content {
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  &__gallery {
+    margin-bottom: 20px;
+  }
+
+  &__main {
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 75vw;
+  }
+
+  &__imgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__img-small {
+    width: 15vw;
+
+    &--active {
+      outline: 3px solid rgba(249, 0, 0);
+      border-radius: 5px;
+    }
+  }
+
+  &__description {
+    text-align: left;
+    font-size: 16px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+
+  &__text,
+  &__square,
+  &__time {
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  &__value {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  &__btn {
+    width: 100%;
+    text-transform: uppercase;
+  }
+
+  &__ctrl {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    width: 26px;
+    height: 50px;
+    cursor: pointer;
+
+    &--left {
+      background-image: url(../img/modal--left.svg);
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+      background-image: url(../img/modal--right.svg);
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .card-info {
+    padding-top: 40px;
+    &__content {
+      display: flex;
+    }
+
+    &__gallery {
+      width: 70%;
+    }
+
+    &__description {
+      width: 30%;
+    }
+
+    &__img {
+      width: 70%;
+    }
+
+    &__ctrl {
+      width: 50px;
+      height: 70px;
+      transition: all .2s;
+
+      &:hover {
+        width: 60px;
+        height: 90px;
+      }
+
+      &--left {
+        left: 30px;
+      }
+
+      &--right {
+        right: 30px;
+      }
+    }
+
+    &__img-small {
+      width: 13%;
+      transition: all .2s;
+
+      &:hover {
+        transform: translateY(-10px) scale(1.05);
+      }
+    }
+
+    &__imgs {
+      gap: 20px;
+    }
+
+    &__main {
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      font-size: 50px;
+      margin-bottom: 40px;
+    }
+
+    &__text,
+    &__square,
+    &__time {
+      font-size: 35px;
+      margin-bottom: 40px;
+    }
+
+    &__time {
+      margin-bottom: 100px;
+    }
+
+    &__btn {
+      width: 70%;
+    }
+  }
+}

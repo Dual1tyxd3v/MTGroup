@@ -33,6 +33,14 @@ const tabsContent = document.querySelectorAll('.about__content');
 const sliderBtnR = document.querySelector('.design__control--right');
 const sliderBtnL = document.querySelector('.design__control--left');
 const slider = document.querySelector('.design__slider');
+const cardModal = document.querySelector('.card-info');
+const cardBtnClose = document.querySelector('.card-info__close');
+const cardTitle = document.querySelector('.card-info__title');
+const cardText = document.querySelector('.card-info__text');
+const cardSquare = document.querySelector('.card-info__value--square');
+const cardTime = document.querySelector('.card-info__value--time');
+const cardMainImage = document.querySelector('.card-info__img');
+const cardGallery = document.querySelector('.card-info__imgs');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
@@ -112,12 +120,83 @@ slider.addEventListener('touchstart', (e) => {
   touchSlider = e.touches[0].clientX;
 }, { passive: true });
 slider.addEventListener('touchend', (e) => {
-  if (touchSlider - e.changedTouches[0].clientX === 0) return;
+  if (touchSlider - e.changedTouches[0].clientX === 0) {
+    return;
+  }
   touchSlider = (touchSlider - e.changedTouches[0].clientX) > 0
     ? 1 : -1;
   changeSlide(touchSlider);
 }, { passive: true });
 //
+
+// show card modal
+let currentCardIndex = 0;
+let cardsCount = 0;
+let imgs = [];
+
+cardBtnClose.addEventListener('click', () => closeCard());
+cardModal.addEventListener('click', (e) => {
+  if (e.target.classList.contains('card-info') || e.target.classList.contains('card-info__main')) closeCard();
+});
+
+function closeCard() {
+  cardModal.classList.add('hide');
+  cardGallery.innerHTML = '';
+  document.body.style.overflow = 'auto';
+  imgs = [];
+}
+
+function changeImg(direction, index) {
+  currentCardIndex = index >= 0 ? index : currentCardIndex + direction ;
+  if (currentCardIndex < 0) currentCardIndex = cardsCount;
+  if (currentCardIndex > cardsCount) currentCardIndex = 0;
+
+  imgs.forEach((img, i) => {
+    img.classList.remove('card-info__img-small--active');
+    if(i === currentCardIndex) img.classList.add('card-info__img-small--active');
+  });
+
+  cardMainImage.src = imgs[currentCardIndex].src;
+}
+
+cardGallery.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('card-info__img-small')) return;
+
+  changeImg(0, +e.target.dataset.index);
+});
+
+function renderCard(card) {
+  document.body.style.overflow = 'hidden';
+
+  cardTitle.textContent = card.querySelector('.card__name').textContent;
+  cardText.textContent = card.querySelector('.card__description').textContent;
+  cardTime.textContent = card.querySelector('.card__time').textContent;
+  cardSquare.textContent = card.querySelector('.card__square').textContent;
+
+  const imgsData = document.querySelector('.card__gallery').querySelectorAll('img');
+  imgsData.forEach((img, i) => {
+    const newImg = img.cloneNode(true);
+    newImg.classList.add('card-info__img-small');
+    newImg.setAttribute('alt', 'Slide');
+    newImg.dataset.index = i;
+    i === 0 && newImg.classList.add('card-info__img-small--active');
+    cardGallery.append(newImg);
+    imgs.push(newImg)
+  });
+  cardsCount = imgs.length - 1;
+  cardMainImage.src = imgs[0].src;
+
+  cardModal.classList.remove('hide');
+}
+
+slider.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const card = e.target.closest('.design__card');
+  renderCard(card);
+});
+//
+
 // изменение стилистики обязательных полей формы
 nameField.addEventListener('blur', (e) => {
   nameField.setAttribute('required', true);
