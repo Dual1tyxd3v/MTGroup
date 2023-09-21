@@ -742,6 +742,7 @@ img {
 .quiz__label {
   font-size: 16px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 .quiz__input {
   padding: 10px 14px;
@@ -1459,7 +1460,7 @@ img {
     margin-bottom: 40px;
   }
   .card-info__text, .card-info__square, .card-info__time {
-    font-size: 35px;
+    font-size: 28px;
     margin-bottom: 40px;
   }
   .card-info__time {

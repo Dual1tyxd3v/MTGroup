@@ -149,6 +149,7 @@ function closeCard() {
   cardGallery.innerHTML = '';
   document.body.style.overflow = 'auto';
   imgs = [];
+  currentCardIndex = 0;
 }
 
 function changeImg(direction, index) {
@@ -615,7 +616,7 @@ btnNextQuiz.addEventListener('click', (e) => toggleScreen(e, 1));
 btnPrevQuiz.addEventListener('click', (e) => toggleScreen(e, -1));
 
 quizForm.addEventListener('click', (e) => {
-  if (e.target.classList.contains('quiz__btn') || (e.target.classList.contains('quiz__checkbox') && e.target.checked)) {
+  if (e.target.classList.contains('quiz__btn') || (e.target.classList.contains('quiz__checkbox--js') && e.target.checked)) {
     e.target.closest('.quiz__screen').setAttribute('data-filled', true);
     quizError.textContent = '';
     toggleScreen(e, 1);

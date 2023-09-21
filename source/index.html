@@ -158,7 +158,7 @@
       <div class="quiz__screen" data-screen="1" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">Вид объекта</p>
-          <p class="quiz__counter">1/6</p>
+          <p class="quiz__counter">1/7</p>
           <div class="quiz__answers quiz__answers--2r">
             <div class="quiz__type quiz__type--shop">
               <input class="quiz__radio" name="kind" value="магазины" type="radio" id="shop">
@@ -183,7 +183,7 @@
       <div class="quiz__screen" data-screen="2" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">Укажите размер объекта</p>
-          <p class="quiz__counter">2/6</p>
+          <p class="quiz__counter">2/7</p>
           <div class="quiz__answers quiz__answers--dimension">
             <div class="quiz__answer">
               <label for="length" class="quiz__label">Длина</label>
@@ -198,7 +198,7 @@
               <input type="number" name="height" id="height" class="quiz__input" required>
             </div>
             <div class="quiz__answer quiz__answer--alt">
-              <input type="checkbox" name="ruler" id="ruler" class="quiz__checkbox">
+              <input type="checkbox" name="ruler" id="ruler" class="quiz__checkbox quiz__checkbox--js">
               <label for="ruler" class="quiz__label">Нужен бесплатный замер</label>
             </div>
           </div>
@@ -208,7 +208,7 @@
       <div class="quiz__screen" data-screen="3" data-filled="false" style="display: block;">
         <div class="quiz__field">
           <p class="quiz__question">У Вас есть место для установки объекта?</p>
-          <p class="quiz__counter">3/6</p>
+          <p class="quiz__counter">3/7</p>
           <div class="quiz__answers">
             <input class="quiz__radio" name="place" value="Да" type="radio" id="place--yes">
             <label for="place--yes" class="quiz__btn">Да</label>
@@ -221,7 +221,7 @@
       <div class="quiz__screen" data-screen="4" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">Комфортный срок строительства</p>
-          <p class="quiz__counter">4/6</p>
+          <p class="quiz__counter">4/7</p>
           <div class="quiz__answers quiz__answers--2r">
             <input class="quiz__radio" name="when" value="Вчера" type="radio" id="yesterday">
             <label for="yesterday" class="quiz__btn">Как можно быстрее</label>
@@ -238,10 +238,38 @@
       <div class="quiz__screen" data-screen="5" data-filled="true">
         <div class="quiz__field">
           <p class="quiz__question">
+            Нужны дополнительные элементы?<br>
+            (можно пропустить)
+          </p>
+          <p class="quiz__counter">5/7</p>
+          <div class="quiz__answers quiz__answers--add">
+            <div class="quiz__answer quiz__answer--alt">
+              <input type="checkbox" name="additional" id="electric" class="quiz__checkbox">
+              <label for="electric" class="quiz__label">Электрика</label>
+            </div>
+            <div class="quiz__answer quiz__answer--alt">
+              <input type="checkbox" name="additional" id="stavni" class="quiz__checkbox">
+              <label for="stavni" class="quiz__label">Рольставни</label>
+            </div>
+            <div class="quiz__answer quiz__answer--alt">
+              <input type="checkbox" name="additional" id="vitrag" class="quiz__checkbox">
+              <label for="vitrag" class="quiz__label">Витражи</label>
+            </div>
+            <div class="quiz__answer quiz__answer--alt">
+              <input type="checkbox" name="additional" id="board" class="quiz__checkbox">
+              <label for="board" class="quiz__label">Вывеска</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz__screen" data-screen="6" data-filled="true">
+        <div class="quiz__field">
+          <p class="quiz__question">
             Укажите адрес для расчёта стоимости доставки<br>
             (если доставка не нужна, можно пропустить)
           </p>
-          <p class="quiz__counter">5/6</p>
+          <p class="quiz__counter">6/7</p>
           <div class="quiz__answers quiz__answers--map">
             <input type="text" name="address" id="suggest" class="quiz__input quiz__search"
               placeholder="Название города">
@@ -250,10 +278,10 @@
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="6" data-filled="false">
+      <div class="quiz__screen" data-screen="7" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">Получите консультацию и коммерческое предложение</p>
-          <p class="quiz__counter">6/6</p>
+          <p class="quiz__counter">7/7</p>
           <div class="quiz__answers quiz__answers--form">
             <input type="text" name="name" class="quiz__input" placeholder="Имя" required>
             <input type="tel" class="quiz__input" name="phone" placeholder="Телефон" required>
@@ -308,7 +336,7 @@
     </div>
   </section>
 
-  <h2 class="adjustments__title">Почему мы?</h2>
+  <h2 class="adjustments__title js-animated" data-class="opacity">Почему мы?</h2>
   <section class="adjustments" id="adjustment">
     <div class="adjustments__wrapper">
       <div class="adjustments__content">
@@ -347,8 +375,8 @@
   </section>
 
   <section class="design" id="design">
-    <h2 class="design__title">Выполненные объекты</h2>
-    <div class="design__wrapper">
+    <h2 class="design__title js-animated" data-class="opacity">Выполненные объекты</h2>
+    <div class="design__wrapper js-animated" data-class="opacity">
       <button class="design__control design__control--left" aria-label="Прокрутить слайдер влево"></button>
       <button class="design__control design__control--right" aria-label="Прокрутить слайдер вправо"></button>
       <div class="design__slider">
@@ -489,7 +517,7 @@
 
   <section class="services" id="services">
     <div class="services__wrapper">
-      <h2 class="services__title">Наши услуги</h2>
+      <h2 class="services__title js-animated" data-class="opacity">Наши услуги</h2>
       <div class="services__container">
         <div class="services__item">
           <img src="./img/services_1.webp" loading="lazy" alt="Некапитальный объект" class="services__img">
@@ -540,8 +568,8 @@
   </section>
 
   <section class="feedback" id="feedback">
-    <h2 class="feedback__title">Отзывы о нас</h2>
-    <div class="feedback__wrapper">
+    <h2 class="feedback__title js-animated" data-class="opacity">Отзывы о нас</h2>
+    <div class="feedback__wrapper js-animated" data-class="opacity">
       <iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
         src="https://yandex.ru/maps-reviews-widget/2369263383?comments"></iframe>
       <a href="https://yandex.ru/maps/org/modulnyye_tekhnologii_grupp/2369263383/" target="_blank"
@@ -807,7 +835,7 @@
         <div class="card-info__main">
           <button class="card-info__ctrl card-info__ctrl--left">&larr;</button>
           <button class="card-info__ctrl card-info__ctrl--right"></button>
-            <img src="" alt="Slide" class="card-info__img card-info__img--ready">
+          <img src="" alt="Slide" class="card-info__img card-info__img--ready">
         </div>
         <div class="card-info__imgs">
         </div>
