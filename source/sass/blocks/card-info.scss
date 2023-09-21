@@ -18,6 +18,7 @@
     color: #fff;
     font-size: 30px;
     cursor: pointer;
+    z-index: 999;
   }
 
   &__content {
@@ -116,6 +117,15 @@
   }
 }
 
+@media (min-width: $tablet-width) {
+  .card-info {
+    &__ctrl {
+      height: 80%;
+      width: 50px;
+    }
+  }
+}
+
 @media (min-width: $desktop-width) {
   .card-info {
     padding-top: 40px;
@@ -144,12 +154,10 @@
 
     &__ctrl {
       width: 50px;
-      height: 70px;
       transition: all .2s;
 
       &:hover {
         width: 60px;
-        height: 90px;
       }
 
       &--left {

@@ -1285,6 +1285,7 @@ img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  height: 199.5px;
 }
 .card__img:hover {
   transform: scale(1.2);
@@ -1302,9 +1303,20 @@ img {
   .card {
     min-width: 320px;
   }
+  .card__img {
+    height: 240px;
+  }
   .card__btn {
     font-size: 19px;
     padding: 8.5px 28px;
+  }
+}
+@media (min-width: 980px) {
+  .card {
+    min-width: 32.65%;
+  }
+  .card__img {
+    height: 391px;
   }
 }
 .card-info {
@@ -1327,6 +1339,7 @@ img {
   color: #fff;
   font-size: 30px;
   cursor: pointer;
+  z-index: 999;
 }
 .card-info__content {
   text-align: center;
@@ -1406,6 +1419,12 @@ img {
   background-image: url(../img/modal--right.svg);
 }
 
+@media (min-width: 768px) {
+  .card-info__ctrl {
+    height: 80%;
+    width: 50px;
+  }
+}
 @media (min-width: 980px) {
   .card-info {
     padding-top: 40px;
@@ -1429,12 +1448,10 @@ img {
   }
   .card-info__ctrl {
     width: 50px;
-    height: 70px;
     transition: all 0.2s;
   }
   .card-info__ctrl:hover {
     width: 60px;
-    height: 90px;
   }
   .card-info__ctrl--left {
     left: 30px;
@@ -1548,14 +1565,14 @@ img {
 @media (min-width: 980px) {
   .design__wrapper {
     padding: 0;
-    max-width: 1020px;
+    max-width: 1600px;
     margin: 0 auto;
   }
   .design__title {
     font-size: 50px;
   }
   .design__control {
-    height: 368px;
+    height: 100%;
     min-width: 80px;
     top: 0;
     background-size: 30px 50px, 100% 100%;

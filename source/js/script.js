@@ -51,8 +51,6 @@ const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
 let currentValue = '';
 
-window.addEventListener('resize', () => header.classList.remove('header--opened'));
-
 // взаимодействие с бургером
 burgerBtn.addEventListener('click', () => {
   header.classList.toggle('header--opened');
@@ -87,10 +85,16 @@ const animated = document.querySelectorAll('.js-animated');
 animated.forEach((a) => observer.observe(a));
 //
 // slider
-const OFFSET = document.querySelector('.card').getBoundingClientRect().width + 30;
+let OFFSET = document.querySelector('.card').getBoundingClientRect().width + 30;
 const CARDS_COUNT = document.querySelectorAll('.design__card').length;
 let LAST_SLIDE = 0;
-const SLIDES_COUNT = window.innerWidth > 980 ? CARDS_COUNT - 3 : CARDS_COUNT - 1;
+const SLIDES_COUNT = window.innerWidth > 980
+  ? CARDS_COUNT - 3 : window.innerWidth > 767 ? CARDS_COUNT - 2 : CARDS_COUNT - 1;
+
+window.addEventListener('resize', () => {
+  header.classList.remove('header--opened')
+  OFFSET = document.querySelector('.card').getBoundingClientRect().width + 30;
+});
 
 sliderBtnR.addEventListener('click', () => {
   changeSlide(1);
@@ -150,16 +154,18 @@ function closeCard() {
   document.body.style.overflow = 'auto';
   imgs = [];
   currentCardIndex = 0;
+  cardBtnLeft.style.display = 'block';
+  cardBtnRight.style.display = 'block';
 }
 
 function changeImg(direction, index) {
-  currentCardIndex = index >= 0 ? index : currentCardIndex + direction ;
+  currentCardIndex = index >= 0 ? index : currentCardIndex + direction;
   if (currentCardIndex < 0) currentCardIndex = cardsCount;
   if (currentCardIndex > cardsCount) currentCardIndex = 0;
 
   imgs.forEach((img, i) => {
     img.classList.remove('card-info__img-small--active');
-    if(i === currentCardIndex) img.classList.add('card-info__img-small--active');
+    if (i === currentCardIndex) img.classList.add('card-info__img-small--active');
   });
 
   cardMainImage.classList.remove('card-info__img--ready');
@@ -199,11 +205,14 @@ function renderCard(card) {
   cardTime.textContent = card.querySelector('.card__time').textContent;
   cardSquare.textContent = card.querySelector('.card__square').textContent;
 
-  const imgsData = card.querySelector('.card__gallery').querySelectorAll('img');
+  const titleImg = card.querySelector('.card__img').cloneNode(true);
+  titleImg.classList.remove('card__img');
+  const imgsData = [titleImg, ...card.querySelector('.card__gallery').querySelectorAll('img')];
+
   imgsData.forEach((img, i) => {
     const newImg = img.cloneNode(true);
     newImg.classList.add('card-info__img-small');
-    newImg.setAttribute('alt', 'Slide');
+    newImg.setAttribute('alt', titleImg.alt);
     newImg.dataset.index = i;
     i === 0 && newImg.classList.add('card-info__img-small--active');
     cardGallery.append(newImg);
@@ -212,9 +221,13 @@ function renderCard(card) {
   cardsCount = imgs.length - 1;
   cardMainImage.src = imgs[0].src;
 
-  cardBtnPay.dataset.copy = cardTitle.textContent;
+  cardBtnPay.dataset.copy = `${cardTitle.textContent} (слайд ${card.dataset.index})`;
 
   cardModal.classList.remove('hide');
+  if (imgs.length === 1) {
+    cardBtnLeft.style.display = 'none';
+    cardBtnRight.style.display = 'none';
+  }
 }
 
 slider.addEventListener('click', (e) => {

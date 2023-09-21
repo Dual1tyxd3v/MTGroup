@@ -88,7 +88,7 @@
   .design {
     &__wrapper {
       padding: 0;
-      max-width: 1020px;
+      max-width: 1600px;
       margin: 0 auto;
     }
 
@@ -97,7 +97,7 @@
     }
 
     &__control {
-      height: 368px;
+      height: 100%;
       min-width: 80px;
       top: 0;
       background-size: 30px 50px, 100% 100%;

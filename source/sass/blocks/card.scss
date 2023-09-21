@@ -42,6 +42,7 @@
     transition: all .2s;
     width: 100%;
     object-fit: cover;
+    height: 199.5px;
 
     &:hover {
       transform: scale(1.2);
@@ -62,6 +63,11 @@
 @media (min-width: $tablet-width) {
   .card {
     min-width: 320px;
+
+    &__img {
+      height: 240px;
+    }
+
     &__btn {
       font-size: 19px;
       padding: 8.5px 28px;
@@ -71,7 +77,9 @@
 
 @media (min-width: $desktop-width) {
   .card {
-    // min-width: 290px;
-    // max-width: 320px;
+    min-width: 32.65%;
+    &__img {
+      height: 391px;
+    }
   }
 }
