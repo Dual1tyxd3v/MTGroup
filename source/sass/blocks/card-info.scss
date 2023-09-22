@@ -58,6 +58,8 @@
 
   &__img-small {
     width: 15vw;
+    object-fit: cover;
+    height: 100px;
 
     &--active {
       outline: 3px solid rgba(249, 0, 0);

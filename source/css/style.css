@@ -681,7 +681,6 @@ img {
 }
 .quiz__question, .quiz__status {
   font-size: 16px;
-  margin-bottom: 10px;
 }
 .quiz__field {
   border: 2px solid #000;
@@ -775,7 +774,6 @@ img {
   background-color: #858282 !important;
 }
 .quiz__counter {
-  margin-bottom: 10px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -1506,6 +1504,9 @@ img {
 }
 .card-info__img-small {
   width: 15vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100px;
 }
 .card-info__img-small--active {
   outline: 3px solid rgb(249, 0, 0);

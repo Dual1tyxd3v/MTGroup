@@ -93,7 +93,8 @@ const SLIDES_COUNT = window.innerWidth > 980
   ? CARDS_COUNT - 3 : window.innerWidth > 767 ? CARDS_COUNT - 2 : CARDS_COUNT - 1;
 
 window.addEventListener('resize', () => {
-  header.classList.remove('header--opened')
+  header.classList.remove('header--opened');
+  document.body.style.overflow = 'auto';
   OFFSET = document.querySelector('.card').getBoundingClientRect().width + 30;
 });
 
