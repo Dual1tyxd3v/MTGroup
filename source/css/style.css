@@ -317,28 +317,30 @@ img {
   padding-top: 102px;
 }
 .main__bg {
-  background-image: url(../img/bg_main.webp);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0.6) 100%), url(../img/bg_main.webp);
   background-size: cover;
   background-position: center;
 }
-.main__overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 100%;
-}
 .main__wrapper {
-  padding: 50px 7.5vw 20px 7.5vw;
+  padding: 40px 7.5vw 20px 7.5vw;
   display: grid;
   margin-bottom: 48px;
+  grid-template-columns: 1fr;
+}
+.main__left {
+  margin-bottom: 20px;
 }
 .main__right {
-  background-color: rgb(249, 0, 0);
+  background-color: rgba(249, 0, 0, 0.8);
   border-radius: 10px;
   box-shadow: 0 2rem 3.5rem rgba(0, 0, 0, 0.8);
+  margin-bottom: 30px;
+  max-width: 400px;
 }
 .main__bonus {
   color: #fff;
   font-size: 2rem;
-  padding: 2.5rem 3rem;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
 }
@@ -351,6 +353,7 @@ img {
   width: 30px;
   height: 30px;
   background-size: 30px 30px;
+  background-position: center;
   margin-right: 20px;
 }
 .main__bonus--ruler::before {
@@ -427,14 +430,28 @@ img {
   .main {
     padding-top: 178px;
   }
+  .main__bg {
+    height: calc(100vh - 178px);
+  }
   .main__button {
     font-size: 20px;
+  }
+  .main__right {
+    max-width: 500px;
+    margin-bottom: 70px;
+  }
+  .main__left {
+    margin-bottom: 40px;
   }
 }
 @media (min-width: 980px) {
   .main {
     min-height: 100vh;
-    padding-top: 98px;
+    padding-top: 100px;
+  }
+  .main__bg {
+    min-height: calc(100vh - 100px);
+    height: auto;
   }
   .main__title {
     display: flex;
@@ -468,25 +485,34 @@ img {
     width: 200px;
     animation: border-short 1.2s;
   }
-  .main__bg {
-    height: calc(100vh - 114px);
-  }
   .main__wrapper {
     margin: 0 auto;
     padding: 40px 40px 0 40px;
     margin-bottom: 80px;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 50% 50%;
   }
   .main__right {
-    width: 80%;
     grid-column: 2/3;
-    grid-row: 1/3;
+    grid-row: 2/3;
     align-self: center;
     justify-self: flex-end;
+    margin: 0 auto;
+  }
+  .main__left {
+    grid-column: 1/-1;
+    width: 80%;
+    margin-bottom: 0;
+  }
+  .main__bonus {
+    padding: 2rem 2.5rem;
+  }
+  .main__bonus::before {
+    min-width: 30px;
   }
   .main__buttons {
     padding-left: 45px;
     justify-self: flex-start;
+    grid-row: 2/3;
   }
   .main__button {
     margin-bottom: 110px;
