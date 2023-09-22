@@ -19,6 +19,7 @@ const quizBlocks = document.querySelectorAll('.quiz__screen');
 const btnNextQuiz = document.querySelector('.quiz__next');
 const btnPrevQuiz = document.querySelector('.quiz__prev');
 const quizBtns = document.querySelectorAll('.quiz__btn');
+const quizTypeInput = document.querySelector('.quiz__type--input');
 const quizStatus = document.querySelector('.quiz__status');
 const quizResult = document.querySelector('.quiz__result');
 const quizRulerCheckbox = document.querySelector('.quiz__checkbox');
@@ -572,6 +573,7 @@ quizBtnReset.addEventListener('click', () => {
     quizForm.reset();
   }
   quizForm.style.display = 'block';
+  quizForm.querySelectorAll('input').forEach(input => input.removeAttribute('disabled'));
   quizResult.style.display = 'none';
   initQuiz();
 });
@@ -629,11 +631,18 @@ btnNextQuiz.addEventListener('click', (e) => toggleScreen(e, 1));
 btnPrevQuiz.addEventListener('click', (e) => toggleScreen(e, -1));
 
 quizForm.addEventListener('click', (e) => {
-  if (e.target.classList.contains('quiz__btn') || (e.target.classList.contains('quiz__checkbox--js') && e.target.checked)) {
+  if (e.target.classList.contains('quiz__btn')
+    || e.target.classList.contains('quiz__type--next')
+    || (e.target.classList.contains('quiz__checkbox--js') && e.target.checked)) {
     e.target.closest('.quiz__screen').setAttribute('data-filled', true);
     quizError.textContent = '';
     toggleScreen(e, 1);
   }
+});
+
+quizTypeInput.addEventListener('input', (e) => {
+  const screen = e.target.closest('.quiz__screen');
+  screen.dataset.filled = e.target.value.length > 0 ? 'true' : 'false';
 });
 
 quizRulerCheckbox.addEventListener('change', (e) => {

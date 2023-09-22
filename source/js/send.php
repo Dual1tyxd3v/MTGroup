@@ -19,6 +19,7 @@ if ($_POST['phone']) {
     $location = ($_POST['location']);
     $message = ($_POST['message']);
     $kind = ($_POST['kind']);
+    $kind_alt = ($_POST['kind--alt']);
     $width = ($_POST['width']);
     $height = ($_POST['height']);
     $length = ($_POST['length']);
@@ -27,7 +28,19 @@ if ($_POST['phone']) {
     $city = ($_POST['address']);
     $place = ($_POST['place']);
     $copy = ($_POST['copy']);
+    $ceramic = ($_POST['ceramic']);
+    $electric = ($_POST['electric']);
+    $vitrag = ($_POST['vitrag']);
+    $board = ($_POST['board']);
+    $lamination = ($_POST['lamination']);
+    $corners = ($_POST['corners']);
     $dimensions = '___';
+    $add = implode(', ',
+      array_filter([$electric, $vitrag, $board, $lamination, $corners, $ceramic], function($el) {
+        return !empty($el);
+      })
+    );
+    $type = $kind_alt ? $kind_alt : $kind;
 
     if ($length) {
       $dimensions = $length."X".$width."X".$height;
@@ -44,12 +57,13 @@ if ($_POST['phone']) {
         'E-mail:' => $email ? $email : '___',
         'Место встречи:' => $location ? $location : '___',
         'Сообщение:' => $message ? $message : '___',
-        'Тип объекта:' => $kind ? $kind : '___',
+        'Тип объекта:' => $type ? $type : '___',
         'Имеется место установки:' => $place ? $place : '___',
         'Когда нужен:' => $when ? $when : '___',
         'Адрес установки:' => $city ? $city : '___',
         'Размеры (ДхШхВ):' => $dimensions,
-        'Нужен похожий на:' => $copy ? $copy : '___'
+        'Нужен похожий на:' => $copy ? $copy : '___',
+        'Доп. услуги:' => $add ? $add : '___'
     );
 
 //Настраиваем внешний вид сообщения в телеграме
