@@ -86,6 +86,7 @@ if ($_POST['phone']) {
       $mail->From = 'info@modul-tehno.ru';
       $mail->FromName = 'info@modul-tehno.ru';
       $mail->addAddress('info@modul-tehno.ru');
+      $mail->addAddress('modul-litvinoff@yandex.ru');
 
       $mail->isHTML(true);
       $mail->Subject = 'Заявки с сайта';

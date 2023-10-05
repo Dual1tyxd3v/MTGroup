@@ -38,7 +38,7 @@
     <div><img src="https://mc.yandex.ru/watch/93890524" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
-  <link rel="stylesheet" href="./css/style.css?13">
+  <link rel="stylesheet" href="./css/style.css?14">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" href="https://modul-tehno.ru/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="https://modul-tehno.ru/favicon.ico" type="image/x-icon">
@@ -152,7 +152,7 @@
     <h2 class="quiz__title">
       Рассчитайте стоимость вашего объекта
     </h2>
-    <form action="#" class="quiz__form js-animated" data-class="opacity" novalidate>
+    <form action="#" id="zayavka" class="quiz__form js-animated" data-class="opacity" novalidate>
       <div class="quiz__screen" data-screen="1" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">Вид объекта</p>
@@ -1140,7 +1140,7 @@
             class="contacts__text contacts__text--link contacts__text--phone">+7-925-714-51-11</a>
         </div>
       </div>
-      <form action="send.php" class="contacts__form form" method="POST">
+      <form action="send.php" id="consult" class="contacts__form form" method="POST">
         <div class="form__field">
           <label for="name" class="form__label">Имя *</label>
           <input type="text" id="name" name="name" class="form__text">
@@ -1157,7 +1157,7 @@
           <label for="message" class="form__label">Текст сообщения</label>
           <textarea class="form__text form__text--area" name="message" id="message"></textarea>
         </div>
-        <input type="submit" class="form__submit js-animated" data-class="opacity" value="Оставить заявку на расчёт">
+        <input type="submit" class="form__submit js-animated" data-class="opacity" value="Оставить заявку на замер">
         <p class="form__status"></p>
       </form>
     </div>
@@ -1190,7 +1190,7 @@
     <h2 class="visually-hidden">Окно обратной связи</h2>
     <button class="modal__close" type="button" aria-label="Закрыть слайдер">&#10006;</button>
     <div class="modal__content">
-      <form action="send.php" class="modal__form form" method="POST">
+      <form action="send.php" id="zayavka" class="modal__form form" method="POST">
         <div class="form__field">
           <label for="name1" class="form__label">Имя *</label>
           <input type="text" id="name1" name="name" class="form__text">
@@ -1207,7 +1207,7 @@
           <label for="message1" class="form__label">Текст сообщения</label>
           <textarea class="form__text form__text--area" name="message" id="message1"></textarea>
         </div>
-        <input type="submit" class="form__submit" value="Оставить заявку на расчёт">
+        <input type="submit" class="form__submit" value="Оставить заявку на замер">
         <p class="form__status"></p>
       </form>
     </div>
@@ -1351,7 +1351,7 @@
     </div>
   </section>
 
-  <script src="js/script.js?8"></script>
+  <script src="js/script.js?14"></script>
 </body>
 
 </html>

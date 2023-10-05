@@ -38,7 +38,7 @@
     <div><img src="https://mc.yandex.ru/watch/93890524" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
-  <link rel="stylesheet" href="./css/style.min.css?13">
+  <link rel="stylesheet" href="./css/style.min.css?14">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" href="https://modul-tehno.ru/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="https://modul-tehno.ru/favicon.ico" type="image/x-icon">
@@ -74,7 +74,7 @@
           <li class="header__item">
             E-mail: <a href="mailto:info@modul-tehno.ru">info@modul-tehno.ru</a>
           </li>
-          <li class="header__item">
+          <li class="header__item header__item--time">
             Время работы: Пн-Пт, с 09-00 до 19-00
           </li>
         </ul>
@@ -83,7 +83,7 @@
             Офис: <a href="#location">г. Москва, Волгоградский проспект, 47, БЦ "The Cube", офис 220</a>
           </li>
           <li class="header__item">
-            Производство: Московская Область, <br>г. Нахабино, ул. Ленина 13
+            Производство: М.О., Павлово-Посадский г.о., д. Тарасово, ул. Совхозная, 5Б
           </li>
         </ul>
       </div>
@@ -92,13 +92,6 @@
       <button class="header__burger" type="button" aria-label="Кнопка меню">
         <span></span>
       </button>
-      <div class="header__phone-bg header__phone-bg--slow">
-        <div class="header__phone-bg header__phone-bg--fast">
-          <div class="header__phone-overlay">
-            <a href="tel:+79257145111" class="header__phone" aria-label="Позвонить нам"></a>
-          </div>
-        </div>
-      </div>
     </div>
     <nav class="header__menu menu">
       <ul class="menu__list">
@@ -106,19 +99,22 @@
           <a href="#main" class="menu__item">Главная</a>
         </li>
         <li>
-          <a href="#about" class="menu__item">О нас</a>
+          <a href="#quiz" class="menu__item">Рассчитать стоимость объекта</a>
         </li>
         <li>
-          <a href="#services" class="menu__item">Услуги</a>
+          <a href="#adjustment" class="menu__item">Почему мы</a>
         </li>
         <li>
-          <a href="#adjustment" class="menu__item">Преимущества</a>
+          <a href="#design" class="menu__item">Выполненные объекты</a>
         </li>
         <li>
           <a href="#steps" class="menu__item">5 шагов</a>
         </li>
         <li>
-          <a href="#design" class="menu__item">Выбрать дизайн</a>
+          <a href="#feedback" class="menu__item">Отзывы</a>
+        </li>
+        <li>
+          <a href="#about" class="menu__item">О нас</a>
         </li>
         <li>
           <a href="#contacts" class="menu__item">Контакты</a>
@@ -128,37 +124,87 @@
   </header>
   <section class="main" id="main">
     <div class="main__bg">
-      <div class="main__overlay">
-        <div class="main__wrapper">
-          <h1 class="main__title js-animated" data-class="main__title--animation">Производство некапитальных павильонов, торговых рядов и магазинов из сэндвич-панелей.</h1>
+      <div class="main__wrapper">
+        <div class="main__left">
+          <h1 class="main__title js-animated" data-class="main__title--animation">
+            <span class="main__title--light">
+              Производство и установка павильонов из сэндвич-панелей <br>
+              <span class="main__title--bold">от 2-х недель под ключ</span>
+            </span>
+          </h1>
+        </div>
+        <ul class="main__right">
+          <li class="main__bonus main__bonus--ruler">Бесплатный замер</li>
+          <li class="main__bonus main__bonus--contract">Строго по договору - без переплат</li>
+          <li class="main__bonus main__bonus--foundation">Устройство основания под объект</li>
+        </ul>
+        <div class="main__buttons">
           <button class="main__button button js-animated js-modal" data-class="main__button--animation">Бесплатный
             замер</button>
           <button class="main__button button js-animated main__button--animation main__button--express"
-            data-class="main__button--express">Экспресс заявка</button>
+            data-class="main__button--express">Рассчитать стоимость</button>
         </div>
       </div>
     </div>
   </section>
 
   <section class="quiz" id="quiz">
-    <form action="#" class="quiz__form js-animated" data-class="opacity" novalidate>
+    <h2 class="quiz__title">
+      Рассчитайте стоимость вашего объекта
+    </h2>
+    <form action="#" id="zayavka" class="quiz__form js-animated" data-class="opacity" novalidate>
       <div class="quiz__screen" data-screen="1" data-filled="false">
-        <p class="quiz__question">У Вас есть место для установки объекта?</p>
         <div class="quiz__field">
-          <p class="quiz__counter">1/6</p>
-          <div class="quiz__answers">
-            <input class="quiz__radio" name="place" value="Да" type="radio" id="place--yes">
-            <label for="place--yes" class="quiz__btn">Да</label>
-            <input class="quiz__radio" name="place" value="Нет" type="radio" id="place--no">
-            <label for="place--no" class="quiz__btn">Нет</label>
+          <p class="quiz__question">Вид объекта</p>
+          <p class="quiz__counter">1/7</p>
+          <div class="quiz__answers quiz__answers--3c">
+            <div class="quiz__type quiz__type--shop">
+              <input class="quiz__radio" name="kind" value="магазины" type="radio" id="shop">
+              <label for="shop" class="quiz__btn">
+                <span class="quiz__type--next">магазины</span>
+              </label>
+            </div>
+            <div class="quiz__type quiz__type--kiosk">
+              <input class="quiz__radio" name="kind" value="павильоны и киоски" type="radio" id="kiosk">
+              <label for="kiosk" class="quiz__btn">
+                <span class="quiz__type--next">павильоны и киоски</span>
+              </label>
+            </div>
+            <div class="quiz__type quiz__type--row">
+              <input class="quiz__radio" name="kind" value="торговые ряды" type="radio" id="trade">
+              <label for="trade" class="quiz__btn">
+                <span class="quiz__type--next">торговые ряды</span>
+              </label>
+            </div>
+            <div class="quiz__type quiz__type--guard">
+              <input class="quiz__radio" name="kind" value="пост охраны" type="radio" id="guard">
+              <label for="guard" class="quiz__btn">
+                <span class="quiz__type--next">пост охраны</span>
+              </label>
+            </div>
+            <div class="quiz__type quiz__type--auto">
+              <input class="quiz__radio" name="kind" value="автомойка" type="radio" id="auto">
+              <label for="auto" class="quiz__btn">
+                <span class="quiz__type--next">автомойки</span>
+              </label>
+            </div>
+            <div class="quiz__type quiz__type--office">
+              <input class="quiz__radio" name="kind" value="офис продаж" type="radio" id="office">
+              <label for="office" class="quiz__btn">
+                <span class="quiz__type--next">офисы продаж</span>
+              </label>
+            </div>
+            <div class="quiz__type quiz__type--alt">
+              <input name="kind--alt" type="text" class="quiz__type--input" placeholder="Указать самостоятельно">
+            </div>
           </div>
         </div>
       </div>
 
       <div class="quiz__screen" data-screen="2" data-filled="false">
-        <p class="quiz__question">Укажите размер объекта</p>
         <div class="quiz__field">
-          <p class="quiz__counter">2/6</p>
+          <p class="quiz__question">Укажите размер объекта</p>
+          <p class="quiz__counter">2/7</p>
           <div class="quiz__answers quiz__answers--dimension">
             <div class="quiz__answer">
               <label for="length" class="quiz__label">Длина</label>
@@ -172,17 +218,36 @@
               <label for="height" class="quiz__label">Высота</label>
               <input type="number" name="height" id="height" class="quiz__input" required>
             </div>
+            <div class="quiz__answer quiz__answer--alt">
+              <input type="checkbox" name="ruler" id="ruler" class="quiz__checkbox quiz__checkbox--js">
+              <label for="ruler" class="quiz__label">Нужен бесплатный замер</label>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="3" data-filled="false">
-        <p class="quiz__question">Комфортный срок строительства</p>
+      <div class="quiz__screen" data-screen="3" data-filled="false" style="display: block;">
         <div class="quiz__field">
-          <p class="quiz__counter">3/6</p>
-          <div class="quiz__answers quiz__answers--3">
+          <p class="quiz__question">У Вас есть место для установки объекта?</p>
+          <p class="quiz__counter">3/7</p>
+          <div class="quiz__answers">
+            <input class="quiz__radio" name="place" value="Да" type="radio" id="place--yes">
+            <label for="place--yes" class="quiz__btn">Да</label>
+            <input class="quiz__radio" name="place" value="В процессе" type="radio" id="place--process">
+            <label for="place--process" class="quiz__btn">В процессе</label>
+            <input class="quiz__radio" name="place" value="Нет" type="radio" id="place--no">
+            <label for="place--no" class="quiz__btn">Нет</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz__screen" data-screen="4" data-filled="false">
+        <div class="quiz__field">
+          <p class="quiz__question">Комфортный срок строительства</p>
+          <p class="quiz__counter">4/7</p>
+          <div class="quiz__answers quiz__answers--2r">
             <input class="quiz__radio" name="when" value="Вчера" type="radio" id="yesterday">
-            <label for="yesterday" class="quiz__btn">Вчера</label>
+            <label for="yesterday" class="quiz__btn">Как можно быстрее</label>
             <input class="quiz__radio" name="when" value="До месяца" type="radio" id="month">
             <label for="month" class="quiz__btn">До месяца</label>
             <input class="quiz__radio" name="when" value="До 18 дней" type="radio" id="18days">
@@ -193,39 +258,63 @@
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="4" data-filled="false">
-        <p class="quiz__question">Подробная консультация по строительству</p>
+      <div class="quiz__screen" data-screen="5" data-filled="true">
         <div class="quiz__field">
-          <p class="quiz__counter">4/6</p>
-          <div class="quiz__answers">
-            <input class="quiz__radio" name="consulting" value="Нужна" type="radio" id="cons--yes">
-            <label for="cons--yes" class="quiz__btn">Нужна</label>
-            <input class="quiz__radio" name="consulting" value="Не нужна" type="radio" id="cons--no">
-            <label for="cons--no" class="quiz__btn">Не нужна</label>
+          <p class="quiz__question">
+            Нужны дополнительные элементы? (можно пропустить)
+          </p>
+          <p class="quiz__counter">5/7</p>
+          <div class="quiz__answers quiz__answers--add">
+            <div class="quiz__answer quiz__answer--electric quiz__answer--alt">
+              <input type="checkbox" name="electric" id="electric" class="quiz__checkbox" value="Электрика">
+              <label for="electric" class="quiz__label">Электрика</label>
+            </div>
+            <div class="quiz__answer quiz__answer--vitrag quiz__answer--alt">
+              <input type="checkbox" name="vitrag" id="vitrag" class="quiz__checkbox" value="Доп. остекление">
+              <label for="vitrag" class="quiz__label">Доп. остекление</label>
+            </div>
+            <div class="quiz__answer quiz__answer--board quiz__answer--alt">
+              <input type="checkbox" name="board" id="board" class="quiz__checkbox" value="Фриз">
+              <label for="board" class="quiz__label">Фриз</label>
+            </div>
+            <div class="quiz__answer quiz__answer--lamination quiz__answer--alt">
+              <input type="checkbox" name="lamination" id="lamination" class="quiz__checkbox" value="Ламинация окон">
+              <label for="lamination" class="quiz__label">Ламинация окон</label>
+            </div>
+            <div class="quiz__answer quiz__answer--corners quiz__answer--alt">
+              <input type="checkbox" name="corners" id="corners" class="quiz__checkbox" value="Углы">
+              <label for="corners" class="quiz__label">Углы</label>
+            </div>
+            <div class="quiz__answer quiz__answer--ceramic quiz__answer--alt">
+              <input type="checkbox" name="ceramic" id="ceramic" class="quiz__checkbox" value="Керамическая плитка">
+              <label for="ceramic" class="quiz__label">Плитка</label>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="5" data-filled="false">
-        <p class="quiz__question">Укажите город установки объекта для расчёта доставки</p>
+      <div class="quiz__screen" data-screen="6" data-filled="true">
         <div class="quiz__field">
-          <p class="quiz__counter">5/6</p>
+          <p class="quiz__question">
+            Укажите адрес для расчёта стоимости доставки<br>
+            (если доставка не нужна, можно пропустить)
+          </p>
+          <p class="quiz__counter">6/7</p>
           <div class="quiz__answers quiz__answers--map">
             <input type="text" name="address" id="suggest" class="quiz__input quiz__search"
-              placeholder="Название города" required>
+              placeholder="Название города">
             <div id="map" class="quiz__map"></div>
           </div>
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="6" data-filled="false">
-        <p class="quiz__question">Получите консультацию и коммерческое предложение</p>
+      <div class="quiz__screen" data-screen="7" data-filled="false">
         <div class="quiz__field">
-          <p class="quiz__counter">6/6</p>
+          <p class="quiz__question">Оставьте контакты и получите стоимость Вашего объекта</p>
+          <p class="quiz__counter">7/7</p>
           <div class="quiz__answers quiz__answers--form">
             <input type="text" name="name" class="quiz__input" placeholder="Имя" required>
             <input type="tel" class="quiz__input" name="phone" placeholder="Телефон" required>
-            <input type="text" name="email" class="quiz__input" placeholder="Почта">
             <input type="submit" class="form__submit quiz__submit" value="Получить коммерческое" />
           </div>
         </div>
@@ -268,6 +357,610 @@
         </button>
       </div>
     </form>
+
+    <div class="quiz__result">
+      <div class="quiz__field">
+        <p class="quiz__status">Статус отправки формы</p>
+        <button class="quiz__btnNew form__submit quiz__submit">Отправить еще раз</button>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="adjustments__title js-animated" data-class="opacity">Почему мы?</h2>
+  <section class="adjustments" id="adjustment">
+    <div class="adjustments__wrapper">
+      <div class="adjustments__content">
+        <div class="adjustments__item adjustment">
+          <p class="adjustment__title adjustment__title--price">Фиксированная стоимость</p>
+          <p class="adjustment__text js-animated" data-class="adjustment__text--toRight">За счёт собственного
+            производства издержки сводятся к минимуму</p>
+        </div>
+        <div class="adjustments__item adjustment">
+          <p class="adjustment__title adjustment__title--hands">Прозрачные условия</p>
+          <p class="adjustment__text js-animated" data-class="adjustment__text--toRight">В процессе работы не возникнет
+            дополнительных доплат и скрытых платежей</p>
+        </div>
+        <div class="adjustments__item adjustment">
+          <p class="adjustment__title adjustment__title--money">Гибкий способ оплаты</p>
+          <p class="adjustment__text js-animated" data-class="adjustment__text--toRight">Для запуска проекта достаточно
+            всего 50% от общей стоимости</p>
+        </div>
+        <div class="adjustments__item adjustment">
+          <p class="adjustment__title adjustment__title--materials">Комплектующие<br>и материалы</p>
+          <p class="adjustment__text js-animated" data-class="adjustment__text--toLeft">Качественные материалы и
+            комплектующие от ведущих производителей</p>
+        </div>
+        <div class="adjustments__item adjustment">
+          <p class="adjustment__title adjustment__title--individual">Индивидуальный подход</p>
+          <p class="adjustment__text js-animated" data-class="adjustment__text--toLeft">Профессионально, скрупулёзно и
+            кропотливо погружаемся в каждый проект</p>
+        </div>
+        <div class="adjustments__item adjustment">
+          <p class="adjustment__title adjustment__title--heart">Мелочь, а приятно!</p>
+          <p class="adjustment__text js-animated" data-class="adjustment__text--toLeft">По программе лояльности с
+            радостью подарим необходимые мелочи</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="design" id="design">
+    <h2 class="design__title js-animated" data-class="opacity">Выполненные объекты</h2>
+    <div class="design__wrapper js-animated" data-class="opacity">
+      <button class="design__control design__control--left" aria-label="Прокрутить слайдер влево"></button>
+      <button class="design__control design__control--right" aria-label="Прокрутить слайдер вправо"></button>
+      <div class="design__slider">
+        <a href="#" class="design__card card" data-index="1">
+          <div class="card__img-wrapper">
+            <img src="./img/slide1.webp" loading="lazy" alt="Торговый ряд" class="card__img">
+          </div>
+          <p class="card__title">Торговый ряд</p>
+          <p class="card__square">280 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый ряд</p>
+            <p class="card__description">Торговый ряд из сэндвич панелей с рекламным фризом, декоративными углами,
+              дополнительными дверьми и рольставнями</p>
+            <p class="card__time">46 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="2">
+          <div class="card__img-wrapper">
+            <img src="./img/slide2.webp" loading="lazy" alt="Торговая галерея" class="card__img">
+          </div>
+          <p class="card__title">Торговая галерея</p>
+          <p class="card__square">100 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговая галерея</p>
+            <p class="card__description">Торговая галерея из сэндвич панелей с рекламным фризом, декоративными углами,
+              дополнительными дверьми и ламинацией оконного профиля</p>
+            <p class="card__time">32 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="3">
+          <div class="card__img-wrapper">
+            <img src="./img/slide3.webp" loading="lazy" alt="Торговый ряд" class="card__img">
+          </div>
+          <p class="card__title">Торговый ряд</p>
+          <p class="card__square">160 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый ряд</p>
+            <p class="card__description">Торговый ряд из сэндвич панелей с декоративными углами "Колонны". Установлены
+              дополнительные двери. Ламинированный оконный профиль</p>
+            <p class="card__time">34 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="4">
+          <div class="card__img-wrapper">
+            <img src="./img/slide4.webp" loading="lazy" alt="Торговый комплекс" class="card__img">
+          </div>
+          <p class="card__title">Торговый комплекс</p>
+          <p class="card__square">438 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый комплекс</p>
+            <p class="card__description">Утеплённый павильон с алюминиевыми входными группами, рекламным фризом и
+              дополнительным остеклением</p>
+            <p class="card__time">49 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="5">
+          <div class="card__img-wrapper">
+            <img src="./img/slide5.webp" loading="lazy" alt="Магазин" class="card__img">
+          </div>
+          <p class="card__title">Магазин</p>
+          <p class="card__square">110 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Магазин</p>
+            <p class="card__description">Объект выполнен из сэндвич панелей. Установлены декоративные углы "Кубики",
+              дополнительное остекление и рекламный фриз</p>
+            <p class="card__time">27 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="6">
+          <div class="card__img-wrapper">
+            <img src="./img/slide6.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">63 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Павильон утеплённый. Облицовка выполнена деревянными элементами. Окрашенный
+              оконный профиль</p>
+            <p class="card__time">25 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="7">
+          <div class="card__img-wrapper">
+            <img src="./img/slide7.webp" loading="lazy" alt="Торговый ряд" class="card__img">
+          </div>
+          <p class="card__title">Торговый ряд</p>
+          <p class="card__square">100 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый ряд</p>
+            <p class="card__description">Данный павильон утеплён, установлены дополнительные двери и дополнительное
+              остекление. Рекламный фриз из алюминиевых композитных панелей</p>
+            <p class="card__time">24 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="8">
+          <div class="card__img-wrapper">
+            <img src="./img/slide8.webp" loading="lazy" alt="Торговый ряд" class="card__img">
+          </div>
+          <p class="card__title">Торговый ряд</p>
+          <p class="card__square">150 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый ряд</p>
+            <p class="card__description">Выполнен под стиль "Пятёрочки". Установлены дополнительные входные двери и
+              рекламный фриз</p>
+            <p class="card__time">32 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="9">
+          <div class="card__img-wrapper">
+            <img src="./img/slide9.webp" loading="lazy" alt="Торговый ряд" class="card__img">
+          </div>
+          <p class="card__title">Торговый ряд</p>
+          <p class="card__square">150 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый ряд</p>
+            <p class="card__description">Торговый ряд из сэндвич панелей с утеплёнными пенополистиролом. Установлены
+              дополнительные входные двери, рекламный фриз и декоративные углы "Кубики"</p>
+            <p class="card__time">32 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="10">
+          <div class="card__img-wrapper">
+            <img src="./img/slide10.webp" loading="lazy" alt="Павильон Цветы" class="card__img">
+          </div>
+          <p class="card__title">Павильон "Цветы"</p>
+          <p class="card__square">40 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Павильон "Цветы"</p>
+            <p class="card__description">Магазин для продажи цветов с рекламным фризом и декоративными углами</p>
+            <p class="card__time">21 день</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="11">
+          <div class="card__img-wrapper">
+            <img src="./img/slide11.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">50 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Павильон из сэндвич панелей + рекламный фриз и двухцветные композитные углы</p>
+            <p class="card__time">22 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="12">
+          <div class="card__img-wrapper">
+            <img src="./img/slide12.webp" loading="lazy" alt="Торговая галерея" class="card__img">
+          </div>
+          <p class="card__title">Торговая галерея</p>
+          <p class="card__square">100 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговая галерея</p>
+            <p class="card__description">Утеплённая галерея с несколькими входными группами</p>
+            <p class="card__time">28 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="13">
+          <div class="card__img-wrapper">
+            <img src="./img/slide13.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">32 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Утеплённый павильон с облицовкой деревянными элементами. Остекление на 3
+              стороны</p>
+            <p class="card__time">20 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="14">
+          <div class="card__img-wrapper">
+            <img src="./img/slide14.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">72 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Павильон из сэндвич панелей и рекламным фризом</p>
+            <p class="card__time">20 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="15">
+          <div class="card__img-wrapper">
+            <img src="./img/slide15.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">32 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Павильон с декоративными углами и рекламным фризом "Золотой дуб". Установлена
+              дополнительная дверь. Профиль ПВХ</p>
+            <p class="card__time">20 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="16">
+          <div class="card__img-wrapper">
+            <img src="./img/slide16.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">140 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Торговый павильон под морепродукты. Безопорная конструкция с применением
+              двутавровых балок</p>
+            <p class="card__time">34 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="17">
+          <div class="card__img-wrapper">
+            <img src="./img/slide17-2.webp" loading="lazy" alt="Торговый ряд" class="card__img">
+          </div>
+          <p class="card__title">Торговый ряд</p>
+          <p class="card__square">400 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый ряд</p>
+            <p class="card__description">Торговый ряд из сэндвич панелей. На объекте установлены алюминиевые двери.
+              Безопорная конструкция с применением двутавровых балок 25Б1</p>
+            <p class="card__time">46 дней</p>
+            <div class="card__gallery">
+              <img src="./img/slide17-1.webp">
+              <img src="./img/slide17-3.webp">
+              <img src="./img/slide17-4.webp">
+              <img src="./img/slide17-5.webp">
+              <img src="./img/slide17-6.webp">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="18">
+          <div class="card__img-wrapper">
+            <img src="./img/slide18.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">36 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Облицован алюминиевыми композитными панелями. Установлена алюминиевая
+              двустворчатая дверь</p>
+            <p class="card__time">22 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="19">
+          <div class="card__img-wrapper">
+            <img src="./img/slide19.webp" loading="lazy" alt="Торговые ряды" class="card__img">
+          </div>
+          <p class="card__title">Торговые ряды</p>
+          <p class="card__square">460 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговые ряды</p>
+            <p class="card__description">Объект облицован алюминиевыми композитными панелями. Установлены рекламный фриз
+              и алюминиевые двери</p>
+            <p class="card__time">56 дней</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="20">
+          <div class="card__img-wrapper">
+            <img src="./img/slide20.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">28 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон</p>
+            <p class="card__description">Торговый павильон утеплённый, утеплитель пенополистирол. Установлены: рекламный
+              фриз, декоративные углы, двустворчатая дверь, рольставни</p>
+            <p class="card__time">22 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="21">
+          <div class="card__img-wrapper">
+            <img src="./img/slide21-1.webp" loading="lazy" alt="Торговый павильон" class="card__img">
+          </div>
+          <p class="card__title">Торговый павильон</p>
+          <p class="card__square">360 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Торговый павильон под кафе</p>
+            <p class="card__description">Панорамное остекление на 3 стороны. Облицовка клинкерными панелями под дерево
+            </p>
+            <p class="card__time">42 дня</p>
+            <div class="card__gallery">
+              <img src="./img/slide21-2.webp">
+              <img src="./img/slide21-3.webp">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="22">
+          <div class="card__img-wrapper">
+            <img src="./img/slide22.webp" loading="lazy" alt="Магазин продуктов" class="card__img">
+          </div>
+          <p class="card__title">Магазин продуктов</p>
+          <p class="card__square">108 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Магазин продуктов</p>
+            <p class="card__description">Утеплённый магазин из сэндвич панелей с утеплителем 120мм. Установлены:
+              дополнительные входные группы, рекламный фриз, декоративные углы "Кубики", двустворчатая металлическая
+              дверь для разгрузки/загрузки товара и рольставни</p>
+            <p class="card__time">31 день</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="23">
+          <div class="card__img-wrapper">
+            <img src="./img/slide23-1.webp" loading="lazy" alt="Павильон кафе" class="card__img">
+          </div>
+          <p class="card__title">Павильон кафе</p>
+          <p class="card__square">96 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Павильон кафе</p>
+            <p class="card__description">Кафе из сэндвич панелей. Для безопорной конструкции установлены двутавровые
+              балки 16Б1, остекление на 4 стороны, секционный рекламный фриз, декоративные углы "Кубики"</p>
+            <p class="card__time">30 дней</p>
+            <div class="card__gallery">
+              <img src="./img/slide23-2.webp">
+              <img src="./img/slide23-3.webp">
+              <img src="./img/slide23-4.webp">
+              <img src="./img/slide23-5.webp">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="24">
+          <div class="card__img-wrapper">
+            <img src="./img/slide24.webp" loading="lazy" alt="Павильон пекарня" class="card__img">
+          </div>
+          <p class="card__title">Павильон пекарня</p>
+          <p class="card__square">45 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Павильон пекарня</p>
+            <p class="card__description">Утеплитель пенополистирол. Установлены: рекламный фриз и декоративные углы</p>
+            <p class="card__time">24 дня</p>
+            <div class="card__gallery">
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="design__card card" data-index="25">
+          <div class="card__img-wrapper">
+            <img src="./img/slide25-1.webp" loading="lazy" alt="Павильон автошкола" class="card__img">
+          </div>
+          <p class="card__title">Павильон автошкола</p>
+          <p class="card__square">144 м<sup>2</sup></p>
+          <button class="card__btn">Подробнее</button>
+          <div class="card__info">
+            <p class="card__name">Павильон автошкола</p>
+            <p class="card__description">Утеплённое здание из сэндвич панелей. Внутри помещение разделено перегородками.
+              Установлен на металлические винтовые сваи</p>
+            <p class="card__time">33 дня</p>
+            <div class="card__gallery">
+              <img src="./img/slide25-2.webp">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps" id="steps">
+    <div class="steps__content">
+      <h2 class="steps__title js-animated" data-class="opacity">Сотрудничество с нами это 5 простых шагов</h2>
+      <div class="steps__wrapper">
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Составление коммерческого
+            предложения</p>
+          <img loading="lazy" src="./img/steps_1.webp" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Согласование технического
+            задания</p>
+          <img loading="lazy" src="./img/steps_4.webp" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Заключение договора и
+            внесение аванса</p>
+          <img loading="lazy" src="./img/steps_2.webp" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Производство и
+            монтажные работы</p>
+          <img loading="lazy" src="./img/steps_3.webp" alt="Коммерческое предложение" class="steps__img">
+        </div>
+        <div class="steps__item js-animated" data-class="opacity">
+          <p class="steps__text">Сдача объекта и выдача
+            паспорта объекта</p>
+          <img loading="lazy" src="./img/steps_5.webp" alt="Коммерческое предложение" class="steps__img">
+        </div>
+      </div>
+      <button class="steps__btn js-modal js-animated" data-class="opacity" type="button">Начать работу</button>
+    </div>
+  </section>
+
+  <section class="experts">
+    <div class="experts__wrapper">
+      <div class="experts__img">
+      </div>
+      <div class="experts__content">
+        <h2 class="experts__title js-animated" data-class="opacity">Мы эксперты</h2>
+        <p class="experts__text">Наша компания оказывает широкий спектр услуг по строительству быстровозводимых объектов
+          и смежному производству.</p>
+        <p class="experts__text">Какое основание необходимо для установки объекта?
+          Будет ли объект тёплый и какие материалы используются?
+          Правильное расположение дверей и их количество?
+          Куда и как установить кондиционер?
+          Как выполнить вентиляцию?
+          Какая облицовка будет снаружи и есть ли чистовая облицовка внутри?</p>
+        <p class="experts__text">Ответим на все Ваши вопросы используя свои многолетний опыт и знания.</p>
+        <button class="experts__btn js-animated js-modal" data-class="opacity">Получить консультацию</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="services__wrapper">
+      <h2 class="services__title js-animated" data-class="opacity">Наши услуги</h2>
+      <div class="services__container">
+        <div class="services__item">
+          <img src="./img/services_1.webp" loading="lazy" alt="Некапитальный объект" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Изготовление некапитальных объектов из сэндвич-панелей от 14 дней</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_2.webp" loading="lazy" alt="Устройство фундамента" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Устройство основания под объект из металлических винтовых свай, дорожных плит,
+              бетонной ленты, бетонной плиты</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_3_temp.webp" loading="lazy" alt="3D проект" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Проектирование согласно СП и 3D-моделирование</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_4.webp" loading="lazy" alt="Специалисты" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Бесплатный выезд специалиста, замер, расчёт</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_5.webp" loading="lazy" alt="Доставка и разгрузка" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Благоустройство территории объекта, озеленение</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+        <div class="services__item">
+          <img src="./img/services_6.webp" loading="lazy" alt="Благоустройство объекта" class="services__img">
+          <div class="services__description js-animated" data-class="opacity">
+            <p class="services__text">Загрузка, доставка, разгрузка всех материалов и комплектующих, доставка габаритных
+              объектов в сборе</p>
+            <button class="services__btn js-modal" type="button">Узнать больше</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feedback" id="feedback">
+    <h2 class="feedback__title js-animated" data-class="opacity">Отзывы о нас</h2>
+    <div class="feedback__wrapper js-animated" data-class="opacity">
+      <iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
+        src="https://yandex.ru/maps-reviews-widget/2369263383?comments"></iframe>
+      <a href="https://yandex.ru/maps/org/modulnyye_tekhnologii_grupp/2369263383/" target="_blank"
+        style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">Модульные
+        Технологии Групп на карте Москвы — Яндекс Карты</a>
+    </div>
   </section>
 
   <section class="about" id="about">
@@ -382,12 +1075,12 @@
         <p>В основе павильона заложен крепкий металлокаркас, которые изготавливается из металлических
           профильных труб, рассчитанного по проекту сечения. Металлокаркас зачищается и
           обрабатывается антикоррозионной-грунт краской.</p>
-          <p>Далее происходит монтаж утеплителя –
+        <p>Далее происходит монтаж утеплителя –
           сэндвич-панелей. Устанавливаются окна и двери. Весь объект обрабатывается монтажной пеной,
           силиконом и герметиком. После монтируются декоративные элементы и фризы из алюминиевых
           композитных панелей (АКП). Стены павильона – это заводские сэндвич-панели, которые не
           требуют дополнительного окрашивания или облицовки.</p>
-          <p>В стандартной комплектации на пол
+        <p>В стандартной комплектации на пол
           укладывается влагостойкая OSB плита, линолеум и плинтус. По просьбе Заказчиками мы можем
           сделать полусухую стяжку с армированием и облицевать пол керамогранитной плиткой.</p>
         <p>По Вашему желанию вы можете заказать необходимое количество дверей и окон, вентиляцию,
@@ -405,363 +1098,6 @@
     </div>
   </section>
 
-  <section class="services" id="services">
-    <div class="services__wrapper">
-      <h2 class="services__title">Наши услуги</h2>
-      <div class="services__container">
-        <div class="services__item">
-          <img src="./img/services_1.webp" loading="lazy" alt="Некапитальный объект" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Изготовление некапитальных объектов из сэндвич-панелей от 14 дней</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_2.webp" loading="lazy" alt="Устройство фундамента" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Устройство основания под объект из металлических винтовых свай, дорожных плит,
-              бетонной ленты, бетонной плиты</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_3_temp.webp" loading="lazy" alt="3D проект" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Проектирование согласно СП и 3D-моделирование</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_4.webp" loading="lazy" alt="Специалисты" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Бесплатный выезд специалиста, замер, расчёт</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_5.webp" loading="lazy" alt="Доставка и разгрузка" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Благоустройство территории объекта, озеленение</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-        <div class="services__item">
-          <img src="./img/services_6.webp" loading="lazy" alt="Благоустройство объекта" class="services__img">
-          <div class="services__description js-animated" data-class="opacity">
-            <p class="services__text">Загрузка, доставка, разгрузка всех материалов и комплектующих, доставка габаритных
-              объектов в сборе</p>
-            <button class="services__btn js-modal" type="button">Узнать больше</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="experts">
-    <div class="experts__wrapper">
-      <div class="experts__img">
-      </div>
-      <div class="experts__content">
-        <h2 class="experts__title js-animated" data-class="opacity">Мы эксперты</h2>
-        <p class="experts__text">Наша компания оказывает широкий спектр услуг по строительству быстровозводимых объектов
-          и смежному производству.</p>
-        <p class="experts__text">Какое основание необходимо для установки объекта?
-          Будет ли объект тёплый и какие материалы используются?
-          Правильное расположение дверей и их количество?
-          Куда и как установить кондиционер?
-          Как выполнить вентиляцию?
-          Какая облицовка будет снаружи и есть ли чистовая облицовка внутри?</p>
-        <p class="experts__text">Ответим на все Ваши вопросы используя свои многолетний опыт и знания.</p>
-        <button class="experts__btn js-animated js-modal" data-class="opacity">Получить консультацию</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="adjustments" id="adjustment">
-    <div class="adjustments__wrapper">
-      <h2 class="adjustments__title">Наши преимущества</h2>
-      <div class="adjustments__content">
-        <div class="adjustments__item adjustment">
-          <p class="adjustment__title adjustment__title--price">Фиксированная стоимость</p>
-          <p class="adjustment__text js-animated" data-class="adjustment__text--toRight">За счёт собственного
-            производства издержки сводятся к минимуму</p>
-        </div>
-        <div class="adjustments__item adjustment">
-          <p class="adjustment__title adjustment__title--hands">Прозрачные условия</p>
-          <p class="adjustment__text js-animated" data-class="adjustment__text--toRight">В процессе работы не возникнет
-            дополнительных доплат и скрытых платежей</p>
-        </div>
-        <div class="adjustments__item adjustment">
-          <p class="adjustment__title adjustment__title--money">Гибкий способ оплаты</p>
-          <p class="adjustment__text js-animated" data-class="adjustment__text--toRight">Для запуска проекта достаточно
-            всего 50% от общей стоимости</p>
-        </div>
-        <div class="adjustments__item adjustment">
-          <p class="adjustment__title adjustment__title--materials">Комплектующие<br>и материалы</p>
-          <p class="adjustment__text js-animated" data-class="adjustment__text--toLeft">Качественные материалы и
-            комплектующие от ведущих производителей</p>
-        </div>
-        <div class="adjustments__item adjustment">
-          <p class="adjustment__title adjustment__title--individual">Индивидуальный подход</p>
-          <p class="adjustment__text js-animated" data-class="adjustment__text--toLeft">Профессионально, скрупулёзно и
-            кропотливо погружаемся в каждый проект</p>
-        </div>
-        <div class="adjustments__item adjustment">
-          <p class="adjustment__title adjustment__title--heart">Мелочь, а приятно!</p>
-          <p class="adjustment__text js-animated" data-class="adjustment__text--toLeft">По программе лояльности с
-            радостью подарим необходимые мелочи</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="steps" id="steps">
-    <div class="steps__content">
-      <h2 class="steps__title js-animated" data-class="opacity">Сотрудничество с нами это 5 простых шагов</h2>
-      <div class="steps__wrapper">
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Составление коммерческого
-            предложения</p>
-          <img loading="lazy" src="./img/steps_1.webp" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Согласование технического
-            задания</p>
-          <img loading="lazy" src="./img/steps_4.webp" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Заключение договора и
-            внесение аванса</p>
-          <img loading="lazy" src="./img/steps_2.webp" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Производство и
-            монтажные работы</p>
-          <img loading="lazy" src="./img/steps_3.webp" alt="Коммерческое предложение" class="steps__img">
-        </div>
-        <div class="steps__item js-animated" data-class="opacity">
-          <p class="steps__text">Сдача объекта и выдача
-            паспорта объекта</p>
-          <img loading="lazy" src="./img/steps_5.webp" alt="Коммерческое предложение" class="steps__img">
-        </div>
-      </div>
-      <button class="steps__btn js-modal js-animated" data-class="opacity" type="button">Начать работу</button>
-    </div>
-  </section>
-
-  <section class="design" id="design">
-    <div class="design__wrapper">
-      <div class="design__title">
-        <h2 class="visually-hidden">Выбрать дизайн</h2>
-        <span class="design__title--first js-animated" data-class="opacity">Выберите ди</span>
-        <span class="design__title--last js-animated" data-class="opacity">зайн объекта</span>
-      </div>
-      <div class="design__content">
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide1.webp" loading="lazy" alt="Павильон 1" class="design__img">
-          </div>
-          <p class="design__text">Павильон 1</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide2.webp" loading="lazy" alt="Павильон 2" class="design__img">
-          </div>
-          <p class="design__text">Павильон 2</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide3.webp" loading="lazy" alt="Павильон 3" class="design__img">
-          </div>
-          <p class="design__text">Павильон 3</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide4.webp" loading="lazy" alt="Павильон 4" class="design__img">
-          </div>
-          <p class="design__text">Павильон 4</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide33.webp" loading="lazy" alt="Павильон 33" class="design__img">
-          </div>
-          <p class="design__text">Павильон 33</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide34.webp" loading="lazy" alt="Павильон 34" class="design__img">
-          </div>
-          <p class="design__text">Павильон 34</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide35.webp" loading="lazy" alt="Павильон 35" class="design__img">
-          </div>
-          <p class="design__text">Павильон 35</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide5.webp" loading="lazy" alt="Продуктовый павильон" class="design__img">
-          </div>
-          <p class="design__text">Продуктовый павильон</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide6.webp" loading="lazy" alt="Еще продуктовый павильон" class="design__img">
-          </div>
-          <p class="design__text">Еще продуктовый павильон</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide7.webp" loading="lazy" alt="Пиццерия" class="design__img">
-          </div>
-          <p class="design__text">Пиццерия</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide8.webp" loading="lazy" alt="Павильон 7" class="design__img">
-          </div>
-          <p class="design__text">Павильон 7</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide9.webp" loading="lazy" alt="Павильон 8" class="design__img">
-          </div>
-          <p class="design__text">Павильон 8</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide10.webp" loading="lazy" alt="Цветочный павильон" class="design__img">
-          </div>
-          <p class="design__text">Цветочный павильон</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide11.webp" loading="lazy" alt="Павильон 9" class="design__img">
-          </div>
-          <p class="design__text">Павильон 9</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide12.webp" loading="lazy" alt="Павильон 10" class="design__img">
-          </div>
-          <p class="design__text">Павильон 10</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide13.webp" loading="lazy" alt="Павильон 11" class="design__img">
-          </div>
-          <p class="design__text">Павильон 11</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide14.webp" loading="lazy" alt="Павильон 12" class="design__img">
-          </div>
-          <p class="design__text">Павильон 12</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide15.webp" loading="lazy" alt="Павильон 13" class="design__img">
-          </div>
-          <p class="design__text">Павильон 13</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide31.webp" loading="lazy" alt="Павильон 31" class="design__img">
-          </div>
-          <p class="design__text">Павильон 13</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide32.webp" loading="lazy" alt="Павильон 32" class="design__img">
-          </div>
-          <p class="design__text">Павильон 13</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide16.webp" loading="lazy" alt="Павильон 14" class="design__img">
-          </div>
-          <p class="design__text">Павильон 14</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide17.webp" loading="lazy" alt="Павильон 15" class="design__img">
-          </div>
-          <p class="design__text">Павильон 15</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide18.webp" loading="lazy" alt="Павильон 16" class="design__img">
-          </div>
-          <p class="design__text">Павильон 16</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide19.webp" loading="lazy" alt="Павильон 17" class="design__img">
-          </div>
-          <p class="design__text">Павильон 17</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide21.webp" loading="lazy" alt="Павильон 19" class="design__img">
-          </div>
-          <p class="design__text">Павильон 19</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide22.webp" loading="lazy" alt="Павильон 20" class="design__img">
-          </div>
-          <p class="design__text">Павильон 20</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide24.webp" loading="lazy" alt="Павильон 22" class="design__img">
-          </div>
-          <p class="design__text">Павильон 22</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide25.webp" loading="lazy" alt="Павильон 23" class="design__img">
-          </div>
-          <p class="design__text">Павильон 22</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide26.webp" loading="lazy" alt="Павильон 24" class="design__img">
-          </div>
-          <p class="design__text">Павильон 22</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide27.webp" loading="lazy" alt="Павильон 25" class="design__img">
-          </div>
-          <p class="design__text">Павильон 22</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide28.webp" loading="lazy" alt="Павильон 26" class="design__img">
-          </div>
-          <p class="design__text">Павильон 22</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide29.webp" loading="lazy" alt="Павильон 27" class="design__img">
-          </div>
-          <p class="design__text">Павильон 22</p>
-        </a>
-        <a href="#" class="design__item">
-          <div class="design__img--wrapper">
-            <img src="./img/slide30.webp" loading="lazy" alt="Павильон 27" class="design__img">
-          </div>
-          <p class="design__text">Павильон 23</p>
-        </a>
-      </div>
-      <div class="design__show-more">
-        <button class="show-more" aria-label="Показать всю галерею">Показать еще</button>
-      </div>
-    </div>
-  </section>
-
   <section class="map">
     <div class="map__wrapper">
       <div class="map__description">
@@ -774,10 +1110,17 @@
       </div>
     </div>
     <div class="map__map" id="location">
-      <iframe class="map__map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.6386678591334!2d37.721003877305215!3d55.712652273069374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ad11db00001%3A0x3230c89f0c347e1b!2z0JLQvtC70LPQvtCz0YDQsNC00YHQutC40Lkg0L_RgC3Rgi4sIDQ3LCDQnNC-0YHQutCy0LAsIDEwOTMxNg!5e0!3m2!1sru!2sru!4v1681982218227!5m2!1sru!2sru"
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Карта"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div style="position:relative;overflow:hidden;">
+        <a href="https://yandex.ru/maps/org/modulnyye_tekhnologii_grupp/2369263383/?utm_medium=mapframe&utm_source=maps"
+          style="color:#eee;font-size:12px;position:absolute;top:0px;">Модульные Технологии Групп</a>
+        <a href="https://yandex.ru/maps/213/moscow/category/prefabricated_buildings/184107425/?utm_medium=mapframe&utm_source=maps"
+          style="color:#eee;font-size:12px;position:absolute;top:14px;">Быстровозводимые здания в Москве</a><a
+          href="https://yandex.ru/maps/213/moscow/category/retail_equipment/184106990/?utm_medium=mapframe&utm_source=maps"
+          style="color:#eee;font-size:12px;position:absolute;top:28px;">Торговое оборудование в Москве</a>
+        <iframe class="map__map"
+          src="https://yandex.ru/map-widget/v1/?ll=37.723870%2C55.712594&mode=search&oid=2369263383&ol=biz&sll=82.920430%2C55.030199&sspn=0.369415%2C0.144949&text=%D0%B2%D0%BE%D0%BB%D0%B3%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2047&z=12"
+          frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+      </div>
     </div>
   </section>
 
@@ -797,7 +1140,7 @@
             class="contacts__text contacts__text--link contacts__text--phone">+7-925-714-51-11</a>
         </div>
       </div>
-      <form action="send.php" class="contacts__form form" method="POST">
+      <form action="send.php" id="consult" class="contacts__form form" method="POST">
         <div class="form__field">
           <label for="name" class="form__label">Имя *</label>
           <input type="text" id="name" name="name" class="form__text">
@@ -814,7 +1157,7 @@
           <label for="message" class="form__label">Текст сообщения</label>
           <textarea class="form__text form__text--area" name="message" id="message"></textarea>
         </div>
-        <input type="submit" class="form__submit js-animated" data-class="opacity" value="Оставить заявку на расчёт">
+        <input type="submit" class="form__submit js-animated" data-class="opacity" value="Оставить заявку на замер">
         <p class="form__status"></p>
       </form>
     </div>
@@ -845,9 +1188,9 @@
 
   <section class="modal hide js-animated" data-class="opacity">
     <h2 class="visually-hidden">Окно обратной связи</h2>
-    <button class="slider__close" type="button" aria-label="Закрыть слайдер"></button>
+    <button class="modal__close" type="button" aria-label="Закрыть слайдер">&#10006;</button>
     <div class="modal__content">
-      <form action="send.php" class="modal__form form" method="POST">
+      <form action="send.php" id="zayavka" class="modal__form form" method="POST">
         <div class="form__field">
           <label for="name1" class="form__label">Имя *</label>
           <input type="text" id="name1" name="name" class="form__text">
@@ -864,44 +1207,46 @@
           <label for="message1" class="form__label">Текст сообщения</label>
           <textarea class="form__text form__text--area" name="message" id="message1"></textarea>
         </div>
-        <input type="submit" class="form__submit" value="Оставить заявку на расчёт">
+        <input type="submit" class="form__submit" value="Оставить заявку на замер">
         <p class="form__status"></p>
       </form>
     </div>
   </section>
 
-  <section class="slider hide">
-    <h2 class="visually-hidden">Слайдер</h2>
-    <button class="slider__close" type="button" aria-label="Закрыть слайдер"></button>
-    <p class="slider__counter">n/n</p>
-    <button class="slider__leftBtn" type="button" aria-label="Предыдущий слайд"></button>
-    <button class="slider__rightBtn" type="button" aria-label="Следующий слайд"></button>
-    <p class="slider__text"></p>
-    <img src="" alt="" class="slider__img">
+  <section class="card-info hide">
+    <button class="card-info__close">&#10006;</button>
+    <div class="card-info__content">
+      <div class="card-info__gallery">
+        <div class="card-info__main">
+          <button class="card-info__ctrl card-info__ctrl--left">&larr;</button>
+          <button class="card-info__ctrl card-info__ctrl--right"></button>
+          <img src="" alt="Slide" class="card-info__img card-info__img--ready">
+        </div>
+        <div class="card-info__imgs">
+        </div>
+      </div>
+      <div class="card-info__description">
+        <p class="card-info__title"></p>
+        <p class="card-info__text"></p>
+        <p class="card-info__square">Площадь - <span class="card-info__value card-info__value--square"></span></p>
+        <p class="card-info__time">Срок строительства - <span class="card-info__value card-info__value--time">12
+            дней</span></p>
+        <button class="experts__btn js-modal card-info__btn">Нужен такой же</button>
+      </div>
+    </div>
   </section>
 
   <button class="scrollUp hide js-animated" data-class="opacity" type="button" aria-label="Вверх"></button>
 
   <ul class="controls">
     <li>
-      <a href="tel:+79257145111" class="controls__item controls__item--phone" aria-label="Позвонить нам"></a>
-    </li>
-    <li>
-      <a href="mailto:info@modul-tehno.ru" class="controls__item controls__item--mail"
-        aria-label="Написать на почту"></a>
-    </li>
-    <li>
       <a href="https://api.whatsapp.com/send?phone=79257145111" class="controls__item controls__item--whatsapp"
         aria-label="Связаться в WhatsApp"></a>
-    </li>
-    <li>
-      <a href="https://t.me/+79257145111" class="controls__item controls__item--telegram"
-        aria-label="Связаться в Telegram"></a>
     </li>
   </ul>
 
   <section class="policy hide">
-    <button class="slider__close policy__close" type="button" aria-label="Закрыть окно"></button>
+    <button class="modal__close policy__close" type="button" aria-label="Закрыть окно">&#10006;</button>
     <div class="policy__wrapper">
       <h3 class="policy__title">Политика в отношении обработки персональных данных ООО «Модульные Технологии Групп»</h3>
       <p class="policy__text">
@@ -1006,7 +1351,7 @@
     </div>
   </section>
 
-  <script src="js/script.min.js?8"></script>
+  <script src="js/script.min.js?14"></script>
 </body>
 
 </html>

@@ -51,6 +51,7 @@ const modalClose = document.querySelector('.modal__close');
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
 let currentValue = '';
+const YAM_ID = 93890524;
 
 // взаимодействие с бургером
 burgerBtn.addEventListener('click', () => {
@@ -375,6 +376,10 @@ forms.forEach(form => {
       .then(res => {
         if (res.ok) {
           currentForm.querySelector('input[type="submit"]').removeAttribute('disabled');
+
+          const formId = form.getAttribute('id');
+          ym(YAM_ID, 'reachGoal', formId);
+
           status.textContent = 'Сообщение отправлено';
           quizStatus.textContent = 'Сообщение отправлено';
           setTimeout(() => status.textContent = ``, 2000);
