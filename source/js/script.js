@@ -250,7 +250,7 @@ phoneField.addEventListener('blur', (e) => {
 });
 //
 // обработка инпута в форме
-inputs.forEach((input) => {
+/* inputs.forEach((input) => {
   input.addEventListener('focus', (e) => {
     if (e.target.value.length === 0) {
       e.target.value = PHONE_SCHEME;
@@ -306,7 +306,7 @@ inputs.forEach((input) => {
       ? ''
       : e.target.value;
   });
-});
+}); */
 
 function getCursorPosition(ctrl) {
   let CaretPos = 0;
@@ -327,12 +327,20 @@ function renderStatusMessage(element, message) {
   setTimeout(() => element.textContent = ``, 2000);
 }
 
+function checkPhoneField(input) {
+  const value = input.value.replace(/\+/g, '');
+  if (value.length !== 11) return false;
+  if (isNaN(value)) return false;
+  if (value[0] !== '7' && value[0] !== '8') return false;
+  return true;
+}
+
 forms.forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const currentForm = e.target;
-    const phone = currentForm.querySelector('input[name=phone]');
+    const phone = currentForm.querySelector('input[name="phone"]');
     const name = currentForm.querySelector('input[name="name"]');
     const status = currentForm.querySelector('.form__status');
 
@@ -341,7 +349,7 @@ forms.forEach(form => {
       if (checkRequired()) return;
     }
 
-    if (!phone.value || phone.value.includes('_')) {
+    if (!checkPhoneField(phone)) {
       form.querySelector('input[name="phone"]').focus();
       renderStatusMessage(status, 'Укажите корректный номер');
       return;
@@ -360,6 +368,7 @@ forms.forEach(form => {
     }
 
     phone.value = phone.value.replace(/\D/g, '');
+    phone.value = phone.value[0] === '8' ? phone.value.replace('8', '7') : phone.value;
 
     const data = new FormData(currentForm);
     currentForm.dataset.location
