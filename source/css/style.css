@@ -62,8 +62,8 @@ img {
   background-color: rgb(249, 0, 0);
   border: none;
   background-size: 40px;
-  bottom: 20px;
-  right: 90px;
+  bottom: 60px;
+  right: 20px;
   cursor: pointer;
   animation-duration: 0.5s !important;
   z-index: 2;
@@ -2574,31 +2574,32 @@ img {
   z-index: 2;
 }
 .controls__item {
-  width: 40px;
-  height: 40px;
-  display: block;
-  background-size: 40px;
+  height: 4.4rem;
+  border-radius: 2.2rem;
+  display: flex;
+  align-items: center;
+  padding: 5px 2px;
+  background-color: #fff;
+  color: #424242;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+  transition: all 0.2s;
 }
-.controls__item--whatsapp {
-  background-image: url(../img/aside__whatsapp.svg);
+.controls__icon {
+  width: 3.8rem;
+  height: 3.8rem;
+}
+.controls__text {
+  font-size: 1.6rem;
+  padding: 0 0.5rem;
 }
 
 @media (min-width: 768px) {
-  .controls__item {
-    width: 50px;
-    height: 50px;
-    background-size: 50px;
-    transition: all 0.2s;
+  .controls {
+    bottom: 60px;
   }
   .controls__item:hover {
-    transform: scale(1.2);
-  }
-}
-@media (min-width: 980px) {
-  .controls__item {
-    width: 60px;
-    height: 60px;
-    background-size: 60px;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   }
 }
 .policy {

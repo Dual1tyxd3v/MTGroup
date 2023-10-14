@@ -335,6 +335,14 @@ function checkPhoneField(input) {
   return true;
 }
 
+// запрет ввода букв в поле телефон
+inputs.forEach(input => {
+  input.addEventListener('input', (e) => {
+    const inputElement = e.target;
+    inputElement.value = inputElement.value.replace(/\D/g, '');
+  });
+});
+
 forms.forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -344,28 +352,28 @@ forms.forEach(form => {
     const name = currentForm.querySelector('input[name="name"]');
     const status = currentForm.querySelector('.form__status');
 
-    if (form.classList.contains('quiz__form')) {
+    /* if (form.classList.contains('quiz__form')) {
       if (currentQuiz === quizBlocks.length) checkInputs(document.querySelector(`[data-screen="${currentQuiz}"]`));
       if (checkRequired()) return;
-    }
+    } */
 
     if (!checkPhoneField(phone)) {
       form.querySelector('input[name="phone"]').focus();
       renderStatusMessage(status, 'Укажите корректный номер');
       return;
     }
-    if (phone.value.replace(/\D/g, '').length !== 11) {
+    /* if (phone.value.replace(/\D/g, '').length !== 11) {
       phone.focus();
       phone.removeAttribute('value');
       phone.value = PHONE_SCHEME;
       renderStatusMessage(status, 'Укажите корректный номер');
       return;
-    }
-    if (!name.value) {
+    } */
+    /* if (!name.value) {
       name.focus();
       renderStatusMessage(status, 'Необходимо ввести имя');
       return;
-    }
+    } */
 
     phone.value = phone.value.replace(/\D/g, '');
     phone.value = phone.value[0] === '8' ? phone.value.replace('8', '7') : phone.value;
