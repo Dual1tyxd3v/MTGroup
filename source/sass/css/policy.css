@@ -1,0 +1,47 @@
+.policy {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.policy__wrapper {
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 90vh;
+  width: 90vw;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  overflow: auto;
+  max-width: 900px;
+  padding: 20px;
+}
+.policy__text {
+  font-size: 15px;
+  font-weight: 700;
+  text-indent: 30px;
+  margin-bottom: 10px;
+}
+.policy__text a {
+  font-weight: 900;
+  color: #000;
+  text-decoration: underline;
+}
+.policy__text:last-child {
+  margin-bottom: 0;
+}
+.policy__text--subtitle {
+  font-size: 17px;
+  font-family: "Arial";
+  text-align: center;
+}
+.policy__title {
+  font-size: 20px;
+  font-family: "Arial";
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}/*# sourceMappingURL=policy.css.map */
