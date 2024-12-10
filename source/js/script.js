@@ -29,6 +29,7 @@ const quizLengthInput = document.querySelector('#length');
 const quizWidthInput = document.querySelector('#width');
 const quizHeightInput = document.querySelector('#height');
 const quizError = document.querySelector('.quiz__error');
+const quizSwitchBtn = document.querySelector('.quiz__submit--switch');
 const tabsContainer = document.querySelector('.about__tabs');
 const tabs = document.querySelectorAll('.about__tab');
 const tabsContent = document.querySelectorAll('.about__content');
@@ -86,7 +87,7 @@ const observer = new IntersectionObserver((entries) => {
 const animated = document.querySelectorAll('.js-animated');
 animated.forEach((a) => observer.observe(a));
 //
-// cars init
+// cards init
 document.querySelectorAll('.card').forEach((card, i) => {
   card.dataset.index = i + 1;
   const title = card.querySelector('.card__title');
@@ -358,6 +359,21 @@ function checkPhoneField(input) {
   if (value[0] !== '7' && value[0] !== '8') return false;
   return true;
 }
+//
+
+// переключатель размеров в квизе
+const quizLengthField = document.querySelector('.quiz__answer--length');
+const quizWidthField = document.querySelector('.quiz__answer--width');
+const quizSquareField = document.querySelector('.quiz__answer--square');
+
+quizSwitchBtn.addEventListener('click', () => {
+  quizLengthField.classList.toggle('hide');
+  quizWidthField.classList.toggle('hide');
+  quizSquareField.classList.toggle('hide');
+
+  quizSwitchBtn.textContent = `Указать ${quizSquareField.classList.contains('hide') ? 'площадь' : 'размеры'}`;
+});
+//
 
 // запрет ввода букв в поле телефон
 inputs.forEach((input) => {
@@ -376,10 +392,10 @@ forms.forEach((form) => {
     const name = currentForm.querySelector('input[name="name"]');
     const status = currentForm.querySelector('.form__status');
 
-    /* if (form.classList.contains('quiz__form')) {
+    if (form.classList.contains('quiz__form')) {
       if (currentQuiz === quizBlocks.length) checkInputs(document.querySelector(`[data-screen="${currentQuiz}"]`));
       if (checkRequired()) return;
-    } */
+    }
 
     if (!checkPhoneField(phone)) {
       form.querySelector('input[name="phone"]').focus();
@@ -393,11 +409,11 @@ forms.forEach((form) => {
       renderStatusMessage(status, 'Укажите корректный номер');
       return;
     } */
-    /* if (!name.value) {
+    if (!name.value) {
       name.focus();
       renderStatusMessage(status, 'Необходимо ввести имя');
       return;
-    } */
+    }
 
     phone.value = phone.value.replace(/\D/g, '');
     phone.value = phone.value[0] === '8' ? phone.value.replace('8', '7') : phone.value;
@@ -634,7 +650,7 @@ function checkInputs(container) {
 
   let check = true;
   inputs.forEach((input) => {
-    if (input.value.length === 0) {
+    if (input.value.length === 0 && !input.closest('.quiz__answer').classList.contains('hide')) {
       container.setAttribute('data-filled', false);
       check = false;
     }
@@ -701,6 +717,8 @@ quizRulerCheckbox.addEventListener('change', (e) => {
   inputs.forEach((input) => {
     quizRulerCheckbox.checked ? input.setAttribute('disabled', '1') : input.removeAttribute('disabled');
   });
+
+  quizRulerCheckbox.checked ? quizSwitchBtn.setAttribute('disabled', '1') : quizSwitchBtn.removeAttribute('disabled');
 });
 
 // TABS
