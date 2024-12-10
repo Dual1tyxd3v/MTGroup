@@ -1,0 +1,13 @@
+AddDefaultCharset UTF-8
+# Редирект с http на https создан автоматически при заказе бесплатного ssl-сертификата
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+# Конец редиректа
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.modul-tehno.ru$ [NC]
+RewriteRule ^(.*)$ https://modul-tehno.ru/$1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ https://modul-tehno.ru/ [R=301,L]

@@ -16,6 +16,21 @@
 
   &__left {
     margin-bottom: 20px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -4rem;
+      bottom: -4.5rem;
+      width: 30vw;
+      height: 20vw;
+      background-image: url(../img/winter-build.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      // transform: rotate(45deg);
+    }
   }
 
   &__right {
@@ -168,7 +183,7 @@
     &__title {
       display: flex;
       align-items: center;
-      font-size: 60px;
+      font-size: 55px;
       background-image: linear-gradient(to right, rgb(249, 0, 0) 0, rgb(249, 0, 0) 10px, transparent 10px);
       padding: 60px 0 60px 40px;
       position: relative;
@@ -223,6 +238,13 @@
       grid-column: 1/-1;
       width: 80%;
       margin-bottom: 0;
+
+      &::after {
+        width: 25rem;
+        height: 22rem;
+        right: -13rem;
+        top: 15rem;
+      }
     }
 
     &__bonus {

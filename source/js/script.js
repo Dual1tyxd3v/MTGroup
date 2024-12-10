@@ -64,17 +64,17 @@ burgerBtn.addEventListener('click', () => {
 });
 //
 // взаимодействие с мобильным меню
-menuLinks.forEach(link => {
+menuLinks.forEach((link) => {
   link.addEventListener('click', () => {
     header.classList.remove('header--opened');
     document.querySelector('body').style.overflow = 'visible';
-  })
+  });
 });
 //
 // отслеживание позиции для запуска анимации элементов
-const observer = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver((entries) => {
   // перебор записей
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     // если элемент появился
     if (entry.isIntersecting) {
       // добавить ему CSS-класс
@@ -86,12 +86,23 @@ const observer = new IntersectionObserver(entries => {
 const animated = document.querySelectorAll('.js-animated');
 animated.forEach((a) => observer.observe(a));
 //
+// cars init
+document.querySelectorAll('.card').forEach((card, i) => {
+  card.dataset.index = i + 1;
+  const title = card.querySelector('.card__title');
+  title.textContent = `${i + 1}. ${title.textContent}`;
+});
+//
 // slider
 let OFFSET = document.querySelector('.card').getBoundingClientRect().width + 30;
 const CARDS_COUNT = document.querySelectorAll('.design__card').length;
 let LAST_SLIDE = 0;
-const SLIDES_COUNT = window.innerWidth > 980
-  ? CARDS_COUNT - 3 : window.innerWidth > 767 ? CARDS_COUNT - 2 : CARDS_COUNT - 1;
+const SLIDES_COUNT =
+  window.innerWidth > 980 ? CARDS_COUNT - 3 : window.innerWidth > 767 ? CARDS_COUNT - 2 : CARDS_COUNT - 1;
+if (SLIDES_COUNT <= 0) {
+  sliderBtnL.style.display = 'none';
+  sliderBtnR.style.display = 'none';
+}
 
 window.addEventListener('resize', () => {
   header.classList.remove('header--opened');
@@ -120,25 +131,31 @@ function checkSlides() {
   sliderBtnL.style.display = 'block';
   if (LAST_SLIDE === SLIDES_COUNT) {
     sliderBtnR.style.display = 'none';
-  }
-  else if (LAST_SLIDE === 0) {
+  } else if (LAST_SLIDE === 0) {
     sliderBtnL.style.display = 'none';
   }
 }
 
 let touchSlider = null;
 
-slider.addEventListener('touchstart', (e) => {
-  touchSlider = e.touches[0].clientX;
-}, { passive: true });
-slider.addEventListener('touchend', (e) => {
-  if (touchSlider - e.changedTouches[0].clientX === 0) {
-    return;
-  }
-  touchSlider = (touchSlider - e.changedTouches[0].clientX) > 0
-    ? 1 : -1;
-  changeSlide(touchSlider);
-}, { passive: true });
+slider.addEventListener(
+  'touchstart',
+  (e) => {
+    touchSlider = e.touches[0].clientX;
+  },
+  { passive: true }
+);
+slider.addEventListener(
+  'touchend',
+  (e) => {
+    if (touchSlider - e.changedTouches[0].clientX === 0) {
+      return;
+    }
+    touchSlider = touchSlider - e.changedTouches[0].clientX > 0 ? 1 : -1;
+    changeSlide(touchSlider);
+  },
+  { passive: true }
+);
 //
 
 // show card modal
@@ -188,17 +205,24 @@ cardGallery.addEventListener('click', (e) => {
 
 let cardTouchSlider = null;
 
-cardMainImage.addEventListener('touchstart', (e) => {
-  cardTouchSlider = e.touches[0].clientX;
-}, { passive: true });
-cardMainImage.addEventListener('touchend', (e) => {
-  if (cardTouchSlider - e.changedTouches[0].clientX === 0) {
-    return;
-  }
-  cardTouchSlider = (cardTouchSlider - e.changedTouches[0].clientX) > 0
-    ? 1 : -1;
-  changeImg(cardTouchSlider, -1);
-}, { passive: true });
+cardMainImage.addEventListener(
+  'touchstart',
+  (e) => {
+    cardTouchSlider = e.touches[0].clientX;
+  },
+  { passive: true }
+);
+cardMainImage.addEventListener(
+  'touchend',
+  (e) => {
+    if (cardTouchSlider - e.changedTouches[0].clientX === 0) {
+      return;
+    }
+    cardTouchSlider = cardTouchSlider - e.changedTouches[0].clientX > 0 ? 1 : -1;
+    changeImg(cardTouchSlider, -1);
+  },
+  { passive: true }
+);
 
 function renderCard(card) {
   document.body.style.overflow = 'hidden';
@@ -219,7 +243,7 @@ function renderCard(card) {
     newImg.dataset.index = i;
     i === 0 && newImg.classList.add('card-info__img-small--active');
     cardGallery.append(newImg);
-    imgs.push(newImg)
+    imgs.push(newImg);
   });
   cardsCount = imgs.length - 1;
   cardMainImage.src = imgs[0].src;
@@ -324,7 +348,7 @@ function getCursorPosition(ctrl) {
 // отправка формы
 function renderStatusMessage(element, message) {
   element.textContent = message;
-  setTimeout(() => element.textContent = ``, 2000);
+  setTimeout(() => (element.textContent = ``), 2000);
 }
 
 function checkPhoneField(input) {
@@ -336,14 +360,14 @@ function checkPhoneField(input) {
 }
 
 // запрет ввода букв в поле телефон
-inputs.forEach(input => {
+inputs.forEach((input) => {
   input.addEventListener('input', (e) => {
     const inputElement = e.target;
     inputElement.value = inputElement.value.replace(/\D/g, '');
   });
 });
 
-forms.forEach(form => {
+forms.forEach((form) => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -379,18 +403,16 @@ forms.forEach(form => {
     phone.value = phone.value[0] === '8' ? phone.value.replace('8', '7') : phone.value;
 
     const data = new FormData(currentForm);
-    currentForm.dataset.location
-      ? data.set('location', currentForm.dataset.location)
-      : null;
-    currentForm.dataset.copy
-      ? data.set('copy', currentForm.dataset.copy) : null;
+    currentForm.dataset.location ? data.set('location', currentForm.dataset.location) : null;
+    currentForm.dataset.copy ? data.set('copy', currentForm.dataset.copy) : null;
 
     currentForm.querySelector('input[type="submit"]').setAttribute('disabled', true);
 
     await fetch('./js/send.php', {
-      method: 'POST', body: data
+      method: 'POST',
+      body: data,
     })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           currentForm.querySelector('input[type="submit"]').removeAttribute('disabled');
 
@@ -399,30 +421,29 @@ forms.forEach(form => {
 
           status.textContent = 'Сообщение отправлено';
           quizStatus.textContent = 'Сообщение отправлено';
-          setTimeout(() => status.textContent = ``, 2000);
+          setTimeout(() => (status.textContent = ``), 2000);
         } else {
           status.textContent = 'Ошибка отправки';
-          setTimeout(() => status.textContent = ``, 2000);
+          setTimeout(() => (status.textContent = ``), 2000);
           quizStatus.textContent = 'Ошибка отправки. Попробуйте позже';
         }
         if (form.classList.contains('quiz__form')) {
           showQuizResult(form);
         }
       })
-      .catch(e => console.log(e.message));
+      .catch((e) => console.log(e.message));
   });
 });
 //
 // отображение модального окна
-modalBtns.forEach(btn => {
+modalBtns.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     document.body.style.overflow = 'hidden';
     e.target.dataset.location
-      ? modal.querySelector('form').dataset.location = e.target.dataset.location
-      : modal.querySelector('form').dataset.location = '';
+      ? (modal.querySelector('form').dataset.location = e.target.dataset.location)
+      : (modal.querySelector('form').dataset.location = '');
 
-    e.target.dataset.copy
-      ? modal.querySelector('form').dataset.copy = e.target.dataset.copy : null;
+    e.target.dataset.copy ? (modal.querySelector('form').dataset.copy = e.target.dataset.copy) : null;
     modal.classList.toggle('hide');
   });
 });
@@ -470,16 +491,17 @@ function init() {
   const mapSearch = document.querySelector('#suggest');
   var searchControl = new ymaps.control.SearchControl({
     options: {
-      provider: 'yandex#search'
-    }
+      provider: 'yandex#search',
+    },
   });
 
   var suggestView1 = new ymaps.SuggestView('suggest');
-  var myPlacemark, myMap = new ymaps.Map("map", {
-    center: [55.76, 37.64],
-    zoom: 12,
-    controls: []
-  });
+  var myPlacemark,
+    myMap = new ymaps.Map('map', {
+      center: [55.76, 37.64],
+      zoom: 12,
+      controls: [],
+    });
   myMap.controls.add(searchControl);
 
   myMap.events.add('click', function (e) {
@@ -487,9 +509,7 @@ function init() {
 
     if (myPlacemark) {
       myPlacemark.geometry.setCoordinates(coords);
-    }
-
-    else {
+    } else {
       myPlacemark = createPlacemark(coords);
       myMap.geoObjects.add(myPlacemark);
 
@@ -501,33 +521,42 @@ function init() {
   });
 
   function createPlacemark(coords) {
-    return new ymaps.Placemark(coords, {
-      iconCaption: 'поиск...'
-    }, {
-      preset: 'islands#violetDotIconWithCaption',
-      draggable: true
-    });
+    return new ymaps.Placemark(
+      coords,
+      {
+        iconCaption: 'поиск...',
+      },
+      {
+        preset: 'islands#violetDotIconWithCaption',
+        draggable: true,
+      }
+    );
   }
 
   function getAddress(coords, refresh = false) {
     myPlacemark.properties.set('iconCaption', 'поиск...');
-    ymaps.geocode(coords)
+    ymaps
+      .geocode(coords)
       .then(function (res) {
         var firstGeoObject = res.geoObjects.get(0);
 
-        myPlacemark.properties
-          .set({
-            // Формируем строку с данными об объекте.
-            iconCaption: [
-              // Название населенного пункта или вышестоящее административно-территориальное образование.
-              firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
-              // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
-              firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
-            ].filter(Boolean).join(', '),
-            // В качестве контента балуна задаем строку с адресом объекта.
-            balloonContent: firstGeoObject.getAddressLine()
-          });
-      }).then(() => {
+        myPlacemark.properties.set({
+          // Формируем строку с данными об объекте.
+          iconCaption: [
+            // Название населенного пункта или вышестоящее административно-территориальное образование.
+            firstGeoObject.getLocalities().length
+              ? firstGeoObject.getLocalities()
+              : firstGeoObject.getAdministrativeAreas(),
+            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
+          ]
+            .filter(Boolean)
+            .join(', '),
+          // В качестве контента балуна задаем строку с адресом объекта.
+          balloonContent: firstGeoObject.getAddressLine(),
+        });
+      })
+      .then(() => {
         if (refresh) {
           mapSearch.value = myPlacemark.properties._data.balloonContent;
           mapSearch.blur();
@@ -540,15 +569,13 @@ function init() {
   mapSearch.addEventListener('change', function (e) {
     setTimeout(() => {
       searchControl.search(this.value);
-      ymaps.geocode(this.value).then(res => {
+      ymaps.geocode(this.value).then((res) => {
         var firstGeoObject = res.geoObjects.get(0);
         const coords = firstGeoObject.geometry.getCoordinates();
 
         if (myPlacemark) {
           myPlacemark.geometry.setCoordinates(coords);
-        }
-
-        else {
+        } else {
           myPlacemark = createPlacemark(coords);
           myMap.geoObjects.add(myPlacemark);
 
@@ -559,7 +586,7 @@ function init() {
         getAddress(coords);
       });
     }, 200);
-  })
+  });
 }
 
 // QUIZ
@@ -596,7 +623,7 @@ quizBtnReset.addEventListener('click', () => {
     quizForm.reset();
   }
   quizForm.style.display = 'block';
-  quizForm.querySelectorAll('input').forEach(input => input.removeAttribute('disabled'));
+  quizForm.querySelectorAll('input').forEach((input) => input.removeAttribute('disabled'));
   quizResult.style.display = 'none';
   initQuiz();
 });
@@ -606,7 +633,7 @@ function checkInputs(container) {
   if (!inputs.length) return;
 
   let check = true;
-  inputs.forEach(input => {
+  inputs.forEach((input) => {
     if (input.value.length === 0) {
       container.setAttribute('data-filled', false);
       check = false;
@@ -624,7 +651,7 @@ function checkRequired() {
   emptyBlocks.style.display = 'block';
   currentQuiz = +emptyBlocks.dataset.screen;
   renderControls();
-  quizError.textContent = 'Необходимо заполнить все поля!'
+  quizError.textContent = 'Необходимо заполнить все поля!';
   setTimeout(() => {
     quizError.textContent = '';
   }, 2000);
@@ -637,8 +664,7 @@ function initQuiz() {
   quizBlocks.forEach((block, i) => {
     if (i === 0) {
       block.style.display = 'block';
-    }
-    else {
+    } else {
       block.style.display = 'none';
     }
   });
@@ -654,9 +680,11 @@ btnNextQuiz.addEventListener('click', (e) => toggleScreen(e, 1));
 btnPrevQuiz.addEventListener('click', (e) => toggleScreen(e, -1));
 
 quizForm.addEventListener('click', (e) => {
-  if (e.target.classList.contains('quiz__btn')
-    || e.target.classList.contains('quiz__type--next')
-    || (e.target.classList.contains('quiz__checkbox--js') && e.target.checked)) {
+  if (
+    e.target.classList.contains('quiz__btn') ||
+    e.target.classList.contains('quiz__type--next') ||
+    (e.target.classList.contains('quiz__checkbox--js') && e.target.checked)
+  ) {
     e.target.closest('.quiz__screen').setAttribute('data-filled', true);
     quizError.textContent = '';
     toggleScreen(e, 1);
@@ -670,10 +698,8 @@ quizTypeInput.addEventListener('input', (e) => {
 
 quizRulerCheckbox.addEventListener('change', (e) => {
   const inputs = e.target.closest('.quiz__answers').querySelectorAll('input[type="number"]');
-  inputs.forEach(input => {
-    quizRulerCheckbox.checked
-      ? input.setAttribute('disabled', '1')
-      : input.removeAttribute('disabled')
+  inputs.forEach((input) => {
+    quizRulerCheckbox.checked ? input.setAttribute('disabled', '1') : input.removeAttribute('disabled');
   });
 });
 

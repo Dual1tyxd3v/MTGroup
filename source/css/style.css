@@ -329,6 +329,19 @@ img {
 }
 .main__left {
   margin-bottom: 20px;
+  position: relative;
+}
+.main__left::after {
+  content: "";
+  position: absolute;
+  right: -4rem;
+  bottom: -4.5rem;
+  width: 30vw;
+  height: 20vw;
+  background-image: url(../img/winter-build.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 .main__right {
   background-color: rgba(249, 0, 0, 0.8);
@@ -456,7 +469,7 @@ img {
   .main__title {
     display: flex;
     align-items: center;
-    font-size: 60px;
+    font-size: 55px;
     background-image: linear-gradient(to right, rgb(249, 0, 0) 0, rgb(249, 0, 0) 10px, transparent 10px);
     padding: 60px 0 60px 40px;
     position: relative;
@@ -503,6 +516,12 @@ img {
     grid-column: 1/-1;
     width: 80%;
     margin-bottom: 0;
+  }
+  .main__left::after {
+    width: 25rem;
+    height: 22rem;
+    right: -13rem;
+    top: 15rem;
   }
   .main__bonus {
     padding: 2rem 2.5rem;
@@ -682,6 +701,10 @@ img {
 }
 .quiz__question, .quiz__status {
   font-size: 16px;
+}
+.quiz__question--red {
+  color: rgb(249, 0, 0);
+  font-size: 14px;
 }
 .quiz__field {
   border: 2px solid #000;
@@ -1002,6 +1025,9 @@ img {
   .quiz__question, .quiz__status {
     font-size: 20px;
   }
+  .quiz__question--red {
+    font-size: 16px;
+  }
   .quiz__btn {
     width: 220px;
   }
@@ -1052,6 +1078,9 @@ img {
   }
   .quiz__question, .quiz__status {
     font-size: 28px;
+  }
+  .quiz__question--red {
+    font-size: 22px;
   }
 }
 .adjustments {
