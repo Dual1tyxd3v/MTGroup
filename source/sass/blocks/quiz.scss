@@ -4,6 +4,63 @@
   text-align: center;
   padding: 30px 0;
 
+  &__switch {
+    display: none;
+
+    &:not(:checked) ~ .quiz__switchLabel--right {
+      opacity: 0.4;
+      color: #000;
+    }
+
+    &:checked ~ .quiz__switchLabel--left {
+      opacity: 0.4;
+      color: #000;
+    }
+
+    &:checked ~ .quiz__switchMiddle::after {
+      transform: translate(calc(-50% + 11px), -50%);
+    }
+  }
+
+  &__switchbox {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__switchLabel {
+    font-size: 1.8rem;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in, color 0.2s ease-in;
+    color: rgb(249, 0, 0);
+  }
+
+  &__switchMiddle {
+    display: block;
+    width: 36px;
+    height: 14px;
+    background-color: #858282;
+    border: 2px solid #000;
+    border-radius: 500px;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transition: transform 0.2s ease-in;
+      transform: translate(calc(-50% - 11px), -50%);
+    }
+  }
+
   &__form {
     max-width: 900px;
     width: 90%;
@@ -211,20 +268,11 @@
 
   &__submit {
     margin-bottom: 0 !important;
+    width: 80%;
+    max-width: 243px;
 
     &:hover {
       background-color: #858282 !important;
-    }
-
-    &--switch {
-      width: 60%;
-      margin: 0 auto;
-
-      &:disabled {
-        background-color: #858282;
-        color: #000;
-        cursor:not-allowed;
-      }
     }
   }
 
@@ -465,6 +513,10 @@
     border-top: none;
     margin-top: 0;
 
+    &__submit {
+      max-width: 304px;
+    }
+
     &__search {
       margin-bottom: 10px;
     }
@@ -535,6 +587,29 @@
       height: 532px;
     }
 
+    &__switchbox {
+      gap: 2rem;
+    }
+
+    &__switchLabel {
+      font-size: 2.2rem;
+    }
+
+    &__switchMiddle {
+      height: 20px;
+      width: 50px;
+
+      &::after {
+        width: 16px;
+        height: 16px;
+        transform: translate(calc(-50% - 15px), -50%);
+      }
+    }
+
+    &__switch:checked ~ .quiz__switchMiddle::after {
+      transform: translate(calc(-50% + 15px), -50%);
+    }
+
     &__answer {
       width: 80%;
 
@@ -550,12 +625,6 @@
         grid-column: 1/-1;
         align-self: center;
         width: auto;
-      }
-    }
-
-    &__submit {
-      &--switch {
-        width: 40%;
       }
     }
 

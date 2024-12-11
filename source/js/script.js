@@ -29,7 +29,7 @@ const quizLengthInput = document.querySelector('#length');
 const quizWidthInput = document.querySelector('#width');
 const quizHeightInput = document.querySelector('#height');
 const quizError = document.querySelector('.quiz__error');
-const quizSwitchBtn = document.querySelector('.quiz__submit--switch');
+const quizSwitchbox = document.querySelector('.quiz__switch');
 const tabsContainer = document.querySelector('.about__tabs');
 const tabs = document.querySelectorAll('.about__tab');
 const tabsContent = document.querySelectorAll('.about__content');
@@ -48,11 +48,16 @@ const cardBtnLeft = document.querySelector('.card-info__ctrl--left');
 const cardBtnRight = document.querySelector('.card-info__ctrl--right');
 const cardBtnPay = document.querySelector('.card-info__btn');
 const modalClose = document.querySelector('.modal__close');
+const captcha2 = document.querySelector('#recaptcha_2');
 
 const PHONE_SCHEME = '+7-___-___-__-__';
 let currentPos = 3;
 let currentValue = '';
 const YAM_ID = 93890524;
+
+//captcha
+
+//
 
 // взаимодействие с бургером
 burgerBtn.addEventListener('click', () => {
@@ -366,12 +371,10 @@ const quizLengthField = document.querySelector('.quiz__answer--length');
 const quizWidthField = document.querySelector('.quiz__answer--width');
 const quizSquareField = document.querySelector('.quiz__answer--square');
 
-quizSwitchBtn.addEventListener('click', () => {
+quizSwitchbox.addEventListener('change', () => {
   quizLengthField.classList.toggle('hide');
   quizWidthField.classList.toggle('hide');
   quizSquareField.classList.toggle('hide');
-
-  quizSwitchBtn.textContent = `Указать ${quizSquareField.classList.contains('hide') ? 'площадь' : 'размеры'}`;
 });
 //
 
@@ -424,30 +427,32 @@ forms.forEach((form) => {
 
     currentForm.querySelector('input[type="submit"]').setAttribute('disabled', true);
 
+    const captchaIndex = currentForm.querySelector('.recaptcha').getAttribute('id').split('_')[1];
+
     await fetch('./js/send.php', {
       method: 'POST',
       body: data,
     })
+      .then((res) => (res.ok ? res.json() : { message: 'Ошибка отправки', isSuccess: false }))
       .then((res) => {
-        if (res.ok) {
-          currentForm.querySelector('input[type="submit"]').removeAttribute('disabled');
-
+        currentForm.querySelector('input[type="submit"]').removeAttribute('disabled');
+        const { message, isSuccess } = res;
+        if (isSuccess) {
           const formId = form.getAttribute('id');
           ym(YAM_ID, 'reachGoal', formId);
-
-          status.textContent = 'Сообщение отправлено';
-          quizStatus.textContent = 'Сообщение отправлено';
-          setTimeout(() => (status.textContent = ``), 2000);
-        } else {
-          status.textContent = 'Ошибка отправки';
-          setTimeout(() => (status.textContent = ``), 2000);
-          quizStatus.textContent = 'Ошибка отправки. Попробуйте позже';
         }
+
+        status.textContent = message;
+        quizStatus.textContent = message;
+        setTimeout(() => (status.textContent = ``), 2000);
+
+        grecaptcha.reset(captchaIndex - 1);
+
         if (form.classList.contains('quiz__form')) {
           showQuizResult(form);
         }
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => console.log(e));
   });
 });
 //
@@ -650,7 +655,7 @@ function checkInputs(container) {
 
   let check = true;
   inputs.forEach((input) => {
-    if (input.value.length === 0 && !input.closest('.quiz__answer').classList.contains('hide')) {
+    if (input.value.length === 0 && !input.closest('.quiz__answer')?.classList.contains('hide')) {
       container.setAttribute('data-filled', false);
       check = false;
     }
@@ -717,8 +722,6 @@ quizRulerCheckbox.addEventListener('change', (e) => {
   inputs.forEach((input) => {
     quizRulerCheckbox.checked ? input.setAttribute('disabled', '1') : input.removeAttribute('disabled');
   });
-
-  quizRulerCheckbox.checked ? quizSwitchBtn.setAttribute('disabled', '1') : quizSwitchBtn.removeAttribute('disabled');
 });
 
 // TABS

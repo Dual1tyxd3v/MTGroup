@@ -38,7 +38,7 @@
     <div><img src="https://mc.yandex.ru/watch/93890524" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
-  <link rel="stylesheet" href="./css/style.min.css?0303244">
+  <link rel="stylesheet" href="./css/style.min.css?111224">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" href="https://modul-tehno.ru/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="https://modul-tehno.ru/favicon.ico" type="image/x-icon">
@@ -52,6 +52,7 @@
   <script src="https://api-maps.yandex.ru/2.1/?apikey=790833d8-b3ad-40a4-b541-1a093a3b13b2&lang=ru_RU"
     type="text/javascript">
     </script>
+  <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
   <meta name="description"
     content="Строительство торговых павильонов из сэндвич-панелей под ключ в Москве. Производство и изготовление быстровозводимых зданий для торговых рядов, киосков, магазинов в срок от 2-х недель. Быстрый расчет проектов, любой дизайн, установка и монтаж, работа по договору. Купить торговый павильон или магазин из сэндвич-панелей по выгодной цене от производителя с доставкой.">
   <title>Павильоны под ключ с доставкой и установкой в Москве | Производство и изготовление торговых павильонов и
@@ -158,7 +159,7 @@
       <div class="quiz__screen" data-screen="1" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">Вид объекта</p>
-          <p class="quiz__counter">1/7</p>
+          <p class="quiz__counter">1/5</p>
           <div class="quiz__answers quiz__answers--3c">
             <div class="quiz__type quiz__type--shop">
               <input class="quiz__radio" name="kind" value="магазины" type="radio" id="shop">
@@ -205,20 +206,26 @@
 
       <div class="quiz__screen" data-screen="2" data-filled="false">
         <div class="quiz__field">
-          <p class="quiz__question">Укажите размер объекта</p>
-          <p class="quiz__counter">2/7</p>
+          <p class="quiz__question">Укажите размер объекта (м<sup>2</sup>)</p>
+          <p class="quiz__counter">2/5</p>
+          <div class="quiz__switchbox">
+            <input type="checkbox" id="switcher" class="quiz__switch">
+            <label for="switcher" class="quiz__switchLabel quiz__switchLabel--left">Размеры</label>
+            <label for="switcher" class="quiz__switchMiddle"></label>
+            <label for="switcher" class="quiz__switchLabel quiz__switchLabel--right">Площадь</label>
+          </div>
           <div class="quiz__answers quiz__answers--dimension">
-            <div class="quiz__answer">
+            <div class="quiz__answer quiz__answer--length">
               <label for="length" class="quiz__label">Длина</label>
-              <input type="number" name="length" id="length" class="quiz__input" required>
+              <input required type="number" name="length" id="length" class="quiz__input">
             </div>
-            <div class="quiz__answer">
+            <div class="quiz__answer quiz__answer--width">
               <label for="width" class="quiz__label">Ширина</label>
-              <input type="number" name="width" id="width" class="quiz__input" required>
+              <input required type="number" name="width" id="width" class="quiz__input">
             </div>
-            <div class="quiz__answer">
-              <label for="height" class="quiz__label">Высота</label>
-              <input type="number" name="height" id="height" class="quiz__input" required>
+            <div class="quiz__answer quiz__answer--square hide">
+              <label for="height" class="quiz__label">Площадь</label>
+              <input required type="number" name="height" id="height" class="quiz__input">
             </div>
             <div class="quiz__answer quiz__answer--alt">
               <input type="checkbox" name="ruler" id="ruler" class="quiz__checkbox quiz__checkbox--js">
@@ -228,44 +235,12 @@
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="3" data-filled="false" style="display: block;">
-        <div class="quiz__field">
-          <p class="quiz__question">У Вас есть место для установки объекта?</p>
-          <p class="quiz__counter">3/7</p>
-          <div class="quiz__answers">
-            <input class="quiz__radio" name="place" value="Да" type="radio" id="place--yes">
-            <label for="place--yes" class="quiz__btn">Да</label>
-            <input class="quiz__radio" name="place" value="В процессе" type="radio" id="place--process">
-            <label for="place--process" class="quiz__btn">В процессе</label>
-            <input class="quiz__radio" name="place" value="Нет" type="radio" id="place--no">
-            <label for="place--no" class="quiz__btn">Нет</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="quiz__screen" data-screen="4" data-filled="false">
-        <div class="quiz__field">
-          <p class="quiz__question">Комфортный срок строительства</p>
-          <p class="quiz__counter">4/7</p>
-          <div class="quiz__answers quiz__answers--2r">
-            <input class="quiz__radio" name="when" value="Вчера" type="radio" id="yesterday">
-            <label for="yesterday" class="quiz__btn">Как можно быстрее</label>
-            <input class="quiz__radio" name="when" value="До месяца" type="radio" id="month">
-            <label for="month" class="quiz__btn">До месяца</label>
-            <input class="quiz__radio" name="when" value="До 18 дней" type="radio" id="18days">
-            <label for="18days" class="quiz__btn">До 18 дней</label>
-            <input class="quiz__radio" name="when" value="1-2 месяца" type="radio" id="months">
-            <label for="months" class="quiz__btn">1-2 месяца</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="quiz__screen" data-screen="5" data-filled="true">
+      <div class="quiz__screen" data-screen="3" data-filled="true">
         <div class="quiz__field">
           <p class="quiz__question">
             Нужны дополнительные элементы? (можно пропустить)
           </p>
-          <p class="quiz__counter">5/7</p>
+          <p class="quiz__counter">3/5</p>
           <div class="quiz__answers quiz__answers--add">
             <div class="quiz__answer quiz__answer--electric quiz__answer--alt">
               <input type="checkbox" name="electric" id="electric" class="quiz__checkbox" value="Электрика">
@@ -295,28 +270,29 @@
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="6" data-filled="true">
+      <div class="quiz__screen" data-screen="4" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">
             Укажите адрес для расчёта стоимости доставки<br>
             <span class="quiz__question--red">*работает только по Москве и Московской области</span>
           </p>
-          <p class="quiz__counter">6/7</p>
+          <p class="quiz__counter">4/5</p>
           <div class="quiz__answers quiz__answers--map">
             <input type="text" name="address" id="suggest" class="quiz__input quiz__search"
-              placeholder="Название города">
+              placeholder="Название города" required>
             <div id="map" class="quiz__map"></div>
           </div>
         </div>
       </div>
 
-      <div class="quiz__screen" data-screen="7" data-filled="false">
+      <div class="quiz__screen" data-screen="5" data-filled="false">
         <div class="quiz__field">
           <p class="quiz__question">Оставьте контакты и получите стоимость Вашего объекта</p>
-          <p class="quiz__counter">7/7</p>
+          <p class="quiz__counter">5/5</p>
           <div class="quiz__answers quiz__answers--form">
-            <input type="text" name="name" class="quiz__input" placeholder="Имя">
+            <input type="text" name="name" class="quiz__input" placeholder="Имя" required>
             <input type="tel" class="quiz__input" name="phone" placeholder="Телефон" required>
+            <div id="recaptcha_1" class="recaptcha recaptcha--1"></div>
             <input type="submit" class="form__submit quiz__submit" value="Получить расчёт" />
           </div>
         </div>
@@ -1437,7 +1413,10 @@
           <label for="message" class="form__label">Текст сообщения</label>
           <textarea class="form__text form__text--area" name="message" id="message"></textarea>
         </div>
-        <input type="submit" class="form__submit js-animated" data-class="opacity" value="Оставить заявку на замер">
+        <div class="form__ctrls">
+          <div data-theme="dark" class="recaptcha" id="recaptcha_2"></div>
+          <input type="submit" class="form__submit js-animated" data-class="opacity" value="Оставить заявку на замер">
+        </div>
         <p class="form__status"></p>
       </form>
     </div>
@@ -1487,7 +1466,10 @@
           <label for="message1" class="form__label">Текст сообщения</label>
           <textarea class="form__text form__text--area" name="message" id="message1"></textarea>
         </div>
-        <input type="submit" class="form__submit" value="Оставить заявку на замер">
+        <div class="modal__ctrls">
+          <div data-theme="dark" class="recaptcha recaptcha--modal" id="recaptcha_3"></div>
+          <input type="submit" class="form__submit" value="Оставить заявку на замер">
+        </div>
         <p class="form__status"></p>
       </form>
     </div>
@@ -1638,8 +1620,22 @@
       </p>
     </div>
   </section>
-
-  <script src="js/script.min.js?030305"></script>
+  <script>
+    var onloadCallback = function () {
+      var key = '6LcM1ZcqAAAAAL58VH1GogRBDKcBLQIKrdLMV0ro';
+      grecaptcha.render('recaptcha_1', {
+        'sitekey': key
+      });
+      grecaptcha.render('recaptcha_2', {
+        'sitekey': key
+      });
+      grecaptcha.render('recaptcha_3', {
+        'sitekey': key
+      });
+    };
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
+  <script src="js/script.min.js?111224"></script>
 </body>
 
 </html>

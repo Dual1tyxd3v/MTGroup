@@ -1,0 +1,17 @@
+.recaptcha {
+  transform: scale(0.8);
+  transform-origin: center center;
+
+  @media (min-width: $tablet-width) {
+    transform: scale(0.9);
+  }
+
+  &--1 {
+    transform-origin: center center;
+    transform: scale(0.8);
+
+    @media (min-width: $tablet-width) {
+      transform: scale(1);
+    }
+  }
+}
