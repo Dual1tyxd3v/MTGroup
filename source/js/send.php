@@ -7,7 +7,6 @@ $token = "5910914438:AAGnFKdoICio2rw007B1IItl7ovDFSpOpcs";
 
 //Сюда вставляем chat_id
 $chat_id = "-1001660934627";
-$tempID = '968980307';
 
 //Определяем переменные для передачи данных из нашей формы
 if ($_POST['phone']) {
@@ -100,7 +99,7 @@ if ($_POST['phone']) {
     $txt .= "" . $key . " " . $value . "%0A";
     $mailTxt .= "<p>" . $key . " " . str_replace('%2b', '+', $value) . "</p>";
   };
-  $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$tempID}&parse_mode=html&text={$txt}", "r");
+  $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}", "r");
 
   $mail = new PHPMailer\PHPMailer\PHPMailer();
   $mail->isSMTP();
@@ -121,14 +120,9 @@ if ($_POST['phone']) {
   $mail->Subject = 'Заявки с сайта';
   $mail->msgHTML("<html><body>" . $mailTxt . "</html></body>");
 
-  if ($sendToTelegram) {
+  if ($mail->send() && $sendToTelegram) {
     echo '{"message":"Сообщение отправлено","isSuccess":"true"}';
   } else {
     echo '{"message":"Ошибка. Попробуйте позже :(","isSuccess":"false"}';
   }
-  /* if ($mail->send() && $sendToTelegram) {
-    echo '{"message":"Сообщение отправлено","isSuccess":"true"}';
-  } else {
-    echo '{"message":"Ошибка. Попробуйте позже :(","isSuccess":"false"}';
-  } */
 }
