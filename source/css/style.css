@@ -968,12 +968,6 @@ img {
 .quiz__input:not(:required) {
   border: 2px solid #000;
 }
-.quiz__checkbox {
-  display: none;
-}
-.quiz__checkbox:checked + label::before {
-  background-image: url(../img/quiz--checked.svg);
-}
 .quiz__control {
   border: none;
   background-color: transparent;

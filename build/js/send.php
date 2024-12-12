@@ -25,7 +25,7 @@ if ($_POST['phone']) {
     }
   }
   if ($error) {
-    echo '{"message":"Не верная капча","isSuccess":"false"}';
+    echo '{"message":"Неверная капча","isSuccess":"false"}';
     return;
   }
 
@@ -42,8 +42,7 @@ if ($_POST['phone']) {
   $width = isset($_POST['width']) ? $_POST['width'] : false;
   $square = isset($_POST['height']) ? $_POST['height'] : false;
   $length = isset($_POST['length']) ? $_POST['length'] : false;
-  $ruler = isset($_POST['ruler']) ? $_POST['ruler'] : 'off';
-  $city = isset($_POST['city']) ? $_POST['city'] : '___';
+  $city = isset($_POST['address']) ? $_POST['address'] : '___';
   $copy = isset($_POST['copy']) ? $_POST['copy'] : '___';
   $ceramic = isset($_POST['ceramic']) ? $_POST['ceramic'] : '';
   $electric = isset($_POST['electric']) ? $_POST['electric'] : '';
@@ -71,10 +70,6 @@ if ($_POST['phone']) {
   if ($length) {
     $dimensions = $length . "X" . $width;
     $squareResult = $length * $width;
-  }
-
-  if ($ruler === 'on') {
-    $dimensions = 'Нужен замер';
   }
 
   //Собираем в массив то, что будет передаваться боту
@@ -120,6 +115,7 @@ if ($_POST['phone']) {
   $mail->Subject = 'Заявки с сайта';
   $mail->msgHTML("<html><body>" . $mailTxt . "</html></body>");
 
+  // if ($mail->send()) {
   if ($mail->send() && $sendToTelegram) {
     echo '{"message":"Сообщение отправлено","isSuccess":"true"}';
   } else {
