@@ -22,7 +22,6 @@ const quizBtns = document.querySelectorAll('.quiz__btn');
 const quizTypeInput = document.querySelector('.quiz__type--input');
 const quizStatus = document.querySelector('.quiz__status');
 const quizResult = document.querySelector('.quiz__result');
-const quizRulerCheckbox = document.querySelector('.quiz__checkbox');
 const quizForm = document.querySelector('.quiz__form');
 const quizBtnReset = document.querySelector('.quiz__btnNew');
 const quizLengthInput = document.querySelector('#length');
@@ -701,11 +700,7 @@ btnNextQuiz.addEventListener('click', (e) => toggleScreen(e, 1));
 btnPrevQuiz.addEventListener('click', (e) => toggleScreen(e, -1));
 
 quizForm.addEventListener('click', (e) => {
-  if (
-    e.target.classList.contains('quiz__btn') ||
-    e.target.classList.contains('quiz__type--next') ||
-    (e.target.classList.contains('quiz__checkbox--js') && e.target.checked)
-  ) {
+  if (e.target.classList.contains('quiz__btn') || e.target.classList.contains('quiz__type--next')) {
     e.target.closest('.quiz__screen').setAttribute('data-filled', true);
     quizError.textContent = '';
     toggleScreen(e, 1);
@@ -715,13 +710,6 @@ quizForm.addEventListener('click', (e) => {
 quizTypeInput.addEventListener('input', (e) => {
   const screen = e.target.closest('.quiz__screen');
   screen.dataset.filled = e.target.value.length > 0 ? 'true' : 'false';
-});
-
-quizRulerCheckbox.addEventListener('change', (e) => {
-  const inputs = e.target.closest('.quiz__answers').querySelectorAll('input[type="number"]');
-  inputs.forEach((input) => {
-    quizRulerCheckbox.checked ? input.setAttribute('disabled', '1') : input.removeAttribute('disabled');
-  });
 });
 
 // TABS

@@ -217,19 +217,15 @@
           <div class="quiz__answers quiz__answers--dimension">
             <div class="quiz__answer quiz__answer--length">
               <label for="length" class="quiz__label">Длина</label>
-              <input required type="number" name="length" id="length" class="quiz__input">
+              <input required type="number" min="0" name="length" id="length" class="quiz__input">
             </div>
             <div class="quiz__answer quiz__answer--width">
               <label for="width" class="quiz__label">Ширина</label>
-              <input required type="number" name="width" id="width" class="quiz__input">
+              <input required type="number" min="0"  name="width" id="width" class="quiz__input">
             </div>
             <div class="quiz__answer quiz__answer--square hide">
               <label for="height" class="quiz__label">Площадь</label>
-              <input required type="number" name="height" id="height" class="quiz__input">
-            </div>
-            <div class="quiz__answer quiz__answer--alt">
-              <input type="checkbox" name="ruler" id="ruler" class="quiz__checkbox quiz__checkbox--js">
-              <label for="ruler" class="quiz__label">Нужен бесплатный замер</label>
+              <input required type="number" min="0"  name="height" id="height" class="quiz__input">
             </div>
           </div>
         </div>
