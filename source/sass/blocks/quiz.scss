@@ -398,6 +398,14 @@
     }
   }
 
+  &__checkbox {
+    display: none;
+
+    &:checked + label::before {
+      background-image: url(../img/quiz--checked.svg);
+    }
+  }
+
   &__control {
     border: none;
     background-color: transparent;
